@@ -1,2 +1,2 @@
-var name: String? = nil
-print(name ?? "Piseth")
+var mail: String? = nil
+print(mail ?? "no email provided")

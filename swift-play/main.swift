@@ -1,4 +1,2 @@
-let allowedEntry = false
-if !allowedEntry {
-    print("ACCESS DENIED")
-}
+var name: String? = nil
+print(name ?? "Piseth")

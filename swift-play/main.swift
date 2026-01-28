@@ -1,14 +1,12 @@
-var username: String?
-var age: Int?
+var email: String?
+var password: String?
 
-username = nil
-age = 21
+email = "test@example.com"
+password = nil
 
-print("Default username: \(username ?? "unknown user")")
-
-if let userAge = age {
-    print ("Age: \(userAge)")
+if let _ = email, let _ = password {
+    print ("Login success")
 }
-else { 
-    print("Age not provided")
+else {
+    print ("Email or Password is missing")
 }

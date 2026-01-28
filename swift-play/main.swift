@@ -1,11 +1,5 @@
-var favoriteFood: String? = "Pizza"
-var petName: String? = nil
+var username: String?
+var age: Int?
 
-if let food = favoriteFood {
-    print("Favorte food is \(food)")
-}
-else {
-    print("Favorite food is unknown")
-}
-
-print("Pet name is \(petName ?? "unknown")")
+print("Default username: \(username ?? "unknown user")")
+print("Default age: \(age ?? 0)")

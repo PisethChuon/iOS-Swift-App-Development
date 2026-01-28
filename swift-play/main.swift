@@ -1,5 +1,14 @@
 var username: String?
 var age: Int?
 
+username = nil
+age = 21
+
 print("Default username: \(username ?? "unknown user")")
-print("Default age: \(age ?? 0)")
+
+if let userAge = age {
+    print ("Age: \(userAge)")
+}
+else { 
+    print("Age not provided")
+}

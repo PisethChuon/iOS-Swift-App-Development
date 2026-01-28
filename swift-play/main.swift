@@ -1,12 +1,5 @@
-var email: String?
-var password: String?
+let names = ["Alice", "Bob", "Charlie", "Diana"]
 
-email = "test@example.com"
-password = nil
-
-if let _ = email, let _ = password {
-    print ("Login success")
-}
-else {
-    print ("Email or Password is missing")
+for name in names {
+    print(name)
 }

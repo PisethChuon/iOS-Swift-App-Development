@@ -1,10 +1,21 @@
-var currentLevel: Int = 0, finalLevel: Int = 5
-let gamCompleted = true
+let day = 9
 
-while currentLevel <= finalLevel {
-    if gamCompleted {
-        print("You have passed level \(currentLevel)")
-        currentLevel += 1
-    }
+switch day {
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case 5:
+        print("Friday")
+    case 6:
+        print("Saturday")
+    case 7:
+        print("Sunday")
+    default:
+        print("Invalid day")
+        
 }
-print("Congratulations! You have completed all levels.")

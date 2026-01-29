@@ -1,4 +1,6 @@
-let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
-for (animal, legs) in numberOfLegs {
-    print ("\(animal)s have \(legs) legs")
+var i = 1, n = 5
+
+while (i <= n) {
+    print(i)
+    i += 1 
 }

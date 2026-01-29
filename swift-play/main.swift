@@ -1,6 +1,10 @@
-var i = 1, n = 5
+var currentLevel: Int = 0, finalLevel: Int = 5
+let gamCompleted = true
 
-while (i <= n) {
-    print(i)
-    i += 1 
+while currentLevel <= finalLevel {
+    if gamCompleted {
+        print("You have passed level \(currentLevel)")
+        currentLevel += 1
+    }
 }
+print("Congratulations! You have completed all levels.")

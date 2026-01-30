@@ -1,21 +1,9 @@
-let day = 9
+let score: Int = 80
 
-switch day {
-    case 1:
-        print("Monday")
-    case 2:
-        print("Tuesday")
-    case 3:
-        print("Wednesday")
-    case 4:
-        print("Thursday")
-    case 5:
-        print("Friday")
-    case 6:
-        print("Saturday")
-    case 7:
-        print("Sunday")
-    default:
-        print("Invalid day")
-        
+if score >= 80 {
+    print("A")
+} else if score >= 60 {
+    print("B")
+} else {
+    print("Fail")
 }

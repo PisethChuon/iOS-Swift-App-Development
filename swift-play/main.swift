@@ -1,9 +1,7 @@
-let score: Int = 80
+var isLightOn = true
 
-if score >= 80 {
-    print("A")
-} else if score >= 60 {
-    print("B")
+if isLightOn {
+    print("The light is on.")
 } else {
-    print("Fail")
+    print("The light is off.")
 }

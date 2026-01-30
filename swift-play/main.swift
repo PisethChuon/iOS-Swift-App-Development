@@ -1,7 +1,5 @@
-var isLightOn = true
+var appleOragne: Int = 5
+var bananaGrape: Int = 10
 
-if isLightOn {
-    print("The light is on.")
-} else {
-    print("The light is off.")
-}
+var totalFruits = appleOragne % bananaGrape
+print(totalFruits)

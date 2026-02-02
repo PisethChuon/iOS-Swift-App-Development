@@ -1,4 +1,5 @@
-func sayHello() {
-    print("Hello, World!")
+func greet(name: String) {
+    print("Hello, \(name)")
 }
-sayHello()
+
+greet(name: "Piseth")

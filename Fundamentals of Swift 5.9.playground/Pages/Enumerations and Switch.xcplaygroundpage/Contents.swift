@@ -56,5 +56,26 @@
  
 */
 //: [Next](@next)
+enum UserRole {
+    case admin
+    case editor
+    case viewer
+
+    var permission: String {
+        switch self {
+        case .admin:
+            return "Full access"
+        case .editor:
+            return "Edit access"
+        case .viewer:
+            return "Read only"
+        }
+    }
+}
+
+let user: UserRole = .admin
+print(user.permission)
+
+
 
 

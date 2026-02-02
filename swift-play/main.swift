@@ -1,5 +1,12 @@
-var appleOragne: Int = 5
-var bananaGrape: Int = 10
+var age = 42
 
-var totalFruits = appleOragne % bananaGrape
-print(totalFruits)
+func voteEligibility(){
+    guard age >= 18 else {
+    print("Access denied - You must be at least 18 years old.")
+    return
+}
+
+print("Access granted - You are old enough!")
+}
+voteEligibility()
+

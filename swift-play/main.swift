@@ -1,10 +1,13 @@
-enum CompassPoint {
-    case north
-    case south
-    case east
-    case west
+enum LoginStatus {
+    case success
+    case failed
 }
 
-var directionToHead = CompassPoint.west
+let status = LoginStatus.success
 
-print(directionToHead)
+switch status {
+case .success:
+    print("Login successful!")
+case .failed:
+    print("Login failed.")
+}

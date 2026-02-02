@@ -1,12 +1,10 @@
-var age = 42
-
-func voteEligibility(){
-    guard age >= 18 else {
-    print("Access denied - You must be at least 18 years old.")
-    return
+enum CompassPoint {
+    case north
+    case south
+    case east
+    case west
 }
 
-print("Access granted - You are old enough!")
-}
-voteEligibility()
+var directionToHead = CompassPoint.west
 
+print(directionToHead)

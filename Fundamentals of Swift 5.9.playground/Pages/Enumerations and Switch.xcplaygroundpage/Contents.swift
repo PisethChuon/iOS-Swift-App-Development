@@ -56,25 +56,25 @@
  
 */
 //: [Next](@next)
-enum UserRole {
-    case admin
-    case editor
-    case viewer
-
-    var permission: String {
+enum OrderStatus: String {
+    case peding = "Order is pending"
+    case shipped = "Order is on the way"
+    case delivered = "Order delivered"
+    
+    var description: String {
         switch self {
-        case .admin:
-            return "Full access"
-        case .editor:
-            return "Edit access"
-        case .viewer:
-            return "Read only"
+        case .peding:
+            return "Order is pending"
+        case .shipped:
+            return "Order is on the way"
+        case .delivered:
+            return "Order delivered"
         }
     }
 }
 
-let user: UserRole = .admin
-print(user.permission)
+let order: OrderStatus = .peding
+print(order.description)
 
 
 

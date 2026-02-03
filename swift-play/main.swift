@@ -1,5 +1,12 @@
-func greet(name: String) {
-    print("Hello, \(name)")
-}
+func login() {
+    var email: String?
+    var password: String?
 
-greet(name: "Piseth")
+    if email == _ && password == _ {
+      print("Login successful.")
+    } else {
+        print("Email or password is missing.")
+    }
+    
+}
+login()

@@ -40,16 +40,8 @@
  
 */
 //: [Next](@next)
-func login(email: String?, password: String?) {
 
-    if let email, let password {
-      print("Login successful.")
-    } else {
-        print("Login faild")
-    }
-    
-}
-login(email: "", password: "1234")
+
 
 
 

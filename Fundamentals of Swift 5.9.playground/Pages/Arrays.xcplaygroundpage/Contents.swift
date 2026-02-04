@@ -24,8 +24,18 @@
  
 */
 //: [Next](@next)
+var studentNames = ["Max", "Laura"]
+studentNames.append("Paul")
+studentNames.append("Jane")
+
+let lastIndex = studentNames.count - 1
+
+if studentNames.indices.contains(lastIndex) {
+    
+}
 
 
+print("Last item in array is: \(studentNames[lastIndex])")
 
 
 

@@ -48,4 +48,8 @@
  */
 
 //: [Next](@next)
+let studetntToGrades = ["James": 60, "Jane": 70, "jill": 80]
 
+for studetntToGrade in studetntToGrades {
+    print("The student \(studetntToGrade.key) and has scored \(studetntToGrade.value)")
+}

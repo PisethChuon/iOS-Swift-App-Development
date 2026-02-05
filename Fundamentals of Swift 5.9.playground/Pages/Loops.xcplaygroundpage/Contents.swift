@@ -49,9 +49,9 @@
 
 //: [Next](@next)
 
-func greet() {
-    print("Hello World!")
+func greet(name: String) -> String {
+    return ("Hello, \(name)!")
 }
 
-greet()
+greet(name: "Sok")
 

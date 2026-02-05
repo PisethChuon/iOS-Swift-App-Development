@@ -53,5 +53,5 @@ func greet(name: String) -> String {
     return ("Hello, \(name)!")
 }
 
-greet(name: "Sok")
+print(greet(name: "Sok"))
 

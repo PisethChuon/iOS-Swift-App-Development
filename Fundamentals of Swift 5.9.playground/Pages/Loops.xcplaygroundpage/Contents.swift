@@ -48,8 +48,10 @@
  */
 
 //: [Next](@next)
-let studetntToGrades = ["James": 60, "Jane": 70, "jill": 80]
 
-for (studentName, studentScore) in studetntToGrades {
-    print("The student \(studentName) and has scored \(studentScore)")
+func greet() {
+    print("Hello World!")
 }
+
+greet()
+

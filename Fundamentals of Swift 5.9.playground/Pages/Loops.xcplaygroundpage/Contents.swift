@@ -49,9 +49,8 @@
 
 //: [Next](@next)
 
-func greet(name: String) -> String {
-    return ("Hello, \(name)!")
+func add(_ a: Int, _ b: Int) -> Int {
+    return a + b
 }
-
-print(greet(name: "Sok"))
+print("Sum is", add(1, 2))
 

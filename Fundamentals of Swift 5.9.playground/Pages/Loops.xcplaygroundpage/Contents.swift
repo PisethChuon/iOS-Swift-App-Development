@@ -48,14 +48,11 @@
  */
 
 //: [Next](@next)
-
-//func add(_ a: Int, _ b: Int) -> Int {
-//    return a + b
-//}
-//print("Sum is", add(1, 2))
-
-func add(a: Int, b: Int) -> Int {
-    return a + b
+func increase(number: inout Int) {
+    number += 1
 }
-print("Sum is", add(a: 1, b: 2))
+
+var value = 5
+increase(number: &value)
+print(value)
 

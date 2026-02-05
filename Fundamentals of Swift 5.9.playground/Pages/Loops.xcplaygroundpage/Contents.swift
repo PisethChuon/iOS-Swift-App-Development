@@ -49,8 +49,13 @@
 
 //: [Next](@next)
 
-func add(_ a: Int, _ b: Int) -> Int {
+//func add(_ a: Int, _ b: Int) -> Int {
+//    return a + b
+//}
+//print("Sum is", add(1, 2))
+
+func add(a: Int, b: Int) -> Int {
     return a + b
 }
-print("Sum is", add(1, 2))
+print("Sum is", add(a: 1, b: 2))
 

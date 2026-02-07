@@ -54,8 +54,8 @@ var score: [Int] = []
 
 
 // LOP THROUGHT AN ARRAY
-for name in names {
-    print(name)
+for (index, name) in names.enumerated() {
+    print(index, name)
 }
 
 

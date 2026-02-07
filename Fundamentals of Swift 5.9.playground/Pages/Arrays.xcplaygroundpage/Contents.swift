@@ -30,6 +30,34 @@ var numbers: [Int] = [1, 2, 3]
 // Swift infer String
 var names = ["Piseth", "Dara", "Sokha"]
 
+// Empty array
+var score: [Int] = []
+
+// or
+//var score: Array<Int> = []
+
+
+// Access elements
+//let firstName = names[0]
+
+// Add elements
+//names.append("Atlas")
+
+// Insert elements
+//names.insert("Chan", at: 0)
+
+// Remove elements
+//names.remove(at: 3)
+
+// Remove all elements
+//names.removeAll()
+
+
+// LOP THROUGHT AN ARRAY
+for name in names {
+    print(name)
+}
+
 
 
 

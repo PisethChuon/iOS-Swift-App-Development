@@ -24,43 +24,7 @@
  
 */
 //: [Next](@next)
-// Normal
-var numbers: [Int] = [1, 2, 4, 5, 6]
 
-// Swift infer String
-var names = ["Piseth", "Dara", "Sokha"]
-
-// Empty array
-var score: [Int] = []
-
-// or
-//var score: Array<Int> = []
-
-
-// Access elements
-//let firstName = names[0]
-
-// Add elements
-//names.append("Atlas")
-
-// Insert elements
-//names.insert("Chan", at: 0)
-
-// Remove elements
-//names.remove(at: 3)
-
-// Remove all elements
-//names.removeAll()
-
-let result = numbers
-    .filter{ $0 < 3}
-    .map{ $0 * 2}
-print(result)
-
-// LOP THROUGHT AN ARRAY
-//for (index, name) in names.enumerated() {
-//    print(index, name)
-//}
 
 
 

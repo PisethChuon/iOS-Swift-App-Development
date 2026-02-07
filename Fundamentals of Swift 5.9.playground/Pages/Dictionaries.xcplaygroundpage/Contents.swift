@@ -22,19 +22,23 @@
  
 */
 //: [Next](@next)
-var scores: [String: Int] = [
-    "Piseth": 90,
-    "Dara": 85
+var productPrices: [String: Double] = [
+    "iphone" : 998,
+    "AirPods" : 199,
+    "macbook" : 1299,
+    "iPad" : 799
 ]
 
-if scores.keys.contains("Pisethh") {
-    print("Exists")
+if let iphone = productPrices["iphone"] {
+    print("yes")
 } else {
-    print("Null")
+    print("no")
 }
 
-//for (name, score) in scores {
-//    print("\(name), score: \(score)")
-//}
+productPrices["iphone"] = 999
 
-//print(scores)
+for (name, price) in productPrices {
+    print("\(name): $\(price)")
+}
+
+

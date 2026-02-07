@@ -16,4 +16,13 @@
 
 
 //: [Next](@next)
+struct BankAccount {
+    var Balance: Double
+    
+    func canWithdraw(amount: Double) -> Bool {
+        return Balance >= amount
+    }
+}
 
+var myAccount = BankAccount(Balance: 100.00)
+print(myAccount.canWithdraw(amount: 100.01))

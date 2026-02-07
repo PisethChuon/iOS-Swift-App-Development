@@ -25,7 +25,7 @@
 */
 //: [Next](@next)
 // Normal
-var numbers: [Int] = [1, 2, 3]
+var numbers: [Int] = [1, 2, 4, 5, 6]
 
 // Swift infer String
 var names = ["Piseth", "Dara", "Sokha"]
@@ -52,11 +52,15 @@ var score: [Int] = []
 // Remove all elements
 //names.removeAll()
 
+let result = numbers
+    .filter{ $0 < 3}
+    .map{ $0 * 2}
+print(result)
 
 // LOP THROUGHT AN ARRAY
-for (index, name) in names.enumerated() {
-    print(index, name)
-}
+//for (index, name) in names.enumerated() {
+//    print(index, name)
+//}
 
 
 

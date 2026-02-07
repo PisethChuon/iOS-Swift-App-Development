@@ -27,23 +27,33 @@
 //var myAccount = BankAccount(Balance: 100.00)
 //print(myAccount.canWithdraw(amount: 100.01))
 
-enum OrderStatus: String {
-    case new = "NEW"
-    case shipped = "SHIPPED"
-    case delivered = "DELIVERED"
-    
-    func description() -> String {
-        switch self {
-        case.new:
-            return "Order just created"
-        case .shipped:
-            return "Order is on the way"
-        case .delivered:
-            return "Order completed"
-        }
-    }
+//enum OrderStatus: String {
+//    case new = "NEW"
+//    case shipped = "SHIPPED"
+//    case delivered = "DELIVERED"
+//    
+//    func description() -> String {
+//        switch self {
+//        case.new:
+//            return "Order just created"
+//        case .shipped:
+//            return "Order is on the way"
+//        case .delivered:
+//            return "Order completed"
+//        }
+//    }
+//}
+//
+//let status = OrderStatus.shipped
+//print(status.rawValue)
+//print(status.description())
+
+protocol Drivable {
+    func drive()
 }
 
-let status = OrderStatus.shipped
-print(status.rawValue)
-print(status.description())
+struct Car: Drivable {
+    func drive() {
+        print("Car is driving")
+    }
+}

@@ -15,7 +15,12 @@
  `self` is immutable in a structure's methods. This means properties are cannot be mutated inside a structure's methods. In order to mutate a property from inside a method we need to mark the method `mutating`.
 */
 
-//: [Next](@next)
+struct User {
+    var name: String
+    var age: Int
+}
 
+let user1 = User(name: "John", age: 30)
+print(user1)
 
 

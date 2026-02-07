@@ -20,7 +20,9 @@ struct User {
     var age: Int
 }
 
-let user1 = User(name: "John", age: 30)
-print(user1)
+var user1 = User(name: "John", age: 30)
+var userCopy = user1
+userCopy.age = 25
+print(userCopy)
 
 

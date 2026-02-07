@@ -27,11 +27,14 @@ var scores: [String: Int] = [
     "Dara": 85
 ]
 
-if let score = scores["Pisethh"] {
-    print("Score is \(score)")
+if scores.keys.contains("Pisethh") {
+    print("Exists")
 } else {
-    print("No score found")
+    print("Null")
 }
 
-//let pisethScore = scores["Pisethh"]
-//print(pisethScore)
+//for (name, score) in scores {
+//    print("\(name), score: \(score)")
+//}
+
+//print(scores)

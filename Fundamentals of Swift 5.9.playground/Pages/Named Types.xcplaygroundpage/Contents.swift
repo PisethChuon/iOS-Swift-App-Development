@@ -16,13 +16,34 @@
 
 
 //: [Next](@next)
-struct BankAccount {
-    var Balance: Double
+//struct BankAccount {
+//    var Balance: Double
+//    
+//    func canWithdraw(amount: Double) -> Bool {
+//        return Balance >= amount
+//    }
+//}
+//
+//var myAccount = BankAccount(Balance: 100.00)
+//print(myAccount.canWithdraw(amount: 100.01))
+
+enum OrderStatus: String {
+    case new = "NEW"
+    case shipped = "SHIPPED"
+    case delivered = "DELIVERED"
     
-    func canWithdraw(amount: Double) -> Bool {
-        return Balance >= amount
+    func description() -> String {
+        switch self {
+        case.new:
+            return "Order just created"
+        case .shipped:
+            return "Order is on the way"
+        case .delivered:
+            return "Order completed"
+        }
     }
 }
 
-var myAccount = BankAccount(Balance: 100.00)
-print(myAccount.canWithdraw(amount: 100.01))
+let status = OrderStatus.shipped
+print(status.rawValue)
+print(status.description())

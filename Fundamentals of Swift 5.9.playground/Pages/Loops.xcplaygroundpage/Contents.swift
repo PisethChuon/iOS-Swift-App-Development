@@ -48,11 +48,8 @@
  */
 
 //: [Next](@next)
-func increase(number: inout Int) {
-    number += 1
+for _ in 1...3 {
+    print("Loading...")
 }
 
-var value = 5
-increase(number: &value)
-print(value)
 

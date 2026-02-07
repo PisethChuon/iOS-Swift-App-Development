@@ -22,4 +22,16 @@
  
 */
 //: [Next](@next)
+var scores: [String: Int] = [
+    "Piseth": 90,
+    "Dara": 85
+]
 
+if let score = scores["Pisethh"] {
+    print("Score is \(score)")
+} else {
+    print("No score found")
+}
+
+//let pisethScore = scores["Pisethh"]
+//print(pisethScore)

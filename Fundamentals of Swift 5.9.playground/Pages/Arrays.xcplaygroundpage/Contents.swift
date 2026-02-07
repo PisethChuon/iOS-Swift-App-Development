@@ -24,19 +24,11 @@
  
 */
 //: [Next](@next)
-var studentNames = ["Max", "Laura"]
-studentNames.append("Paul")
-studentNames.append("Jane")
+// Normal
+var numbers: [Int] = [1, 2, 3]
 
-let lastIndex = studentNames.count - 1
-
-if studentNames.indices.contains(lastIndex) {
-    
-}
-
-
-print("Last item in array is: \(studentNames[lastIndex])")
-
+// Swift infer String
+var names = ["Piseth", "Dara", "Sokha"]
 
 
 

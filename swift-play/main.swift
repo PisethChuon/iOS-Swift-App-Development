@@ -1,23 +1,18 @@
-struct User {
-    let name: String
-    var email: String
-    var bio: String?
+class Car {
+    var color: String
+    var speed: Int
 
-    // init(name: String, email: String) {
-    //     self.name = name.uppercased()
-    //     self.email = email
-    // }
-
-    func like(){
-
+    init(color: String, speed: Int){
+        self.color = color
+        self.speed = speed
     }
 
-    func comment(){
-        print("comment was made")
+    func drive() {
+        print ("The \(color) car is driving at \(speed) km/h")
     }
-    
 }
 
-let pul = User(name: "Pulkit", email: "example.com")
-pul.comment()
-
+let myCar = Car(color: "red", speed: 120)
+let anotherCar = myCar
+let anotherCar.color = "blue"
+myCar.drive() // Output: The blue car is driving at 120 km/h

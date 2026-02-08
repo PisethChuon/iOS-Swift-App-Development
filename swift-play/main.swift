@@ -1,12 +1,22 @@
-func login() {
-    var email: String?
-    var password: String?
+struct User {
+    let name: String
+    var email: String
+    var bio: String?
 
-    if email == _ && password == _ {
-      print("Login successful.")
-    } else {
-        print("Email or password is missing.")
+    init(name: String, email: String) {
+        self.name = name.uppercased()
+        self.email = email
+    }
+
+    func like(){
+
+    }
+
+    func comment(){
+
     }
     
 }
-login()
+
+let pul = User(name: "Pul", email: "example.com")
+print(pul)

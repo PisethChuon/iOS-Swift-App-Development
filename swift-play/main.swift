@@ -12,7 +12,7 @@ class Car {
     }
 }
 
-let myCar = Car(color: "red", speed: 120)
-let anotherCar = myCar
-let anotherCar.color = "blue"
+var myCar = Car(color: "red", speed: 120)
+var anotherCar = myCar
+anotherCar.color = "blue"
 myCar.drive() // Output: The blue car is driving at 120 km/h

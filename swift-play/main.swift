@@ -3,20 +3,21 @@ struct User {
     var email: String
     var bio: String?
 
-    init(name: String, email: String) {
-        self.name = name.uppercased()
-        self.email = email
-    }
+    // init(name: String, email: String) {
+    //     self.name = name.uppercased()
+    //     self.email = email
+    // }
 
     func like(){
 
     }
 
     func comment(){
-
+        print("comment was made")
     }
     
 }
 
-let pul = User(name: "Pul", email: "example.com")
-print(pul)
+let pul = User(name: "Pulkit", email: "example.com")
+pul.comment()
+

@@ -10,11 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            
-                Image(systemName: "person.fill")
                 Text("Person")
-            
-            
+            HStack {
+                Image(systemName: "person.fill")
+                Text("Picture")
+            }
+            ZStack{
+                Rectangle()
+                    .foregroundColor(.blue)
+                Text("Hello, World!")
+            }
         }
     }
 }

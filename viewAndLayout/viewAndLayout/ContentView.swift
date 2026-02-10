@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack (alignment: .center){
+        HStack (alignment: .top){
             Text("Small")
             Text("Mediume ")
                 .font(.title2)

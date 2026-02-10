@@ -9,12 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack (alignment: .leading){
-            Text("Small")
-            Text("Mediume ")
-                .font(.title2)
-            Text("Big")
-                .font(.largeTitle)
+        ZStack(alignment: .topTrailing) {
+            Color.gray
+                .ignoresSafeArea()
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Title at the top")
+                    .font(.title3)
+                    .bold()
+
+                Text("Description")
+                    .font(.subheadline)
+            }
+            .padding()
+
+            Text("NEW")
+                .font(.caption)
+                .padding(6)
+                .background(Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(6)
+                .padding()
         }
     }
 }

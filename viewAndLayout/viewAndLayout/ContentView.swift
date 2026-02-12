@@ -10,11 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Hello")
-                
+            Ellipse()
+                .fill(Color.purple)
                 .frame(width: 200, height: 100)
-                .background(Color.blue)
-            
+            Ellipse()
+                .fill(Color.blue)
+                .frame(height: 100)
+            Text("Hello")
+                .frame(width: 200, height: 30, alignment: .bottomTrailing)
+                .border(.gray)
         }
     }
 }

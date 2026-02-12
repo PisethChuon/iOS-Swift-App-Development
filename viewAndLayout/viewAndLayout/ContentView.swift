@@ -11,16 +11,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Hello")
-            Text("Welcome")
-            
-            HStack {
-                Image(systemName: "person.fill")
-                Text("Person")
-            }
-            
-            ZStack {
-                Color.gray
-            }
+                
+                .frame(width: 200, height: 100)
+                .background(Color.blue)
             
         }
     }

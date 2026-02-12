@@ -11,10 +11,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
 
-            Text("Hello")
-                .padding(.horizontal, )
-                .padding(.top, 100)
-                .background(Color.red)
+            GeometryReader { geometry in
+                Text("Half Width")
+                    .frame(height: geometry.size.height)
+                    .background(Color.orange)
+            }
+                
                 
                 
         }

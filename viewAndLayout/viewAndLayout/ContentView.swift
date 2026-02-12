@@ -10,16 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-
-            HStack {
-                Text("Left")
-                Spacer(.maximum(x: 10, y: 10))
-                Text("Right")
-            }
-                
-                
-                
+            
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.blue)
     }
 }
 

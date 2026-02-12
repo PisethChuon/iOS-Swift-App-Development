@@ -11,9 +11,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
 
-            Text("Top Leading")
-                .frame(width: 200, height: 100, alignment: .bottomTrailing)
-                .background(Color.yellow)
+            Text("Hello")
+                .padding(.horizontal, )
+                .padding(.top, 100)
+                .background(Color.red)
+                
+                
         }
     }
 }

@@ -10,11 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Color.blue.ignoresSafeArea() // Clean background
-            
+            Color.blue.ignoresSafeArea()
             GeometryReader { geometry in
                 VStack {
-                    // The White Box
                     VStack {
                         Text("Top")
                         Spacer()

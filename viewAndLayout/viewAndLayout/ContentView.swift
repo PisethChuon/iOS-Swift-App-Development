@@ -10,8 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Custom Size")
-                .font(.system(size: 24))
+            Text("This is a block of text that will show up in a text element as multiple lines. The text will fill the available space, and then, eventually, be truncated.")
+                .frame(width: 150, height: 150)
+                .truncationMode(.tail)
+                
         }
     }
 }

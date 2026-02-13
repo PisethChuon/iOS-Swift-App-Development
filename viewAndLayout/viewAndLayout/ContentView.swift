@@ -9,12 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        let price = 99.9999
         
         VStack {
-            
-            Text("Price: \(price, specifier: "%.4f")")
-                
+            Text("This is a block of text that will show up in a text element as multiple lines. The text will fill the available space, and then, eventually, be truncated.")
+                .lineLimit(1)
+                .minimumScaleFactor(4.0)
         }
     }
 }

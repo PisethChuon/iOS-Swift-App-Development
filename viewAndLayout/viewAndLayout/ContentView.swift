@@ -10,10 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Error ")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundStyle(.red)
+            Text("This is a very long text that will wrap into multiple lines automatically.")
+                .multilineTextAlignment(.center)
         }
     }
 }

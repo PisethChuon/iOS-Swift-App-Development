@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("This is a very long text that will wrap into multiple lines automatically.")
-                .multilineTextAlignment(.center)
+            Text("Custom Size")
+                .font(.system(size: 24))
         }
     }
 }

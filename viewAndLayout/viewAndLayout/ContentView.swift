@@ -10,9 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Title ")
+            Text("Error ")
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundStyle(.red)
         }
     }
 }

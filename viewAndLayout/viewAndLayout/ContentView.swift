@@ -10,12 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Title")
+            Text("Title ")
                 .font(.title)
-            Text("Big")
-                .font(.largeTitle)
-            Text("Caption")
-                .font(.caption)
+                .fontWeight(.bold)
         }
     }
 }

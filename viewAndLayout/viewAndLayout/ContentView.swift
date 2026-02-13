@@ -9,23 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.blue.ignoresSafeArea()
-            GeometryReader { geometry in
-                VStack {
-                    VStack {
-                        Text("Top")
-                        Spacer()
-                        Text("Bottom")
-                    }
-                    .padding()
-                    .frame(width: geometry.size.width * 0.8, height: 300)
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity) // Centers the box
-            }
-        }
+        
     }
 }
 

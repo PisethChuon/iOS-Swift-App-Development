@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-        
+    
     var body: some View {
-        
-
+        VStack {
+            Color.primaryTheme
+            
+        }
         
     }
-        
 }
 
 //struct Triangle: Shape {

@@ -9,27 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        let name: String = "Chuon Piseth"
-        let job = "iOS Developer at ABA"
-        let status: Int = 1
+        let name: String = "Piseth Chuon"
+        let job: String = "iOS Developer"
+        let status: Int? = 1
         
         VStack {
-            Text(name)
-                .font(Font.largeTitle)
+            Text("\(name)")
+                .font(.largeTitle)
                 .bold()
-            Text(job)
+            Text("\(job)")
+                .font(.subheadline)
                 .foregroundStyle(.gray)
-                .lineLimit(1)
-                .truncationMode(.tail)
-            if status == 1 {
-                Text("Online")
-                    .foregroundStyle(.green)
-            } else if status == 0 {
-                Text("Offline")
-                    .foregroundStyle(.red)
-            }
+            Text(status == 1 ? "Online" : "Offline")
+                .foregroundStyle(status == 1 ? .green : .red)
+                .italic()
         }
-        
     }
 }
 

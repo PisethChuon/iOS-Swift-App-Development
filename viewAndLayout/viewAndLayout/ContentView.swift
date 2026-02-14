@@ -8,35 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var isLiked = false
-    let name: String = "Piseth CHUON"
-
-    var body: some View {
         
-        VStack(spacing: 16) {
-            Image(systemName: "person.circle.fill")
-                .font(.title)
-            Text(name)
-            
-            HStack(spacing: 24) {
-                Button {
-                    withAnimation {
-                        isLiked.toggle()
-                    }
-                } label: {
-                    Image(systemName: "heart")
-                        .symbolVariant(isLiked ? .fill : .none)
-                }
-                Image(systemName: "message")
-                    .foregroundStyle(.gray)
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundStyle(.gray)
-            }
-            .font(.title)
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.blue)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.red, lineWidth: 4)
+                )
         }
+        .frame(width: 300, height: 300)
+        
     }
 }
+
+//struct Triangle: Shape {
+//    func path(in rect: CGRect) -> Path {
+//        var path = Path()
+//        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+//        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+//        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+//        path.closeSubpath()
+//        
+//        return path
+//    }
+//}
 
 #Preview {
     ContentView()

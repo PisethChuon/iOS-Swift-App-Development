@@ -10,21 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            
-            Button {
-                print("Tapped!")
-            } label: {
-                Label("Send", systemImage: "paperplane.fill")
-            }
-            
-            Button {
-                print("Press")
-            } label: {
-                Label("Heart", systemImage: "heart.fill")
-            }
+         Image(systemName: "heart.fill")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(.blue)
+                .font(.system(size: 100))
         }
-        
-    
     }
 }
 

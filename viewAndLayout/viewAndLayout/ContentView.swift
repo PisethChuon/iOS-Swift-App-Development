@@ -10,9 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-         Image(systemName: "heart.fill")
-                .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.blue)
+            Image(systemName: "exclamationmark.triangle.fill")
+                .symbolRenderingMode(.multicolor)
                 .font(.system(size: 100))
         }
     }

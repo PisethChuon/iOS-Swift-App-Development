@@ -10,19 +10,7 @@ import SwiftUI
 struct ContentView: View {
         
     var body: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .fill(Color.blue)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.red, lineWidth: 4)
-            )
-            .overlay(alignment: .topTrailing) {
-                Circle()
-                    .fill(Color.red)
-                    .frame(width: 40, height: 40)
-                    .offset(x: 15, y: -15)
-            }
-            .frame(width: 300, height: 300)
+        
 
         
     }

@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLiked = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .symbolRenderingMode(.multicolor)
-                .font(.system(size: 100))
-        }
+        Image(systemName: isLiked ? "heart.fill" : "heart")
+            .foregroundColor(isLiked ? .red : .gray)
+            .font(.system(size: 100))
+            .onTapGesture {
+                withAnimation {
+                    isLiked.toggle()
+                }
+            }
     }
 }
 

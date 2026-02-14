@@ -9,16 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        let name: String = "Chuon Piseth"
+        let job = "iOS Developer at ABA"
+        let status: Int = 1
         
         VStack {
-            Text("Chuon Piseth")
+            Text(name)
                 .font(Font.largeTitle)
                 .bold()
-            Text("iOS Developer at ABA")
+            Text(job)
                 .foregroundStyle(.gray)
                 .lineLimit(1)
                 .truncationMode(.tail)
+            if status == 1 {
+                Text("Online")
+                    .foregroundStyle(.green)
+            } else if status == 0 {
+                Text("Offline")
+                    .foregroundStyle(.red)
+            }
         }
+        
     }
 }
 

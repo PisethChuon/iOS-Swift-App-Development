@@ -9,11 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Button {
-            print("Tapped!")
-        } label: {
-            Label("Send", systemImage: "paperplane.fill")
+        VStack {
+            
+            Button {
+                print("Tapped!")
+            } label: {
+                Label("Send", systemImage: "paperplane.fill")
+            }
+            
+            Button {
+                print("Press")
+            } label: {
+                Label("Heart", systemImage: "heart.fill")
+            }
         }
+        
+    
     }
 }
 

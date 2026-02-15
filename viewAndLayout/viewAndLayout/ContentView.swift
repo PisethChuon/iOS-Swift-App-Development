@@ -1,12 +1,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var password: String = ""
+    @State private var searchText: String = ""
     
     var body: some View {
         VStack {
-            SecureField("Passowrd", text: $password)
+            TextField("Search", text: $searchText)
                 .textFieldStyle(.roundedBorder)
+                .onSubmit {
+                    print("User pressed return")
+                }
         }
     }
 }

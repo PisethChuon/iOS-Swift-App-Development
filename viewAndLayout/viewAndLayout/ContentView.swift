@@ -6,18 +6,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ToggleView(isOn: $isOn)
+            Toggleview(isOn: $isOn)
             Text(isOn ? "ON" : "OFF")
         }
     }
 }
 
-// Chill View
-struct ToggleView: View {
+// Chil State
+
+struct Toggleview: View {
+    
     @Binding var isOn: Bool
     
     var body: some View {
-        Toggle("Swiftch", isOn: $isOn)
+        Toggle("Switch", isOn: $isOn)
             .padding()
     }
 }

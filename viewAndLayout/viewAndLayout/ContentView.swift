@@ -1,21 +1,24 @@
-//
-//  ContentView.swift
-//  viewAndLayout
-//
-//  Created by chuonpiseth on 8/2/26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isPlaying = false
+    
+    @State private var isOn = false
+    
     var body: some View {
         VStack {
-            Button (isPlaying ? "Pause" : "Play") {
-                isPlaying.toggle()
-            }
+            ToggleView(isOn: $isOn)
+            Text(isOn ? "ON" : "OFF")
         }
-        
+    }
+}
+
+// Chill View
+struct ToggleView: View {
+    @Binding var isOn: Bool
+    
+    var body: some View {
+        Toggle("Swiftch", isOn: $isOn)
+            .padding()
     }
 }
 

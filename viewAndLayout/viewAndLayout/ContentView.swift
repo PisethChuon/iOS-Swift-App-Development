@@ -2,26 +2,33 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var isOn = false
+    @State private var username: String = ""
+    @State private var isPreminum: Bool = false
     
     var body: some View {
         VStack {
-            Toggleview(isOn: $isOn)
-            Text(isOn ? "ON" : "OFF")
+            ProfileForm(username: $username, isPreminum: $isPreminum)
+            
         }
     }
 }
 
 // Chil State
 
-struct Toggleview: View {
+struct ProfileForm: View {
     
-    @Binding var isOn: Bool
+    @Binding var username: String
+    @Binding var isPreminum: Bool
     
     var body: some View {
-        Toggle("Switch", isOn: $isOn)
+        TextField("Enter username", text: $username)
+            .textFieldStyle(.roundedBorder)
+            .padding()
+        Text("Hello, \(username)")
+        Toggle("Priminum", isOn: $isPreminum)
             .padding()
     }
+        
 }
 
 #Preview {

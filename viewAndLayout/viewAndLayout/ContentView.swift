@@ -3,32 +3,31 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var username: String = ""
-    @State private var isPreminum: Bool = false
+    @State private var isPremium: Bool = false
     
     var body: some View {
         VStack {
-            ProfileForm(username: $username, isPreminum: $isPreminum)
-            
+            ProfileForm(username: $username, isPremium: $isPremium)
         }
     }
 }
 
-// Chil State
-
+// Chill
 struct ProfileForm: View {
-    
+
     @Binding var username: String
-    @Binding var isPreminum: Bool
-    
+    @Binding var isPremium: Bool
+
     var body: some View {
+        
         TextField("Enter username", text: $username)
             .textFieldStyle(.roundedBorder)
-            .padding()
-        Text("Hello, \(username)")
-        Toggle("Priminum", isOn: $isPreminum)
-            .padding()
-    }
         
+        Text("Hello, \(username)")
+            .padding()
+            .background(Color.blue)
+        Toggle("Premium", isOn: $isPremium)
+    }
 }
 
 #Preview {

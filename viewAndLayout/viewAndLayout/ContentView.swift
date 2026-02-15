@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    @State private var count = 0
-    
+    @State private var isPlaying = false
     var body: some View {
         VStack {
-            Text("Count: \(count)")
-                .font(Font.largeTitle)
-            Button("Increase") {
-                count += 1
+            Button (isPlaying ? "Pause" : "Play") {
+                isPlaying.toggle()
             }
         }
         

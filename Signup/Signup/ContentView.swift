@@ -47,7 +47,10 @@ struct ContentView: View {
                     .textFieldStyle(.roundedBorder)
                     
                 Button(action: {
-                    showAlert = true
+                    if !username.isEmpty && !email.isEmpty {
+                        showAlert = true
+                    }
+                    
                 }) {
                     Text("Submit")
                         .foregroundStyle(Color.white)

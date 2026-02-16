@@ -14,6 +14,10 @@ struct ContentView: View {
     @State private var password: String = ""
     @State private var showAlert: Bool = false
     
+    @State private var showUsernameError: Bool = false
+    @State private var showEmailError: Bool = false
+    @State private var showPasswordError: Bool = false
+    
     var body: some View {
         ZStack {
             Color.primaryTheme
@@ -30,6 +34,11 @@ struct ContentView: View {
                     .textContentType(.username)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
+                if showUsernameError {
+                    Text("Username is required")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(Color.red)
+                }
                 
                 Text("Email")
                     .font(.system(size: 15, weight: .bold))
@@ -39,17 +48,46 @@ struct ContentView: View {
                     .textContentType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
+                if showEmailError {
+                    Text("Email is required")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(Color.red)
+                }
                 
                 Text("Password")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Color.white)
                 SecureField("Password", text: $password)
                     .textFieldStyle(.roundedBorder)
+                
+                if showPasswordError {
+                    Text("Password is required")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(Color.red)
+                }
                     
                 Button(action: {
-                    if !username.isEmpty && !email.isEmpty {
-                        showAlert = true
+                    showUsernameError = false
+                    showEmailError = false
+                    showPasswordError = false
+                    
+                    guard !username.isEmpty else {
+                        showUsernameError = true
+                        return
                     }
+                    guard !email.isEmpty else {
+                        showEmailError = true
+                        return
+                    }
+                    guard !password.isEmpty else {
+                        showPasswordError = true
+                        return
+                    }
+                    showAlert = true
+                    
+                    username = ""
+                    email = ""
+                    password = ""
                     
                 }) {
                     Text("Submit")

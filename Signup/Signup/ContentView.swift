@@ -18,9 +18,15 @@ struct ContentView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Sign Up")
                     .font(.system(size: 30, weight: .heavy))
+                    .foregroundStyle(Color.white)
                 Text("Username")
                     .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Color.white)
                 TextField("Username", text: $username)
+                    .textFieldStyle(.roundedBorder)
+                    .textContentType(.username)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
                 Spacer()
             }
             .padding(.horizontal)

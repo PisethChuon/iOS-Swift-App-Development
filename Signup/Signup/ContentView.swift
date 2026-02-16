@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var username: String = ""
+    @State private var email: String = ""
     
     var body: some View {
         ZStack {
@@ -23,6 +24,15 @@ struct ContentView: View {
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Color.white)
                 TextField("Username", text: $username)
+                    .textFieldStyle(.roundedBorder)
+                    .textContentType(.username)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                
+                Text("Email")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Color.white)
+                TextField("Email", text: $email)
                     .textFieldStyle(.roundedBorder)
                     .textContentType(.username)
                     .textInputAutocapitalization(.never)

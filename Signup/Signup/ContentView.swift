@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var username: String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.primaryTheme
+                .ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Sign Up")
+                    .font(.system(size: 30, weight: .heavy))
+                Text("Username")
+                    .font(.system(size: 15, weight: .bold))
+                TextField("Username", text: $username)
+                Spacer()
+            }
+            .padding(.horizontal)
         }
-        .padding()
+        
     }
 }
 

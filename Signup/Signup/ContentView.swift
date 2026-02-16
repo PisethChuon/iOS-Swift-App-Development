@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var username: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -46,7 +47,7 @@ struct ContentView: View {
                     .textFieldStyle(.roundedBorder)
                     
                 Button(action: {
-                    
+                    showAlert = true
                 }) {
                     Text("Submit")
                         .foregroundStyle(Color.white)
@@ -62,7 +63,15 @@ struct ContentView: View {
             }
             .padding(.horizontal)
         }
-        
+        .alert("Sign Up Complete", isPresented:
+            $showAlert) {
+            Button("OK", action: {
+                
+            })
+        } message: {
+            Text("Thanks for signing up!")
+        }
+
     }
 }
 

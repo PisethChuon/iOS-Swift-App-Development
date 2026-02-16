@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State private var username: String = ""
     @State private var email: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         ZStack {
@@ -34,9 +35,29 @@ struct ContentView: View {
                     .foregroundStyle(Color.white)
                 TextField("Email", text: $email)
                     .textFieldStyle(.roundedBorder)
-                    .textContentType(.username)
+                    .textContentType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
+                
+                Text("Password")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Color.white)
+                SecureField("Password", text: $password)
+                    .textFieldStyle(.roundedBorder)
+                    
+                Button(action: {
+                    
+                }) {
+                    Text("Submit")
+                        .foregroundStyle(Color.white)
+                        .font(.system(size: 16, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                }
+                .background(Color.black)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .padding(.top)
+                
                 Spacer()
             }
             .padding(.horizontal)

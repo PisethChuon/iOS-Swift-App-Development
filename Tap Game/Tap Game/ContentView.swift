@@ -60,9 +60,16 @@ struct ContentView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 300)
                 .onTapGesture {
+                    timer.upstream.connect().cancel()
                     if currentPicIndex == targetIndex {
                         score += 1
+                        alertTitle = "Success !"
+                        alertMessage = "Keep going!"
+                    } else {
+                        alertTitle = "Try again !"
+                        alertMessage = "Next time!"
                     }
+                    showAlert = true
                 }
             Text(possiblePics[targetIndex])
                 .font(.headline)

@@ -12,6 +12,8 @@ struct ContentView: View {
     
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var currentPicIndex = 0
+    @State private var targetIndex = 1
+    @State private var score: Int = 0
     let possiblePics = ["apple", "dog", "egg"]
     
     enum Difficulty: Double {
@@ -45,7 +47,7 @@ struct ContentView: View {
                     })
                 }
                 Spacer()
-                Text("Score: 0")
+                Text("Score: \(score)")
             }
             .padding(.horizontal)
             
@@ -53,6 +55,14 @@ struct ContentView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 300)
+                .onTapGesture {
+                    if currentPicIndex == targetIndex {
+                        score += 1
+                    }
+                }
+            Text(possiblePics[targetIndex])
+                .font(.headline)
+                .padding(.top)
         }
         .onReceive(timer, perform:  { _ in
                                     changePic()

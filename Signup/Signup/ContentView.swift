@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var password: String = ""
     
     
+    
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             Color.primaryTheme.ignoresSafeArea()
@@ -45,11 +47,24 @@ struct ContentView: View {
                 Text("Password")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Color.white)
-                TextField("Password", text: $password)
+                    SecureField("Password", text: $password)
                     .textFieldStyle(.roundedBorder)
-                    .textContentType(.password)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled()
+                
+                Button(action: {
+                    
+                    print("Tap")
+                }) {
+                    Text("Submit")
+                        .foregroundStyle(Color.white)
+                        .font(Font.system(size: 15, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                }
+                .background(Color.black)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .padding(.top)
+                    
+                
             
             }
             .padding(.horizontal)

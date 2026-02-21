@@ -16,9 +16,24 @@ struct ContentView: View {
     
     var body: some View {
         
-        
-        
         VStack {
+            Menu("Difficalty") {
+                Button("Easy", action: {
+                    
+                })
+                Button("Medium", action: {
+                    
+                })
+                Button("Hard", action: {
+                    
+                })
+            }
+                    
+                
+                
+                    
+                
+            
             Image(possiblePics[currentPicIndex])
                 .resizable()
                 .aspectRatio(contentMode: .fit)

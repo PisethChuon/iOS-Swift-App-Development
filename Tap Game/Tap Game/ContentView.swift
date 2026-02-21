@@ -14,6 +14,10 @@ struct ContentView: View {
     @State private var currentPicIndex = 0
     @State private var targetIndex = 1
     @State private var score: Int = 0
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var showAlert: Bool = false
+    
     let possiblePics = ["apple", "dog", "egg"]
     
     enum Difficulty: Double {
@@ -67,7 +71,14 @@ struct ContentView: View {
         .onReceive(timer, perform:  { _ in
                                     changePic()
         })
-        
+        .alert(alertTitle, isPresented: $showAlert) {
+            Button("Ok", action: {
+                
+            })
+        } message: {
+            Text(alertMessage)
+        }
+
     }
     func changePic() {
         if currentPicIndex == possiblePics.count - 1 {

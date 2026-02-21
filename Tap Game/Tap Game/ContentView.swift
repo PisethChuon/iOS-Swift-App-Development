@@ -16,23 +16,19 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
+            
             Menu("Difficalty") {
                 Button("Easy", action: {
-                    
+                    timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                 })
                 Button("Medium", action: {
-                    
+                    timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                 })
                 Button("Hard", action: {
-                    
+                    timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
                 })
             }
-                    
-                
-                
-                    
-                
             
             Image(possiblePics[currentPicIndex])
                 .resizable()
@@ -40,7 +36,7 @@ struct ContentView: View {
                 .frame(height: 300)
         }
         .onReceive(timer, perform:  { _ in
-//            changePic()
+            //            changePic()
         })
         
     }

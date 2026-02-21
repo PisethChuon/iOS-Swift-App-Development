@@ -6,17 +6,35 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let possiblePics = ["apple", "dog", "egg"]
+    @State private var currentPicIndex = 0
+    
     var body: some View {
         
-        var possiblePics = ["apple", "dog", "egg"]
+        
         
         VStack {
-            Image(possiblePics[1])
+            Image(possiblePics[currentPicIndex])
                 .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 300)
         }
-        .padding()
+        .onReceive(timer, perform:  { _ in
+//            changePic()
+        })
+        
+    }
+    func changePic() {
+        if currentPicIndex == possiblePics.count - 1 {
+            currentPicIndex = 0
+        } else {
+            currentPicIndex += 1
+        }
     }
 }
 

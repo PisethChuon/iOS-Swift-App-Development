@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
+    @State private var showAlert: Bool = false
+    
     
     
     
@@ -52,7 +54,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     
-                    print("Tap")
+                    showAlert = true
                 }) {
                     Text("Submit")
                         .foregroundStyle(Color.white)
@@ -63,12 +65,17 @@ struct ContentView: View {
                 .background(Color.black)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .padding(.top)
-                    
-                
-            
             }
             .padding(.horizontal)
         }
+        .alert("Sign Up Complete", isPresented: $showAlert) {
+            Button("Ok", action: {
+                
+            })
+        } message: {
+            Text("Thanks for signing up!")
+        }
+
     }
 }
 

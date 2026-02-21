@@ -11,24 +11,43 @@ import Combine
 struct ContentView: View {
     
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    let possiblePics = ["apple", "dog", "egg"]
     @State private var currentPicIndex = 0
+    let possiblePics = ["apple", "dog", "egg"]
+    
+    enum Difficulty: Double {
+        case easy = 1.0
+        case medium = 0.5
+        case hard = 0.25
+        
+        func title() -> String {
+            switch self {
+            case .easy: return "Easy"
+            case .medium: return "Medium"
+            case .hard: return "Hard"
+            }
+        }
+    }
     
     var body: some View {
         
-        VStack(alignment: .leading) {
-            
-            Menu("Difficalty") {
-                Button("Easy", action: {
-                    timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-                })
-                Button("Medium", action: {
-                    timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-                })
-                Button("Hard", action: {
-                    timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
-                })
+        VStack  {
+            HStack {
+                
+                Menu("Difficalty") {
+                    Button(Difficulty.easy.title(), action: {
+                        timer = Timer.publish(every: Difficulty.easy.rawValue, on: .main, in: .common).autoconnect()
+                    })
+                    Button(Difficulty.medium.title(), action: {
+                        timer = Timer.publish(every: Difficulty.medium.rawValue, on: .main, in: .common).autoconnect()
+                    })
+                    Button(Difficulty.hard.title(), action: {
+                        timer = Timer.publish(every: Difficulty.hard.rawValue, on: .main, in: .common).autoconnect()
+                    })
+                }
+                Spacer()
+                Text("Score: 0")
             }
+            .padding(.horizontal)
             
             Image(possiblePics[currentPicIndex])
                 .resizable()
@@ -36,7 +55,7 @@ struct ContentView: View {
                 .frame(height: 300)
         }
         .onReceive(timer, perform:  { _ in
-            //            changePic()
+                                    changePic()
         })
         
     }

@@ -9,14 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var username: String = ""
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var showAlert: Bool = false
     
-    @State private var showUsernameError: Bool = false
-    @State private var showEmailError: Bool = false
-    @State private var showPasswordError: Bool = false
     
     var body: some View {
         ZStack {

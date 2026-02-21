@@ -17,8 +17,13 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showAlert: Bool = false
+    @State private var isGameRunning = true
+    @State private var difficulty: Difficulty = .easy
     
     let possiblePics = ["apple", "dog", "egg"]
+    var randomTarget: Int {
+        return Int.random(in: 0..<possiblePics.count)
+    }
     
     enum Difficulty: Double {
         case easy = 1.0
@@ -38,17 +43,18 @@ struct ContentView: View {
         
         VStack  {
             HStack {
-                
-                Menu("Difficalty") {
-                    Button(Difficulty.easy.title(), action: {
-                        timer = Timer.publish(every: Difficulty.easy.rawValue, on: .main, in: .common).autoconnect()
-                    })
-                    Button(Difficulty.medium.title(), action: {
-                        timer = Timer.publish(every: Difficulty.medium.rawValue, on: .main, in: .common).autoconnect()
-                    })
-                    Button(Difficulty.hard.title(), action: {
-                        timer = Timer.publish(every: Difficulty.hard.rawValue, on: .main, in: .common).autoconnect()
-                    })
+                if !isGameRunning {
+                    Menu("Difficalty") {
+                        Button(Difficulty.easy.title(), action: {
+                            difficulty = .easy
+                        })
+                        Button(Difficulty.medium.title(), action: {
+                            difficulty = .medium
+                        })
+                        Button(Difficulty.hard.title(), action: {
+                            difficulty = .hard
+                        })
+                    }
                 }
                 Spacer()
                 Text("Score: \(score)")
@@ -61,6 +67,7 @@ struct ContentView: View {
                 .frame(height: 300)
                 .onTapGesture {
                     timer.upstream.connect().cancel()
+                    isGameRunning = false
                     if currentPicIndex == targetIndex {
                         score += 1
                         alertTitle = "Success !"
@@ -74,9 +81,17 @@ struct ContentView: View {
             Text(possiblePics[targetIndex])
                 .font(.headline)
                 .padding(.top)
+            if !isGameRunning {
+                Button("Restart", action: {
+                    isGameRunning = true
+                    targetIndex = randomTarget
+                    timer = Timer.publish(every: difficulty.rawValue, on: .main, in: .common).autoconnect()
+                })
+                .padding(.top)
+            }
         }
         .onReceive(timer, perform:  { _ in
-                                    changePic()
+            changePic()
         })
         .alert(alertTitle, isPresented: $showAlert) {
             Button("Ok", action: {
@@ -85,7 +100,7 @@ struct ContentView: View {
         } message: {
             Text(alertMessage)
         }
-
+        
     }
     func changePic() {
         if currentPicIndex == possiblePics.count - 1 {

@@ -1,8 +1,8 @@
-extension String {
-    func greet() -> String {
-        return "Hello, \(self)! Welcome to Swift \(self)"
+extension Int {
+    var isEven: Bool {
+        return self % 2 == 0
     }
 }
 
-let name = "Alice"
-print(name.greet())
+let number = 4
+print(number.isEven) // Output: true

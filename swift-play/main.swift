@@ -1,8 +1,12 @@
-extension Int {
-    var isEven: Bool {
-        return self % 2 == 0
-    }
+struct Person {
+    var name: String
 }
 
-let number = 4
-print(number.isEven) // Output: true
+extension Person: CustomStringConvertible {
+    var description: String {
+        return "Person name: \(name)"
+    }   
+}
+
+let person = Person(name: "Alice")
+print(person.description) // Output: Person(name: Alice)

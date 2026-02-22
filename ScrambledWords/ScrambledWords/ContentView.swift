@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
+        @State var letters: [String] = ["O", "R", "A", "N", "G", "E"]
+        
         GeometryReader { proxy in
             ZStack {
                 Color.background.ignoresSafeArea()
@@ -35,13 +38,14 @@ struct ContentView: View {
                             .stroke(Color.border, lineWidth: 2)
                     }
                     Text("Score: 0")
-                        .foregroundStyle(Color.white)
                         .font(.system(size: 24))
+                        .foregroundStyle(Color.white)
                         .padding(.top)
                     HStack {
-                        LetterView(character: "O")
-                        LetterView(character: "R")
-                        LetterView(character: "A")
+                        ForEach(letters, id: \.self) { letter in
+                            LetterView(character: letter)
+                        }
+                        
                     }
                 }
             }
@@ -57,7 +61,7 @@ struct LetterView: View {
     let character: String
     var body: some View {
         Text(character)
-            .font(.system(size: 30, weight: .semibold))
+            .font(.system(size: 15, weight: .semibold))
             .foregroundStyle(Color.white)
             .frame(width: 30, height: 30)
             .background(Color.white.opacity(0.4))

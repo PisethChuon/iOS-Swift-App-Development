@@ -1,23 +1,14 @@
-struct Student {
-    var score: Int
+protocol Drivable {
+    func startEngine()
+    func stopEngine()
 }
 
-extension Student {
-    var grade: String {
-        switch score {
-        case 90...100:
-            return "A"
-        case 80..<90:
-            return "B"
-        case 70..<80:
-            return "C"
-        case 60..<70:
-            return "D"
-        default:
-            return "F"
-        }
+struct Car: Drivable {
+    func startEngine() {
+        print("Engine started")
+    }
+
+    func stopEngine() {
+        print("Engine stopped")
     }
 }
-
-let st1 = Student(score: 93)
-print(st1.grade)

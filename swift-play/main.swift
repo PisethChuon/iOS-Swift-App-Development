@@ -1,13 +1,8 @@
-class Animal {
-    func makeSound() {
-        print("Animal makes a sound")
+extension String {
+    func greet() -> String {
+        return "Hello, \(self)! Welcome to Swift \(self)"
     }
 }
 
-class Dog: Animal {
-    override func makeSound() {
-        print("Dog barks")
-    }
-}
-
-Dog().makeSound() // Output: Dog barks
+let name = "Alice"
+print(name.greet())

@@ -1,9 +1,10 @@
-enum AppState: Equatable {
-    case loading
-    case success(message: String)
+struct User: Hashable {
+    var name: String
+    var age: Int
 }
 
-let appState1 = AppState.success(message: "Done")
-let appState2 = AppState.success(message: "Done")
+let u1 = User(name: "Piseth", age: 22)
+let u2 = User(name: "Piseth", age: 22)
 
-print(appState1 == appState2)
+var users: Set<User> = []
+users.insert(u1)

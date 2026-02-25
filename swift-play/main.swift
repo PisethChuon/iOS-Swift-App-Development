@@ -20,3 +20,7 @@ struct User: indentifiable{
     var id: UUID
     var name: String
 }
+
+func makeView() -> some View {
+    Text("Hello")
+}

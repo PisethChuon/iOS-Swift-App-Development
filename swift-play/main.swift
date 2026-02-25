@@ -15,3 +15,8 @@ struct User: Enquatable {
 struct User: Hashable {
     var name: String
 }
+
+struct User: indentifiable{
+    var id: UUID
+    var name: String
+}

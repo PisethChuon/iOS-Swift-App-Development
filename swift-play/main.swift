@@ -11,3 +11,7 @@ protocol Drivable {
 struct User: Enquatable {
     var name = String
 }
+
+struct User: Hashable {
+    var name: String
+}

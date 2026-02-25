@@ -3,3 +3,7 @@ extension String {
         self.uppercased() + "!"
     }
 }
+
+protocol Drivable {
+    func drive()
+}

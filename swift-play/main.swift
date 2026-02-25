@@ -7,3 +7,7 @@ extension String {
 protocol Drivable {
     func drive()
 }
+
+struct User: Enquatable {
+    var name = String
+}

@@ -75,4 +75,10 @@ func testEqualityAndSet() {
     
     print("Are equal", s1 == s2)    // Equntable
     
+    var studentSet: Set<Student> = []
+    studentSet.insert(s1)
+    studentSet.insert(s2)
+    
+    print("Set count:", studentSet.count)
+    
 }

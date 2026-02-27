@@ -7,7 +7,6 @@ protocol Displayable {
 
 // MARK: - 2. Student Model
 struct Student: Identifiable, Equatable, Hashable, Displayable {
-    
     let id: UUID
     let name: String
     let age: Int

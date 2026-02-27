@@ -5,7 +5,6 @@ protocol Displayable {
     var displayName: String { get }
 }
 
-
 // MARK: - 2. Student Model
 struct Student: Identifiable, Equatable, Hashable, Displayable {
     

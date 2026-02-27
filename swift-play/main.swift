@@ -62,17 +62,3 @@ struct ContentView: View {
         }
     }
 }
-
-// MARK: - 5. Test Equatable + Hashable
-func testEqualityAndSet() {
-    let s1 = Student(id: UUID(), name: "Piseth", age: 22, grade: 85)
-    let s2 = Student(id: s1.id, name: "Piseth", age: 22, grade: 85)
-    
-    print("Are equal:", s1 == s2)   // Equatable
-    
-    var studentSet: Set<Student> = []
-    studentSet.insert(s1)
-    studentSet.insert(s2)
-    
-    print("Set count:", studentSet.count)   // Hashable prevents duplicate
-}

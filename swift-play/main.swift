@@ -13,7 +13,6 @@ struct Student: Identifiable, Equatable, Hashable, Displayable {
     let age: Int
     let grade: Double
     
-    
     // Protocol requirement
     var displayName: String {
         "\(name) - Age: \(age) - Grade: \(grade)"

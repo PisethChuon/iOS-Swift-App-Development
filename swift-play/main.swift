@@ -30,6 +30,7 @@ extension Student {
     }
 }
 
+
 // MARK: - 4. SwiftUI View (Uses Identity + Opaque Type)
 struct ContentView: View {
     

@@ -44,6 +44,9 @@ struct ContentView: View {
                     HStack {
                         ForEach(letters, id: \.self) { letter in
                             LetterView(character: letter)
+                                .onTapGesture {
+                                    print("Tapped")
+                                }
                         }
                         
                     }

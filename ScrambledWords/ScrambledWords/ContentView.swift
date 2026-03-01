@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var letters: [String] = ["O", "R", "A", "N", "G", "E"]
+    @State var guessedLetters: [String] = []
+    
     var body: some View {
-        
-        @State var letters: [String] = ["O", "R", "A", "N", "G", "E"]
-        @State var guessedLetters: [String] = []
-        
         GeometryReader { proxy in
             ZStack {
                 Color.background.ignoresSafeArea()
@@ -24,32 +23,33 @@ struct ContentView: View {
                             .frame(width: 100, height: 100)
                         Spacer()
                         HStack {
-                            VStack {
-                                LetterView(character: "")
-                                Rectangle()
-                                    .fill(Color.white)
-                                    .frame(width: 20, height: 2)
+                            ForEach(guessedLetters, id: \.self) { guessedLetter in
+                                VStack {
+                                    LetterView(character: guessedLetter)
+                                    Rectangle()
+                                        .fill(Color.white)
+                                        .frame(width: 20, height: 2)
+                                }
                             }
                         }
                         .padding(.bottom, 20)
-                    }
-                    .frame(width: proxy.size.width * 0.8, height: proxy.size.width * 0.9)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.border, lineWidth: 2)
-                    }
-                    Text("Score: 0")
-                        .font(.system(size: 24))
-                        .foregroundStyle(Color.white)
-                        .padding(.top)
-                    HStack {
-                        ForEach(letters, id: \.self) { letter in
-                            LetterView(character: letter)
-                                .onTapGesture {
-                                    print("Tapped")
-                                }
+                        .frame(width: proxy.size.width * 0.8, height: proxy.size.width * 0.9)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.border, lineWidth: 2)
                         }
-                        
+                        Text("Score: 0")
+                            .font(.system(size: 24))
+                            .foregroundStyle(Color.white)
+                            .padding(.top)
+                        HStack {
+                            ForEach(letters, id: \.self) { letter in
+                                LetterView(character: letter)
+                                    .onTapGesture {
+                                        guessedLetters.append(letter)
+                                    }
+                            }
+                        }
                     }
                 }
             }

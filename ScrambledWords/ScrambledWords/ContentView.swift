@@ -11,6 +11,7 @@ struct ContentView: View {
     var body: some View {
         
         @State var letters: [String] = ["O", "R", "A", "N", "G", "E"]
+        @State var guessedLetters: [String] = []
         
         GeometryReader { proxy in
             ZStack {

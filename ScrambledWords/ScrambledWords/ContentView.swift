@@ -46,8 +46,10 @@ struct ContentView: View {
                             ForEach(Array(letters.enumerated()), id: \.1) { index, letter in
                                 LetterView(character: letter)
                                     .onTapGesture {
-                                        guessedLetters.append(letter)
-                                        letters[index] = ""
+                                        if !letter.isEmpty {
+                                            guessedLetters.append(letter)
+                                            letters[index] = ""
+                                        }
                                     }
                             }
                         }

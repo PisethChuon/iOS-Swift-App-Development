@@ -22,7 +22,7 @@ struct ContentView: View {
                             .resizable()
                             .frame(width: 100, height: 100)
                         Spacer()
-                        HStack { 
+                        HStack {
                             ForEach(guessedLetters, id: \.self) { guessedLetter in
                                 VStack {
                                     LetterView(character: guessedLetter)
@@ -43,10 +43,11 @@ struct ContentView: View {
                             .foregroundStyle(Color.white)
                             .padding(.top)
                         HStack {
-                            ForEach(letters, id: \.self) { letter in
+                            ForEach(Array(letters.enumerated()), id: \.1) { index, letter in
                                 LetterView(character: letter)
                                     .onTapGesture {
                                         guessedLetters.append(letter)
+                                        letters[index] = ""
                                     }
                             }
                         }

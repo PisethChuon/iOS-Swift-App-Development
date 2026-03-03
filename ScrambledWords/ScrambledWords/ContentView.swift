@@ -22,7 +22,7 @@ struct ContentView: View {
                             .resizable()
                             .frame(width: 100, height: 100)
                         Spacer()
-                        HStack {
+                        HStack { 
                             ForEach(guessedLetters, id: \.self) { guessedLetter in
                                 VStack {
                                     LetterView(character: guessedLetter)

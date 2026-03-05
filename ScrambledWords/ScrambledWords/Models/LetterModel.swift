@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Letter {
+    let index: Int
+    let text: String
+}

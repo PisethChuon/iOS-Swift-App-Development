@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var letters: [Letter] = [
-        Letter(index: 0, text: "A")
-        Letter(index: 1, text: "O")
-        Letter(index: 2, text: "N")
-        Letter(index: 3, text: "E")
-        Letter(index: 4, text: "G")
-        Letter(index: 5, text: "R")
+        Letter(index: 0, text: "A"),
+        Letter(index: 1, text: "O"),
+        Letter(index: 2, text: "N"),
+        Letter(index: 3, text: "E"),
+        Letter(index: 4, text: "G"),
+        Letter(index: 5, text: "R"),
     ]
     @State var guessedLetters: [String] = []
     

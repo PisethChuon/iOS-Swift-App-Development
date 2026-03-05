@@ -69,6 +69,15 @@ struct ContentView: View {
                                         if !letter.text.isEmpty {
                                             guessedLetters.append(letter)
                                             letters[index].text = ""
+                                            
+                                            if guessedLetters.count == correctWord.count {
+                                                let guess = guessedLetters.map {$0.text}.joined()
+                                                if guess == correctWord {
+                                                    print("Correct!")
+                                                } else {
+                                                    print("Wrong!")
+                                                }
+                                            }
                                         }
                                     }
                             }

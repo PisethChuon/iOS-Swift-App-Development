@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Letter {
-    let index: Int
-    let text: String
+struct Letter: Identifiable, Hashable {
+    let id: Int
+    var text: String
 }

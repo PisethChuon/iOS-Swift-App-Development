@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @State var letters: [Letter] = [
-        Letter(index: 0, text: "A"),
-        Letter(index: 1, text: "O"),
-        Letter(index: 2, text: "N"),
-        Letter(index: 3, text: "E"),
-        Letter(index: 4, text: "G"),
-        Letter(index: 5, text: "R"),
+        Letter(id: 0, text: "A"),
+        Letter(id: 1, text: "O"),
+        Letter(id: 2, text: "N"),
+        Letter(id: 3, text: "E"),
+        Letter(id: 4, text: "G"),
+        Letter(id: 5, text: "R"),
     ]
-    @State var guessedLetters: [String] = []
+    @State var guessedLetters: [Letter] = []
     
     var body: some View {
         GeometryReader { proxy in
@@ -30,9 +30,9 @@ struct ContentView: View {
                             .frame(width: 100, height: 100)
                         Spacer()
                         HStack {
-                            ForEach(guessedLetters, id: \.self) { guessedLetter in
+                            ForEach(guessedLetters) { guessedLetter in
                                 VStack {
-                                    LetterView(character: guessedLetter)
+                                    LetterView(letter: guessedLetter)
                                     Rectangle()
                                         .fill(Color.white)
                                         .frame(width: 20, height: 2)
@@ -51,11 +51,11 @@ struct ContentView: View {
                             .padding(.top)
                         HStack {
                             ForEach(Array(letters.enumerated()), id: \.1) { index, letter in
-                                LetterView(character: letter)
+                                LetterView(letter: letter)
                                     .onTapGesture {
-                                        if !letter.isEmpty {
+                                        if !letter.text.isEmpty {
                                             guessedLetters.append(letter)
-                                            letters[index] = ""
+                                            letters[index].text = ""
                                         }
                                     }
                             }
@@ -72,9 +72,9 @@ struct ContentView: View {
 }
 
 struct LetterView: View {
-    let character: String
+    let letter: Letter
     var body: some View {
-        Text(character)
+        Text(letter.text)
             .font(.system(size: 15, weight: .semibold))
             .foregroundStyle(Color.white)
             .frame(width: 30, height: 30)

@@ -34,7 +34,16 @@ struct ContentView: View {
                                 VStack {
                                     LetterView(letter: guessedLetter)
                                         .onTapGesture {
-                                            Letter.firstIndex(where: {$0.id == guessedLetter.id})
+                                            if let index = letters.firstIndex(where: {$0.id == guessedLetter.id}){
+                                                
+                                                // Restore the letter
+                                                letters[index].text = guessedLetter.text
+                                                
+                                                // Remove from guessedLetters
+                                                if let guessedIndex = guessedLetters.firstIndex(where: { $0.id == guessedLetter.id }) {
+                                                            guessedLetters.remove(at: guessedIndex)
+                                                        }
+                                            }
                                         }
                                     Rectangle()
                                         .fill(Color.white)

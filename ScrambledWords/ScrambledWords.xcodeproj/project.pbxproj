@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		7BFA41332F49FAF9006E05E8 /* ScrambledWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ScrambledWords.app; path = "/Users/piseth/Desktop/iOS_Swift_App Development/ScrambledWords/build/Debug-iphoneos/ScrambledWords.app"; sourceTree = "<absolute>"; };
+		7B0026EB2F59CAC200FC403E /* ScrambledWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrambledWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +32,7 @@
 		7BFA412A2F49FAF9006E05E8 = {
 			isa = PBXGroup;
 			children = (
+				7B0026EB2F59CAC200FC403E /* ScrambledWords.app */,
 				7BFA41352F49FAF9006E05E8 /* ScrambledWords */,
 			);
 			sourceTree = "<group>";
@@ -58,7 +59,7 @@
 			packageProductDependencies = (
 			);
 			productName = ScrambledWords;
-			productReference = 7BFA41332F49FAF9006E05E8 /* ScrambledWords.app */;
+			productReference = 7B0026EB2F59CAC200FC403E /* ScrambledWords.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

@@ -33,6 +33,9 @@ struct ContentView: View {
                             ForEach(guessedLetters) { guessedLetter in
                                 VStack {
                                     LetterView(letter: guessedLetter)
+                                        .onTapGesture {
+                                            Letter.firstIndex(where: {$0.id == guessedLetter.id})
+                                        }
                                     Rectangle()
                                         .fill(Color.white)
                                         .frame(width: 20, height: 2)

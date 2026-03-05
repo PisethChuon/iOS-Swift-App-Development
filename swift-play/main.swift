@@ -1,5 +1,5 @@
-let fruits = ["Banana", "Apple", "Orange"]
+let numbers = [10, 20, 19, 40, 50]
 
-for (index, fruit) in fruits.enumerated() {
-    print(index,fruit)
+if let number = numbers.firstIndex(where: {$0 > 20}) {
+    print(number)
 }

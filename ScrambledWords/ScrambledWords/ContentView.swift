@@ -17,6 +17,7 @@ struct ContentView: View {
         Letter(id: 5, text: "R"),
     ]
     @State var guessedLetters: [Letter] = []
+    let correctWord = "ORANGE"
     
     var body: some View {
         GeometryReader { proxy in

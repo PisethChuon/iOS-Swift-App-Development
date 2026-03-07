@@ -63,6 +63,13 @@ struct ContentView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.border, lineWidth: 2)
                         }
+                        if showResult {
+                            Image(isCorrect ? "tick" : "remove")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .transition(.scale)
+                                .padding(.bottom, 8)
+                        }
                         Text("Score: 0")
                             .font(.system(size: 24))
                             .foregroundStyle(Color.white)
@@ -79,12 +86,6 @@ struct ContentView: View {
                                                 let guess = guessedLetters.map {$0.text}.joined()
                                                 isCorrect = (guess == correctWord)
                                                 showResult = true
-                                                
-                                                if showResult {
-//                                                    Image(isCorrect ? "tick" : "remove")
-                                                    
-                                                }
-                                                
                                             }
                                         }
                                     }

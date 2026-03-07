@@ -21,6 +21,8 @@ struct ContentView: View {
     
     @State private var showAlert:Bool = false
     @State private var alertMessage: String = ""
+    @State private var showResult:Bool = false
+    @State private var isCorrect = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -45,8 +47,8 @@ struct ContentView: View {
                                                 
                                                 // Remove from guessedLetters
                                                 if let guessedIndex = guessedLetters.firstIndex(where: { $0.id == guessedLetter.id }) {
-                                                            guessedLetters.remove(at: guessedIndex)
-                                                        }
+                                                    guessedLetters.remove(at: guessedIndex)
+                                                }
                                             }
                                         }
                                     Rectangle()
@@ -75,12 +77,7 @@ struct ContentView: View {
                                             
                                             if guessedLetters.count == correctWord.count {
                                                 let guess = guessedLetters.map {$0.text}.joined()
-                                                if guess == correctWord {
-                                                    alertMessage = "Correct"
-                                                } else {
-                                                    alertMessage = "Not quite, try again!"
-                                                }
-                                                showAlert = true
+                                                
                                             }
                                         }
                                     }
@@ -88,18 +85,18 @@ struct ContentView: View {
                         }
                     }
                 }
-            }
-            .alert(alertMessage, isPresented: $showAlert) {
-                Button("OK", role: .cancel) {
-                    // Optional: reset guessedLetters here if wrong
-                    if alertMessage.contains("Wrong") {
-                        // put letters back if you want
-                        for letter in guessedLetters {
-                            if let index = letters.firstIndex(where: { $0.id == letter.id }) {
-                                letters[index].text = letter.text
+                .alert(alertMessage, isPresented: $showAlert) {
+                    Button("OK", role: .cancel) {
+                        // Optional: reset guessedLetters here if wrong
+                        if alertMessage.contains("Wrong") {
+                            // put letters back if you want
+                            for letter in guessedLetters {
+                                if let index = letters.firstIndex(where: { $0.id == letter.id }) {
+                                    letters[index].text = letter.text
+                                }
                             }
+                            guessedLetters.removeAll()
                         }
-                        guessedLetters.removeAll()
                     }
                 }
             }

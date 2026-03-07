@@ -76,12 +76,11 @@ struct ContentView: View {
                                             if guessedLetters.count == correctWord.count {
                                                 let guess = guessedLetters.map {$0.text}.joined()
                                                 if guess == correctWord {
-//                                                    Image
-//                                                    alertMessage = "Correct!"
+                                                    alertMessage = "Correct"
                                                 } else {
                                                     alertMessage = "Not quite, try again!"
                                                 }
-//                                                showAlert = true
+                                                showAlert = true
                                             }
                                         }
                                     }
@@ -90,20 +89,20 @@ struct ContentView: View {
                     }
                 }
             }
-//            .alert(alertMessage, isPresented: $showAlert) {
-//                Button("OK", role: .cancel) {
-//                    // Optional: reset guessedLetters here if wrong
-//                    if alertMessage.contains("Wrong") {
-//                        // put letters back if you want
-//                        for letter in guessedLetters {
-//                            if let index = letters.firstIndex(where: { $0.id == letter.id }) {
-//                                letters[index].text = letter.text
-//                            }
-//                        }
-//                        guessedLetters.removeAll()
-//                    }
-//                }
-//            }
+            .alert(alertMessage, isPresented: $showAlert) {
+                Button("OK", role: .cancel) {
+                    // Optional: reset guessedLetters here if wrong
+                    if alertMessage.contains("Wrong") {
+                        // put letters back if you want
+                        for letter in guessedLetters {
+                            if let index = letters.firstIndex(where: { $0.id == letter.id }) {
+                                letters[index].text = letter.text
+                            }
+                        }
+                        guessedLetters.removeAll()
+                    }
+                }
+            }
         }
     }
 }

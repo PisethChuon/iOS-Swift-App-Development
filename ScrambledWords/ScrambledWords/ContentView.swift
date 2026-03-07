@@ -86,6 +86,8 @@ struct ContentView: View {
                                                 let guess = guessedLetters.map {$0.text}.joined()
                                                 isCorrect = (guess == correctWord)
                                                 showResult = true
+                                                alertMessage = isCorrect ? "Correct!" : "Wrong!"
+                                                showAlert = true
                                             }
                                         }
                                     }

@@ -77,6 +77,13 @@ struct ContentView: View {
                                             
                                             if guessedLetters.count == correctWord.count {
                                                 let guess = guessedLetters.map {$0.text}.joined()
+                                                isCorrect = (guess == correctWord)
+                                                showResult = true
+                                                
+                                                if showResult {
+//                                                    Image(isCorrect ? "tick" : "remove")
+                                                    
+                                                }
                                                 
                                             }
                                         }

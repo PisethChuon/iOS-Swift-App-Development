@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingSheet = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button(action: {
+            isShowingSheet.toggle()
+        }) {
+            Text("Show License Agreement")
         }
-        .padding()
+        .sheet(isPresented: $isShowingSheet, onDismiss: didDismiiss) {
+            VStack {
+                Text("License Agreement")
+                    .font(.title)
+                    .padding(50)
+                Text("""
+                    Terms and conditions go here.
+                    """)
+                .padding(50)
+                Button("Dissmiss",
+                       action: {isShowingSheet.toggle()})
+            }
+        }
+    }
+    func didDismiiss() {
+        
     }
 }
 

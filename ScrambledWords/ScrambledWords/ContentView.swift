@@ -23,6 +23,7 @@ struct ContentView: View {
     @State private var alertMessage: String = ""
     @State private var showResult:Bool = false
     @State private var isCorrect = false
+    @State private var score:Int = 0
     
     var body: some View {
         GeometryReader { proxy in
@@ -70,7 +71,7 @@ struct ContentView: View {
                                 .transition(.scale)
                                 .padding(.bottom, 8)
                         }
-                        Text("Score: 0")
+                        Text("Score: \(score)")
                             .font(.system(size: 24))
                             .foregroundStyle(Color.white)
                             .padding(.top)
@@ -85,6 +86,9 @@ struct ContentView: View {
                                             if guessedLetters.count == correctWord.count {
                                                 let guess = guessedLetters.map {$0.text}.joined()
                                                 isCorrect = (guess == correctWord)
+                                                if isCorrect {
+                                                    score += 1
+                                                }
                                                 showResult = true
                                                 alertMessage = isCorrect ? "Correct!" : "Wrong!"
                                                 showAlert = true

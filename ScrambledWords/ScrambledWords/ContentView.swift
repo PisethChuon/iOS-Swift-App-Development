@@ -106,6 +106,7 @@ struct ContentView: View {
                                 }
                             }
                             guessedLetters.removeAll()
+                            showResult = false
                         }
                     }
                 }

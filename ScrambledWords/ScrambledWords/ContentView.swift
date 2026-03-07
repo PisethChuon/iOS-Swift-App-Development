@@ -76,9 +76,7 @@ struct ContentView: View {
                                             if guessedLetters.count == correctWord.count {
                                                 let guess = guessedLetters.map {$0.text}.joined()
                                                 if guess == correctWord {
-                                                    VStack {
-                                                        Image("tick")
-                                                    }
+//                                                    Image
 //                                                    alertMessage = "Correct!"
                                                 } else {
                                                     alertMessage = "Not quite, try again!"

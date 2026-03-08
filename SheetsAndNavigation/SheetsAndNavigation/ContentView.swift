@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showProfile: Bool = false
     
     var body: some View {
         VStack {
-            Button(action: {
-                
-            }, label: {
-                Text("Profile")
-            })
+            Text("Home Screen")
+            
+            Button("Show Profile"){
+                showProfile = true
+            }
+            .sheet(isPresented: $showProfile) {
+                SheetsView()
+            }
         }
     }
         

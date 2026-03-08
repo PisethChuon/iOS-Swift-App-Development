@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct SheetsView: View {
-//    @Environment(\.dismiss) var dismiss
-    @Binding var isPresented: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
-            Text("Sheets content")
+            Text("Sheets contents")
             Button("Close") {
-                isPresented = false
+                dismiss()
             }
         }
     }

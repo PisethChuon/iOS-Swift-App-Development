@@ -11,8 +11,8 @@ struct SheetsView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
-            Text("Sheets contents")
-            Button("Close") {
+            Text("Thems")
+            Button("Change Color") {
                 dismiss()
             }
         }

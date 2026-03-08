@@ -9,16 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isShowingSheet = false
+    @State private var sheetColor = Color.blue
     var body: some View {
-        Button(action: {
-            isShowingSheet = true
-        }, label: {
-            Text("Sheet")
-        })
-        .sheet(isPresented: $isShowingSheet, onDismiss: {
-            print("Dismissed")
-        }) {
-            SheetsView()
+        ZStack {
+            sheetColor
+            Button(action: {
+                isShowingSheet = true
+            }, label: {
+                Text("Sheet")
+            })
+            .sheet(isPresented: $isShowingSheet, onDismiss: {
+                sheetColor = Color.red
+            }) {
+                SheetsView()
+            }
         }
     }
         

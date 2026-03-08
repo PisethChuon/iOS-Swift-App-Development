@@ -15,9 +15,11 @@ struct ContentView: View {
         }, label: {
             Text("Sheet")
         })
-        .sheet(isPresented: $isShowingSheet, content: {
+        .sheet(isPresented: $isShowingSheet, onDismiss: {
+            print("Dismissed")
+        }) {
             SheetsView()
-        })
+        }
     }
         
 }

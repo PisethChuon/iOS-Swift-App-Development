@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct SheetsView: View {
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Sheets content")
+            Button("Close") {
+                dismiss()
+            }
+        }
     }
 }
 

@@ -11,10 +11,18 @@ struct SheetsView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
-            Text("Thems")
-            Button("Change Color") {
+            Image(systemName: "person.crop.circle")
+                .font(Font.system(size: 100))
+                .foregroundStyle(Color.blue)
+            VStack (spacing: 20) {
+                Text("User Profile")
+                Text("Name: Piseth")
+            }
+            Button("Close") {
                 dismiss()
             }
+            .padding(20)
+            
         }
     }
 }

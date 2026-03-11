@@ -7,18 +7,31 @@
 
 import SwiftUI
 
+struct User: Identifiable {
+    let id = UUID()
+    let name: String
+}
+
 struct ContentView: View {
-    @State private var showProfile: Bool = false
+    
+    @State private var selectedUser: User? = nil
     
     var body: some View {
-        VStack {
-            Text("Home Screen")
-            
-            Button("Show Profile"){
-                showProfile = true
+        VStack (spacing:20) {
+            Button ("Show item") {
+                selectedUser = User(name: "Piseth")
             }
-            .sheet(isPresented: $showProfile) {
-                SheetsView()
+        }
+        .sheet(item: $selectedUser, onDismiss: {
+            print("Sheet closed")
+        }) {
+            user in
+            VStack {
+                Text("Hello \(user.name)")
+                
+                Button("Close") {
+                    selectedUser = nil
+                }
             }
         }
     }

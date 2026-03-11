@@ -22,8 +22,16 @@ struct ContentView: View {
                 SelectedProduct = Product(title: "Apple")
             }
         }
-        .sheet(item: $SelectedProduct) { product in
-            Text("This is a \(product.title)")
+        .sheet(item: $SelectedProduct, onDismiss: {
+            print("Sheet closed")
+        }) { product in
+            VStack {
+                Text("This is a \(product.title)")
+                
+                Button ("Close") {
+                    SelectedProduct = nil
+                }
+            }
         }
         
         }

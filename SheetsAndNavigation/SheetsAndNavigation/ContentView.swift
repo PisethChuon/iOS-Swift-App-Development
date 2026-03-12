@@ -18,7 +18,7 @@ struct ContentView: View {
             }
             .navigationTitle(Text("Users"))
             .navigationDestination(for: String.self) { user in
-            Text("Profile of \(user)")}
+                Text("Profile of \(user)")}
         }
         
     }

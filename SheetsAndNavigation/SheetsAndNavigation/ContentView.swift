@@ -13,27 +13,17 @@ struct Product: Identifiable {
 }
 
 struct ContentView: View {
-    
-    @State private var SelectedProduct: Product?
+    @State private var isPresented = false
     
     var body: some View {
         VStack {
-            Button("Show Product") {
-                SelectedProduct = Product(title: "Apple")
-            }
-        }
-        .sheet(item: $SelectedProduct, onDismiss: {
-            print("Sheet closed")
-        }) { product in
-            VStack {
-                Text("This is a \(product.title)")
+            Button("Sheet") {
                 
-                Button ("Close") {
-                    SelectedProduct = nil
-                }
             }
+            .sheet(isPresented: $isPresented, content: {
+                
+            })
         }
-        
     }
 }
 

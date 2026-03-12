@@ -9,30 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var body: some View {
-        NavigationStack {
-            VStack {
-                NavigationLink{
-                    DetailView()
-                } label: {
-                    HStack {
-                        Image(systemName: "person")
-                        Text("Profile")
-                    }
-                }
-            }
-            .navigationTitle("Home")
-        }
-    }
-}
-
-struct DetailView: View {
+    let users = ["Anna", "John", "Piseth"]
     
     var body: some View {
-        VStack {
-            Text("Detail")
-                .navigationTitle("Detail")
+        NavigationStack {
+            List(users, id: \.self) { user in
+                NavigationLink(user, value: user)
+            }
+            .navigationTitle(Text("Users"))
+            .navigationDestination(for: String.self) { user in
+            Text("Profile of \(user)")}
         }
+        
     }
 }
 

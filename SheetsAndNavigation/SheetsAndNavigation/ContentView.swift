@@ -27,8 +27,8 @@ struct DetailView: View {
     var body: some View {
         VStack {
             Text("Detail")
+                .navigationTitle("Detail")
         }
-        
     }
 }
 

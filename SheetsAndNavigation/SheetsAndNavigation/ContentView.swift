@@ -12,9 +12,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Home")
-                NavigationLink("Go to Detail") {
+                NavigationLink{
                     DetailView()
+                } label: {
+                    HStack {
+                        Image(systemName: "person")
+                        Text("Profile")
+                    }
                 }
             }
             .navigationTitle("Home")

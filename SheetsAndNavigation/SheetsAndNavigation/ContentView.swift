@@ -17,7 +17,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isPresented) {
                 SettingsView()
-//                    .presentationDetents([.height(150) ,.medium, .large])
+                    .presentationDetents([.medium, .large])
             }
         }
     }

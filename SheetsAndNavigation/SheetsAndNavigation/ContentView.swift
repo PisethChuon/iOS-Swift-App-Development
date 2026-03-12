@@ -9,21 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let users = ["Anna", "John", "Piseth"]
+    let fruites = ["Apple", "Banaba", "Mango"]
     
     var body: some View {
         NavigationStack {
-            List(users, id: \.self) { user in
-                NavigationLink(user, value: user)
+            List(fruites, id: \.self) { fruite in
+                NavigationLink(fruite, value: fruite)
             }
-            .navigationTitle(Text("Users"))
-            .navigationDestination(for: String.self) { user in
-                Text("Profile of \(user)")}
+            .navigationTitle(Text("Fruites"))
+            .navigationDestination(for: String.self) { fruite in
+                Text("Fruite Detail")
+                Text("You selected: \(fruite)")}
         }
-        
     }
 }
-
 
 #Preview {
     ContentView()

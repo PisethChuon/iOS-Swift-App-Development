@@ -7,23 +7,22 @@
 
 import SwiftUI
 
-struct Product: Identifiable {
-    let id = UUID()
-    let title: String
-}
-
 struct ContentView: View {
     @State private var isPresented = false
     
     var body: some View {
         VStack {
             Button("Sheet") {
-                
+                isPresented.toggle()
             }
-            .sheet(isPresented: $isPresented, content: {
+            .sheet(isPresented: $isPresented, onDismiss: didDismiss) {
                 
-            })
+                Text("Hello, World!")
+            }
         }
+    }
+    func didDismiss() {
+        
     }
 }
 

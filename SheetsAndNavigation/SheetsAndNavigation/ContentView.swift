@@ -12,13 +12,12 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Home Screen")
-                
+                Text("Home")
                 NavigationLink("Go to Detail") {
                     DetailView()
                 }
             }
-//            .navigationTitle("Home")
+            .navigationTitle("Home")
         }
     }
 }
@@ -27,9 +26,9 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            Text("Detail Screen")
-                .navigationTitle("Detail")
+            Text("Detail")
         }
+        
     }
 }
 

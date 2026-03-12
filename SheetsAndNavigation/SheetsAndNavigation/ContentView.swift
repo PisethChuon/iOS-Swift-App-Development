@@ -15,7 +15,7 @@ struct ContentView: View {
             Button("Sheet") {
                 isPresented = true
             }
-            .fullScreenCover(isPresented: $isPresented) {
+            .sheet(isPresented: $isPresented) {
                 SettingsView()
 //                    .presentationDetents([.height(150) ,.medium, .large])
             }

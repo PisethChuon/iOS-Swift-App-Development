@@ -13,17 +13,21 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Sheet") {
-                isPresented.toggle()
+                isPresented = true
             }
-            .sheet(isPresented: $isPresented, onDismiss: didDismiss) {
-                
-                Text("Hello, World!")
+            .sheet(isPresented: $isPresented) {
+                SettingsView()
+                    .presentationDetents([.medium, .large])
             }
         }
     }
-    func didDismiss() {
-        
+    
+struct SettingsView: View {
+        var body: some View {
+            Text("Settings")
+        }
     }
+    
 }
 
 

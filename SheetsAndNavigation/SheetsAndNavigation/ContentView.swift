@@ -18,7 +18,7 @@ struct ContentView: View {
                     DetailView()
                 }
             }
-            .navigationTitle("Home")
+//            .navigationTitle("Home")
         }
     }
 }

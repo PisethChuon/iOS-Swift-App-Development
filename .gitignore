@@ -1,1 +1,77 @@
-*.DS_Store
+# Xcode
+# Build
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+
+# Xcode Schemes (uncomment if you don't want to share schemes)
+# *.xcscheme
+
+# Swift Package Manager
+.build/
+.swiftpm/
+*.resolved
+# Uncomment to ignore Package.resolved (if you don't want to lock dependency versions)
+# Package.resolved
+
+# CocoaPods
+Pods/
+*.xcworkspace
+# Uncomment if you are NOT checking in the Podfile.lock
+# Podfile.lock
+
+# Carthage
+Carthage/Build/
+# Uncomment to also ignore checkouts
+# Carthage/Checkouts/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# Simulator
+*.app
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Crashlytics / Firebase
+crashlytics-build.properties
+com_crashlytics_export_strings.xml
+
+# Environment / Secrets
+*.env
+*.env.local
+Secrets.swift
+Config.xcconfig
+GoogleService-Info.plist
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# AppCode
+.idea/
+*.iml
+
+# TestFlight
+AuthKey_*.p8

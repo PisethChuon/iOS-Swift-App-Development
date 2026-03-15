@@ -9,8 +9,6 @@ import SwiftUI
 struct SignUpPasswordView: View {
     @ObservedObject var viewModel: SignUpViewModel
     
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
     @State private var showAlert = false
     @Environment(\.dismiss) var dismiss
     
@@ -38,11 +36,11 @@ struct SignUpPasswordView: View {
                 .padding(.bottom)
             Button {
                 if viewModel.password == viewModel.confirmPassword {
-                    alertTitle = "Success!"
-                    alertMessage = "Please check your email for the activation link."
+                    viewModel.alertTitle = "Success!"
+                    viewModel.alertMessage = "Please check your email for the activation link."
                 } else {
-                    alertTitle = "Password Mismatch!"
-                    alertMessage = "Please check passwords."
+                    viewModel.alertTitle = "Password Mismatch!"
+                    viewModel.alertMessage = "Please check passwords."
                     viewModel.password = ""
                     viewModel.confirmPassword = ""
                 }
@@ -59,7 +57,7 @@ struct SignUpPasswordView: View {
             .padding(.top)
         }
         .padding()
-        .alert(alertTitle, isPresented: $showAlert) {
+        .alert(viewModel.alertTitle, isPresented: $showAlert) {
             Button("OK", action: {
                 if viewModel.password == viewModel.confirmPassword {
                     dismiss()
@@ -68,7 +66,7 @@ struct SignUpPasswordView: View {
                 }
             })
         } message: {
-            Text(alertMessage)
+            Text(viewModel.alertMessage)
         }
     }
     

@@ -7,9 +7,8 @@
 import SwiftUI
 
 struct SignUpPasswordView: View {
+    @ObservedObject var viewModel: SignUpViewModel
     
-    let username: String
-    let email: String
     @State private var password = ""
     @State private var confirmPassword = ""
     @State private var alertTitle = ""
@@ -21,17 +20,17 @@ struct SignUpPasswordView: View {
         VStack(alignment: .leading,spacing: 10) {
             Text("Username")
                 .font(.system(size: 15, weight: .semibold))
-            Text(username)
+            Text(viewModel.username)
                 .font(.system(size: 15, weight: .regular))
                 .padding(.bottom)
             Text("Email")
                 .font(.system(size: 15, weight: .semibold))
-            Text(email)
+            Text(viewModel.email)
                 .font(.system(size: 15, weight: .regular))
                 .padding(.bottom)
             Text("Password")
                 .font(.system(size: 15, weight: .semibold))
-            SecureField("Password", text: $password)
+            SecureField("Password", text: $viewModel.password)
                 .textFieldStyle(.roundedBorder)
                 .padding(.bottom)
             Text("Confirm Password")
@@ -40,7 +39,7 @@ struct SignUpPasswordView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.bottom)
             Button {
-                if password == confirmPassword {
+                if viewModel.password == confirmPassword {
                     alertTitle = "Success!"
                     alertMessage = "Please check your email for the activation link."
                 } else {
@@ -78,5 +77,5 @@ struct SignUpPasswordView: View {
 }
 
 #Preview {
-    SignUpPasswordView(username: "paul", email: "paul@test.com")
+    SignUpPasswordView(viewModel: SignUpViewModel())
 }

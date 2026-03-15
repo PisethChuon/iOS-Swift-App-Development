@@ -45,6 +45,13 @@ struct SignUpUsernameEmailView: View {
                 SignUpPasswordView(viewModel: viewModel)
             })
             .padding()
+            .alert(viewModel.alertTitle, isPresented: $viewModel.showAlertInUserEmailView, actions: {
+                Button("Ok", action: {
+                    
+                })
+            }, message: {
+                Text(viewModel.alertMessage)
+            })
         }
     }
 }

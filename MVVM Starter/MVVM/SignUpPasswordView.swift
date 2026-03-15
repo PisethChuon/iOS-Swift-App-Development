@@ -9,8 +9,6 @@ import SwiftUI
 struct SignUpPasswordView: View {
     @ObservedObject var viewModel: SignUpViewModel
     
-    @State private var password = ""
-    @State private var confirmPassword = ""
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showAlert = false
@@ -35,18 +33,18 @@ struct SignUpPasswordView: View {
                 .padding(.bottom)
             Text("Confirm Password")
                 .font(.system(size: 15, weight: .semibold))
-            SecureField("Confirm Password", text: $confirmPassword)
+            SecureField("Confirm Password", text: $viewModel.confirmPassword)
                 .textFieldStyle(.roundedBorder)
                 .padding(.bottom)
             Button {
-                if viewModel.password == confirmPassword {
+                if viewModel.password == viewModel.confirmPassword {
                     alertTitle = "Success!"
                     alertMessage = "Please check your email for the activation link."
                 } else {
                     alertTitle = "Password Mismatch!"
                     alertMessage = "Please check passwords."
-                    password = ""
-                    confirmPassword = ""
+                    viewModel.password = ""
+                    viewModel.confirmPassword = ""
                 }
                 showAlert = true
             } label: {
@@ -63,7 +61,7 @@ struct SignUpPasswordView: View {
         .padding()
         .alert(alertTitle, isPresented: $showAlert) {
             Button("OK", action: {
-                if password == confirmPassword {
+                if viewModel.password == viewModel.confirmPassword {
                     dismiss()
                 } else {
                     showAlert = false

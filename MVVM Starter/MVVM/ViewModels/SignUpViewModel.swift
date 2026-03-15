@@ -9,7 +9,8 @@ class SignUpViewModel: ObservableObject {
     @Published var alertTitle = ""
     @Published var alertMessage = ""
     @Published var showAlert = false
-    @Published var showNextPage = false
+    @Published var showNextPage = false 
+    @Published var confirmPassword = ""
     
     func validate() {
         guard validateUsername() && validateUsername() else { return }

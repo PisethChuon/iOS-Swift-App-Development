@@ -8,7 +8,8 @@ import SwiftUI
 
 struct SignUpUsernameEmailView: View {
     
-    @State private var username = ""
+    @StateObject private var viewModel = SignUpUsernameEmailViewModel()
+    
     @State private var email = ""
     @State private var password = ""
     @State private var alertTitle = ""
@@ -21,7 +22,7 @@ struct SignUpUsernameEmailView: View {
             VStack(alignment: .leading,spacing: 10) {
                 Text("Username")
                     .font(.system(size: 15, weight: .semibold))
-                TextField("Username", text: $username)
+                TextField("Username", text: $viewModel.username)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                     .textFieldStyle(.roundedBorder)
@@ -34,7 +35,7 @@ struct SignUpUsernameEmailView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.bottom)
                 Button {
-                    guard !username.isEmpty else {
+                    guard !viewModel.username.isEmpty else {
                         alertTitle = "Username Required"
                         alertMessage = "Please provide a username"
                         showAlert = true

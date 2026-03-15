@@ -9,7 +9,6 @@ import SwiftUI
 struct SignUpUsernameEmailView: View {
     
     @StateObject private var viewModel = SignUpViewModel()
-
     
     var body: some View {
         NavigationStack {

@@ -42,7 +42,7 @@ struct SignUpUsernameEmailView: View {
                 .padding(.top)
             }
             .navigationDestination(isPresented: $viewModel.showNextPage, destination: {
-                
+                SignUpPasswordView(username: viewModel.username, email: viewModel.email)
             })
             .padding()
         }

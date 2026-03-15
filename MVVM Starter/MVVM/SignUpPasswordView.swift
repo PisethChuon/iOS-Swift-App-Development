@@ -35,16 +35,7 @@ struct SignUpPasswordView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.bottom)
             Button {
-                if viewModel.password == viewModel.confirmPassword {
-                    viewModel.alertTitle = "Success!"
-                    viewModel.alertMessage = "Please check your email for the activation link."
-                } else {
-                    viewModel.alertTitle = "Password Mismatch!"
-                    viewModel.alertMessage = "Please check passwords."
-                    viewModel.password = ""
-                    viewModel.confirmPassword = ""
-                }
-                showAlert = true
+                
             } label: {
                 Text("Complete")
                     .foregroundStyle(.white)

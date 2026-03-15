@@ -9,12 +9,25 @@ class SignUpViewModel: ObservableObject {
     @Published var alertTitle = ""
     @Published var alertMessage = ""
     @Published var showAlert = false
-    @Published var showNextPage = false 
+    @Published var showNextPage = false
     @Published var confirmPassword = ""
     
     func validate() {
         guard validateUsername() && validateUsername() else { return }
         showNextPage = true
+    }
+    
+    func confirmSignUp() {
+        if password == confirmPassword {
+            alertTitle = "Success!"
+            alertMessage = "Please check your email for the activation link."
+        } else {
+            alertTitle = "Password Mismatch!"
+            alertMessage = "Please check passwords."
+            password = ""
+            confirmPassword = ""
+        }
+        showAlert = true
     }
     
     private func validateUsername() -> Bool {

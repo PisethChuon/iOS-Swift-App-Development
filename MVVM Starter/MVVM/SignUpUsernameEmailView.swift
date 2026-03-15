@@ -29,19 +29,7 @@ struct SignUpUsernameEmailView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.bottom)
                 Button {
-                    guard !viewModel.username.isEmpty else {
-                        viewModel.alertTitle = "Username Required"
-                        viewModel.alertMessage = "Please provide a username"
-                        viewModel.showAlert = true
-                        return
-                    }
-                    guard !viewModel.email.isEmpty else {
-                        viewModel.alertTitle = "Email Required"
-                        viewModel.alertMessage = "Please provide a email"
-                        viewModel.showAlert = true
-                        return
-                    }
-                    viewModel.showNextPage = true
+                    viewModel.validate()
                 } label: {
                     Text("Next")
                         .foregroundStyle(.white)

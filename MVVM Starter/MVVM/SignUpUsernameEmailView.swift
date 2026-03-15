@@ -9,13 +9,7 @@ import SwiftUI
 struct SignUpUsernameEmailView: View {
     
     @StateObject private var viewModel = SignUpUsernameEmailViewModel()
-    
-    @State private var email = ""
-    @State private var password = ""
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
-    @State private var showAlert = false
-    @State private var showNextPage = false
+
     
     var body: some View {
         NavigationStack {
@@ -29,25 +23,25 @@ struct SignUpUsernameEmailView: View {
                     .padding(.bottom)
                 Text("Email")
                     .font(.system(size: 15, weight: .semibold))
-                TextField("Email", text: $email)
+                TextField("Email", text: $viewModel.email)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                     .textFieldStyle(.roundedBorder)
                     .padding(.bottom)
                 Button {
                     guard !viewModel.username.isEmpty else {
-                        alertTitle = "Username Required"
-                        alertMessage = "Please provide a username"
-                        showAlert = true
+                        viewModel.alertTitle = "Username Required"
+                        viewModel.alertMessage = "Please provide a username"
+                        viewModel.showAlert = true
                         return
                     }
-                    guard !email.isEmpty else {
-                        alertTitle = "Email Required"
-                        alertMessage = "Please provide a email"
-                        showAlert = true
+                    guard !viewModel.email.isEmpty else {
+                        viewModel.alertTitle = "Email Required"
+                        viewModel.alertMessage = "Please provide a email"
+                        viewModel.showAlert = true
                         return
                     }
-                    showNextPage = true
+                    viewModel.showNextPage = true
                 } label: {
                     Text("Next")
                         .foregroundStyle(.white)
@@ -59,7 +53,7 @@ struct SignUpUsernameEmailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 6))
                 .padding(.top)
             }
-            .navigationDestination(isPresented: $showNextPage, destination: {
+            .navigationDestination(isPresented: $viewModel.showNextPage, destination: {
                 
             })
             .padding()

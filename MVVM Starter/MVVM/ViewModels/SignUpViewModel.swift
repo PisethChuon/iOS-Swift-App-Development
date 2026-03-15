@@ -31,6 +31,14 @@ class SignUpViewModel: ObservableObject {
         showAlertInPasswordView = true
     }
     
+    func handlePasswordViewAlert() {
+        if password == confirmPassword {
+            showNextPage = false
+        } else {
+            showAlertInPasswordView = false
+        }
+    }
+    
     private func validateUsername() -> Bool {
         guard !username.isEmpty else {
             alertTitle = "Username Required"

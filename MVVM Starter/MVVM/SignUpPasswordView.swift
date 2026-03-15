@@ -10,7 +10,6 @@ struct SignUpPasswordView: View {
     @ObservedObject var viewModel: SignUpViewModel
     
     @State private var showAlert = false
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment: .leading,spacing: 10) {
@@ -48,13 +47,9 @@ struct SignUpPasswordView: View {
             .padding(.top)
         }
         .padding()
-        .alert(viewModel.alertTitle, isPresented: $showAlert) {
+        .alert(viewModel.alertTitle, isPresented: $viewModel.showAlertInPasswordView) {
             Button("OK", action: {
-                if viewModel.password == viewModel.confirmPassword {
-                    dismiss()
-                } else {
-                    showAlert = false
-                }
+                viewModel.handlePasswordViewAlert()
             })
         } message: {
             Text(viewModel.alertMessage)

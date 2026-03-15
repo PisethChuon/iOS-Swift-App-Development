@@ -8,7 +8,7 @@ import SwiftUI
 
 struct SignUpUsernameEmailView: View {
     
-    @StateObject private var viewModel = SignUpUsernameEmailViewModel()
+    @StateObject private var viewModel = SignUpViewModel()
 
     
     var body: some View {
@@ -37,6 +37,7 @@ struct SignUpUsernameEmailView: View {
                         .frame(height: 40)
                         .frame(maxWidth: .infinity)
                 }
+
                 .background(Color.blue)
                 .clipShape(RoundedRectangle(cornerRadius: 6))
                 .padding(.top)

@@ -2,7 +2,7 @@ import Foundation
 
 import SwiftUI
 
-class SignUpUsernameEmailViewModel: ObservableObject {
+class SignUpViewModel: ObservableObject {
     @Published var username = ""
     @Published var email = ""
     @Published var password = ""

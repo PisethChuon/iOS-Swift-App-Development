@@ -8,7 +8,8 @@ class SignUpViewModel: ObservableObject {
     @Published var password = ""
     @Published var alertTitle = ""
     @Published var alertMessage = ""
-    @Published var showAlert = false
+    @Published var showAlertInUserEmailView = false
+    @Published var showAlertInPasswordView = false
     @Published var showNextPage = false
     @Published var confirmPassword = ""
     
@@ -27,14 +28,14 @@ class SignUpViewModel: ObservableObject {
             password = ""
             confirmPassword = ""
         }
-        showAlert = true
+        showAlertInPasswordView = true
     }
     
     private func validateUsername() -> Bool {
         guard !username.isEmpty else {
             alertTitle = "Username Required"
             alertMessage = "Please provide a username"
-            showAlert = true
+            showAlertInUserEmailView = true
             return false
         }
         return true
@@ -44,7 +45,7 @@ class SignUpViewModel: ObservableObject {
         guard !email.isEmpty else {
             alertTitle = "Email Required"
             alertMessage = "Please provide a email"
-            showAlert = true
+            showAlertInUserEmailView = true
             return false
         }
         return true

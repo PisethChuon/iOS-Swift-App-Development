@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var vm = CounterViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 20) {
+            Text("Count: \(vm.count)")
+            Button("Increase") {
+                vm.increase()
+            }
         }
-        .padding()
     }
 }
 

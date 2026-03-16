@@ -12,8 +12,12 @@ struct CounterControlView: View {
     @ObservedObject var vm: CounterViewModel
     
     var body: some View {
-        Button("Increase") {
-            vm.increase()
+        Button("Increment") {
+            vm.increment()
+        }
+        
+        Button("Decrement") {
+            vm.decrement()
         }
     }
 }

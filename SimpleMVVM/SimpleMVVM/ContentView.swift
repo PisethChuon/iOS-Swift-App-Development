@@ -14,6 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
             CounterDisplayView(vm: vm)
+            CounterControlView(vm: vm)
         }
     }
 }

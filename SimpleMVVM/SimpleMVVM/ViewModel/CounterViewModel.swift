@@ -17,4 +17,8 @@ class CounterViewModel: ObservableObject {
         count += 1
     }
     
+    func decrease() {
+        count -= 1
+    }
+    
 }

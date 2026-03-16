@@ -19,6 +19,7 @@ struct ContentView: View {
             Button("Increase") {
                 vm.increase()
             }
+            
             Button("Decrease") {
                 vm.decrease()
             }

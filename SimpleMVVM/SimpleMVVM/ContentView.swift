@@ -9,12 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var vm = CounterViewModel()
+    @StateObject var vm = TodoListViewModel()
     
     var body: some View {
         VStack(spacing: 20) {
-            CounterDisplayView(vm: vm)
-            CounterControlView(vm: vm)
+            Text("\(vm.title)")
         }
     }
 }

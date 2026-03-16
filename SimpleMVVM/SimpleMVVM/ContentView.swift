@@ -13,8 +13,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Count: \(vm.count)")
-                .font(.largeTitle)
+            
+            CounterDisplayView(vm: vm)
+            
             Button("Increase") {
                 vm.increase()
             }

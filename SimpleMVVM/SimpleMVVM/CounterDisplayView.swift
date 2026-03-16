@@ -6,17 +6,13 @@
 //
 
 import SwiftUI
-//import Combine
 
 struct CounterDisplayView: View {
     
-    @ObservableObject var vm: CounterViewModel
+    @ObservedObject var vm: CounterViewModel
     
     var body: some View {
-        Text("Current view: \(vm.count)")
+        Text("Current count: \(vm.count)")
+            .font(.largeTitle)
     }
-}
-
-#Preview {
-    CounterDisplayView()
 }

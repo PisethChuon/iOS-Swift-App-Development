@@ -47,7 +47,7 @@ fastlane/test_output/
 *.app
 
 # macOS
-.DS_Store
+*.DS_Store
 .AppleDouble
 .LSOverride
 ._*

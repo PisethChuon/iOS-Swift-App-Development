@@ -11,4 +11,9 @@ import SwiftUI
 
 class TodoListViewModel: ObservableObject {
     @Published var title: String = "My Tasks"
+    @Published var todos: [String] = ["Buy milk", "Finish homework", "Buy eggs"]
+    
+    func addTodo(_ todo: String) {
+        todos.append(todo)
+    }
 }

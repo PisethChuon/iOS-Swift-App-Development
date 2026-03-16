@@ -15,6 +15,7 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 20) {
             Text("\(vm.title)")
                 .font(.title)
+            TodoListDisplayView(vm: vm)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding()

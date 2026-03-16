@@ -12,9 +12,12 @@ struct ContentView: View {
     @StateObject var vm = TodoListViewModel()
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .leading, spacing: 20) {
             Text("\(vm.title)")
+                .font(.title)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .padding()
     }
 }
 

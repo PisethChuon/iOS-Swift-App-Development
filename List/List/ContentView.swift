@@ -26,6 +26,8 @@ struct ContentView: View {
             List (oceans) {
                 Text($0.name)
             }
+            .navigationTitle("Oceans")
+            
         }
     }
 }

@@ -13,9 +13,12 @@ import SwiftUI
 
 
 struct ContentView: View {
+    let fruits = ["Apple", "Banana", "Orange", "Pineapple", "Strawberry"]
 
     var body: some View {
-        
+        List (fruits, id: \.self) { fruit in
+            Text(fruit)
+        }
     }
 }
 

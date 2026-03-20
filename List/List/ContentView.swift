@@ -9,15 +9,24 @@ import SwiftUI
 
 
 
-// Keep data at file scope if desired (no property wrappers here)
-
+struct Fruit: Identifiable {
+    let id = UUID()
+    let name: String
+    let colors: String
+}
 
 struct ContentView: View {
-    let fruits = ["Apple", "Banana", "Orange", "Pineapple", "Strawberry"]
+    
+    let fruits = [
+        Fruit(name: "Apple", colors: "Red"),
+        Fruit(name: "Banana", colors: "Yellow"),
+        Fruit(name: "Orange", colors: "Orange")
+    ]
 
     var body: some View {
-        List (fruits, id: \.self) { fruit in
-            Text(fruit)
+        List(fruits) { fruit in
+            Text(fruit.name)
+            Text(fruit.colors)
         }
     }
 }

@@ -17,19 +17,27 @@ struct ContentView: View {
         VStack {
             List {
                 ForEach(transactions) { transaction in
-                    HStack {
-                        Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
-                            .font(.system(size: 16, weight: .bold))
-                            .foregroundStyle(transaction.type == .income ? .green : .red)
-                        VStack (alignment: .leading) {
-                            HStack {
-                                Text(transaction.title)
-                                    .font(.system(size: 15, weight: .bold))
-                                Spacer()
-                                Text(String(transaction.amount))
-                            }
-                            Text("Completed")
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("21/03/26")
                                 .font(.system(size: 14))
+                        }
+                        HStack {
+                            Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundStyle(transaction.type == .income ? .green : .red)
+                            VStack (alignment: .leading, spacing: 5) {
+                                HStack {
+                                    Text(transaction.title)
+                                        .font(.system(size: 15, weight: .bold))
+                                    Spacer()
+                                    Text(String(transaction.amount))
+                                        .font(.system(size: 15, weight: .bold))
+                                }
+                                Text("Completed")
+                                    .font(.system(size: 14))
+                            }
                         }
                     }
                 }

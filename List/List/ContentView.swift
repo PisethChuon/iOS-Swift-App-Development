@@ -11,13 +11,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var vm = FruitViewModel()
+    @StateObject private var vm = ContactViewModel()
     
     var body: some View {
-        
-        List(vm.fruits) { fruit in
-            Text(fruit.name)
+        List (vm.contacts) { contact in
+            Text(contact.name)
         }
+   
         
     }
     

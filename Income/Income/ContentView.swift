@@ -19,9 +19,14 @@ struct ContentView: View {
                 ForEach(transactions) { transaction in
                     VStack {
                         HStack {
+                            Spacer()
                             Text("21/03/26")
                                 .font(.system(size: 14))
+                            Spacer()
                         }
+                        .padding(.vertical, 5)
+                        .background(Color.lightGrayShade.opacity(0.5))
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                         HStack {
                             Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
                                 .font(.system(size: 16, weight: .bold))

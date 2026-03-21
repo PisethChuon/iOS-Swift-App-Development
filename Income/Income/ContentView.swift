@@ -19,7 +19,6 @@ struct ContentView: View {
                 ForEach(transactions) { transaction in
                     VStack {
                         HStack {
-                            Spacer()
                             Text("21/03/26")
                                 .font(.system(size: 14))
                         }

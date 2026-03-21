@@ -22,18 +22,12 @@ struct ContentView: View {
         Fruit(name: "Banana", colors: "Yellow"),
         Fruit(name: "Orange", colors: "Orange")
     ]
-
+    
     var body: some View {
-        List {
-            Section(header: Text("Fruits")) {
-                ForEach(fruits) { fruit in
-                    Text(fruit.name)
-                }
-            }
-            Section(header: Text("Colors")) {
-                ForEach(fruits) { fruit in
-                    Text(fruit.colors)
-                }
+        List (fruits) { fruit in
+            HStack {
+                Image(systemName: "applelogo")
+                Text(fruit.name)
             }
         }
     }

@@ -21,13 +21,15 @@ struct ContentView: View {
                         Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundStyle(transaction.type == .income ? .green : .red)
-                        VStack {
+                        VStack (alignment: .leading) {
                             HStack {
                                 Text(transaction.title)
                                     .font(.system(size: 15, weight: .bold))
                                 Spacer()
                                 Text(String(transaction.amount))
                             }
+                            Text("Completed")
+                                .font(.system(size: 14))
                         }
                     }
                 }

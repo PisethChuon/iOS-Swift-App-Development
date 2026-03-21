@@ -20,7 +20,7 @@ struct ContentView: View {
                     VStack {
                         HStack {
                             Spacer()
-                            Text("21/03/26")
+                            Text(transaction.displayDate)
                                 .font(.system(size: 14))
                             Spacer()
                         }

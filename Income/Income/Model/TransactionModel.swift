@@ -13,4 +13,9 @@ struct Transaction: Identifiable {
     let amount: Double
     let type: TransactionType
     let date: Date
+    var displayDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        return dateFormatter.string(from: date)
+    }
 }

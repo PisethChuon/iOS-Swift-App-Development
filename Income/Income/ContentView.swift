@@ -21,6 +21,8 @@ struct ContentView: View {
                         Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundStyle(transaction.type == .income ? .green : .red)
+                        Text(transaction.title)
+                            .font(.system(size: 15, weight: .bold))
                     }
                 }
             }

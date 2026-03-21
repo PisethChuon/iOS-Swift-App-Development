@@ -17,9 +17,14 @@ struct Contacts: Identifiable {
 
 class ContactViewModel: ObservableObject {
     @Published var contacts: [Contacts] = [
-        Contacts(name: "chuonpiseth", phoneNumber: "0812345678"),
-        Contacts(name: "chai", phoneNumber: "0812345678"),
+        Contacts(name: "Chuon Piseth", phoneNumber: "0812345678"),
+        Contacts(name: "Chhin Vanchhai", phoneNumber: "0812345678"),
+        Contacts(name: "Chuon Kimchuon", phoneNumber: "124567890"),
     ]
+    
+    func deleteContact(at offsets: IndexSet) {
+        contacts.remove(atOffsets: offsets)
+    }
 }
 
 

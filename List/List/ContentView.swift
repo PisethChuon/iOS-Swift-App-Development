@@ -14,13 +14,18 @@ struct ContentView: View {
     @StateObject private var vm = ContactViewModel()
     
     var body: some View {
-        List (vm.contacts) { contact in
-            Text(contact.name)
+        NavigationStack {
+            List {
+                ForEach (vm.contacts) { contact in
+                    NavigationLink(destination: Text(contact.phoneNumber)) {
+                        Text(contact.name)
+                    }
+                }
+                .onDelete(perform: vm.deleteContact)
+            }
         }
-   
-        
+        .navigationTitle(Text("Contacts"))
     }
-    
 }
 
 #Preview {

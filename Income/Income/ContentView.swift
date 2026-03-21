@@ -17,7 +17,9 @@ struct ContentView: View {
         VStack {
             List {
                 ForEach(transactions) { transaction in
-                    Text(transaction.title)
+                    HStack {
+                        Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
+                    }
                 }
             }
         }

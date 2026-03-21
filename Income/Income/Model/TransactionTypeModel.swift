@@ -8,5 +8,5 @@
 import Foundation
 
 enum TransactionType {
-    case income, expanse
+    case income, expense
 }

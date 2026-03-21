@@ -9,27 +9,14 @@ import SwiftUI
 
 
 
-struct Fruit: Identifiable {
-    let id = UUID()
-    let name: String
-    let colors: String
-}
-
 struct ContentView: View {
     
-    @State var fruits = [
-        Fruit(name: "Apple", colors: "Red"),
-        Fruit(name: "Banana", colors: "Yellow"),
-        Fruit(name: "Orange", colors: "Orange")
-    ]
+    @StateObject private var vm = FruitViewModel()
     
     var body: some View {
-        NavigationStack {
-            List(fruits) { fruit in
-                NavigationLink(fruit.name) {
-                    Text("Detail for \(fruit.name)")
-                }
-            }
+        
+        List(vm.fruits) { fruit in
+            Text(fruit.name)
         }
         
     }

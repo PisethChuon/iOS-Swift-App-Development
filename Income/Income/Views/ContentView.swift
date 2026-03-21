@@ -15,6 +15,23 @@ struct ContentView: View {
         
     ]
     
+    fileprivate func FloatingButton() -> some View {
+        VStack {
+            Spacer()
+            NavigationLink {
+                AddTransactionView()
+            } label: {
+                Text("+")
+                    .font(.largeTitle)
+                    .frame(width: 70, height: 70)
+                    .foregroundStyle(Color.white)
+                    .padding(.bottom, 7)
+            }
+            .background(Color.primaryLightGreen)
+            .clipShape(Circle())
+        }
+    }
+    
     fileprivate func BalanceView() -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
@@ -63,14 +80,19 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            BalanceView()
-            List {
-                ForEach(transactions) { transaction in
-                    TransactionView(transaction: transaction)
+        NavigationStack {
+            ZStack {
+                VStack {
+                    BalanceView()
+                    List {
+                        ForEach(transactions) { transaction in
+                            TransactionView(transaction: transaction)
+                        }
+                    }
+                    .scrollContentBackground(.hidden)
                 }
+                FloatingButton()
             }
-            .scrollContentBackground(.hidden)
         }
         
         

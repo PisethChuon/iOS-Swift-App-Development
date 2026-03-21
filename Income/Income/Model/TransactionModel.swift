@@ -21,6 +21,7 @@ struct Transaction: Identifiable {
     var displayAmount: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
+        numberFormatter.currencyCode = "USD"
         numberFormatter.maximumFractionDigits = 2
         return numberFormatter.string(from: amount as NSNumber) ?? "$0.00"
     }

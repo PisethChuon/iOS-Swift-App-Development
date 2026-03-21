@@ -36,7 +36,7 @@ struct ContentView: View {
                                     Text(transaction.title)
                                         .font(.system(size: 15, weight: .bold))
                                     Spacer()
-                                    Text(String(transaction.amount))
+                                    Text(String(transaction.displayAmount))
                                         .font(.system(size: 15, weight: .bold))
                                 }
                                 Text("Completed")

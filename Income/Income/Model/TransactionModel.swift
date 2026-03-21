@@ -18,4 +18,10 @@ struct Transaction: Identifiable {
         dateFormatter.dateStyle = .medium
         return dateFormatter.string(from: date)
     }
+    var displayAmount: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.maximumFractionDigits = 2
+        return numberFormatter.string(from: amount as NSNumber) ?? "$0.00"
+    }
 }

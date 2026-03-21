@@ -17,20 +17,23 @@ struct Fruit: Identifiable {
 
 struct ContentView: View {
     
-    let fruits = [
+    @State var fruits = [
         Fruit(name: "Apple", colors: "Red"),
         Fruit(name: "Banana", colors: "Yellow"),
         Fruit(name: "Orange", colors: "Orange")
     ]
     
     var body: some View {
-        List (fruits) { fruit in
-            HStack {
-                Image(systemName: "applelogo")
-                Text(fruit.name)
+        NavigationStack {
+            List(fruits) { fruit in
+                NavigationLink(fruit.name) {
+                    Text("Detail for \(fruit.name)")
+                }
             }
         }
+        
     }
+    
 }
 
 #Preview {

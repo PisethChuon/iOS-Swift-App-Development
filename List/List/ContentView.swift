@@ -24,9 +24,17 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        List(fruits) { fruit in
-            Text(fruit.name)
-            Text(fruit.colors)
+        List {
+            Section(header: Text("Fruits")) {
+                ForEach(fruits) { fruit in
+                    Text(fruit.name)
+                }
+            }
+            Section(header: Text("Colors")) {
+                ForEach(fruits) { fruit in
+                    Text(fruit.colors)
+                }
+            }
         }
     }
 }

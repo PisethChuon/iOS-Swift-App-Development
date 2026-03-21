@@ -8,50 +8,44 @@
 import SwiftUI
 
 struct TransactionView: View {
-    let transactions: [Transaction]
+    let transaction: Transaction
     
     var body: some View {
         VStack {
-            List {
-                ForEach(transactions) { transaction in
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Text(transaction.displayDate)
-                                .font(.system(size: 14))
-                            Spacer()
-                        }
-                        .padding(.vertical, 5)
-                        .background(Color.lightGrayShade.opacity(0.5))
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        HStack {
-                            Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
-                                .font(.system(size: 16, weight: .bold))
-                                .foregroundStyle(transaction.type == .income ? .green : .red)
-                            VStack (alignment: .leading, spacing: 5) {
-                                HStack {
-                                    Text(transaction.title)
-                                        .font(.system(size: 15, weight: .bold))
-                                    Spacer()
-                                    Text(String(transaction.displayAmount))
-                                        .font(.system(size: 15, weight: .bold))
-                                }
-                                Text("Completed")
-                                    .font(.system(size: 14))
-                            }
-                        }
+            HStack {
+                Spacer()
+                Text(transaction.displayDate)
+                    .font(.system(size: 14))
+                Spacer()
+            }
+            .padding(.vertical, 5)
+            .background(Color.lightGrayShade.opacity(0.5))
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            HStack {
+                Image(systemName: transaction.type == .income ? "arrow.up.forward" : "arrow.down.forward")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundStyle(transaction.type == .income ? .green : .red)
+                VStack (alignment: .leading, spacing: 5) {
+                    HStack {
+                        Text(transaction.title)
+                            .font(.system(size: 15, weight: .bold))
+                        Spacer()
+                        Text(String(transaction.displayAmount))
+                            .font(.system(size: 15, weight: .bold))
                     }
-                    .listRowSeparator(.hidden)
+                    Text("Completed")
+                        .font(.system(size: 14))
                 }
             }
-            .scrollContentBackground(.hidden)
         }
+        .listRowSeparator(.hidden)
     }
 }
 
 
+
 #Preview {
-    TransactionView(transactions: [
+    TransactionView(transaction:
         Transaction(title: "Apple", amount: 5.00, type: .expense, date: Date())
-    ])
+    )
 }

@@ -15,8 +15,25 @@ struct ContentView: View {
         
     ]
     
+//    fileprivate func BalanceView() -> some View {
+//        ZStack {
+//            RoundedRectangle(cornerRadius: 8)
+//        }
+//        .frame(height: 150)
+//    }
+    
     var body: some View {
-        TransactionView(transactions: transactions)
+        VStack {
+            
+            List {
+                ForEach(transactions) { transaction in
+                    TransactionView(transaction: transaction)
+                }
+            }
+            .scrollContentBackground(.hidden)
+        }
+        
+        
     }
 }
 

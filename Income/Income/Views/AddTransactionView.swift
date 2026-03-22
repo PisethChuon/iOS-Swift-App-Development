@@ -26,6 +26,9 @@ struct AddTransactionView: View {
                 .font(.system(size: 60, weight: .thin))
                 .multilineTextAlignment(.center)
                 .keyboardType(.numberPad)
+            Rectangle()
+                .frame(height: 0.5)
+                .padding(.horizontal, 30)
             Picker("Choose Type", selection: $selectedTransactionType) {
                 ForEach(TransactionType.allCases) {transactionType in
                     Text(transactionType.title)

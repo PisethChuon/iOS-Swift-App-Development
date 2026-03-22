@@ -17,6 +17,7 @@ struct AddTransactionView: View {
     @State private var alertMessage = ""
     @State private var showAlert = false
     @Binding var transactions: [Transaction]
+    var transactionToEdit: Transaction?
     @Environment(\.dismiss) var dismiss
     
     var numberFormatter: NumberFormatter {
@@ -73,6 +74,13 @@ struct AddTransactionView: View {
             .padding(.horizontal, 30)
             Spacer()
         }
+        .onAppear(perform: {
+            if let transactionToEdit = transactionToEdit {
+                amount = transactionToEdit.amount
+                transactionTtile = transactionToEdit.title
+                selectedTransactionType = transactionToEdit.type
+            }
+        })
         .padding(.top)
         .alert(alertTitle, isPresented: $showAlert) {
             Button {

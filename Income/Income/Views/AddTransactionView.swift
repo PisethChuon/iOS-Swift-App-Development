@@ -48,9 +48,11 @@ struct AddTransactionView: View {
                     .background(Color.primaryLightGreen)
                     .clipShape(RoundedRectangle(cornerRadius: 6))
             })
+            .padding(.top)
             .padding(.horizontal, 30)
             Spacer()
         }
+        .padding(.top)
     }
 }
 

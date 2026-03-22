@@ -37,6 +37,18 @@ struct AddTransactionView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding(.horizontal, 30)
                 .padding(.top)
+            Button(action: {
+                
+            }, label: {
+                Text("Create")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(Color(.white))
+                    .frame(height: 40)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.primaryLightGreen)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+            })
+            .padding(.horizontal, 30)
             Spacer()
         }
     }

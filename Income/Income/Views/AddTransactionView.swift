@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTransactionView: View {
     
     @State private var amount = 0.0
+    @State private var transactionTtile = ""
     @State private var selectedTransactionType: TransactionType = .expense
     
     var numberFormatter: NumberFormatter {
@@ -31,6 +32,11 @@ struct AddTransactionView: View {
                         .tag(transactionType)
                 }
             }
+            TextField("Title", text: $transactionTtile)
+                .font(.system(size: 15))
+                .textFieldStyle(.roundedBorder)
+                .padding(.horizontal, 30)
+                .padding(.top)
             Spacer()
         }
     }

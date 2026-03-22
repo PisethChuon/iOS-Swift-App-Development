@@ -93,7 +93,7 @@ struct ContentView: View {
                                 TransactionView(transaction: transaction)
                                     .foregroundStyle(.black)
                             }
-
+                            
                         }
                     }
                     .scrollContentBackground(.hidden)

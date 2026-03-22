@@ -58,7 +58,17 @@ struct AddTransactionView: View {
                 
                 let transaction = Transaction(title: transactionTtile, amount: amount, type: selectedTransactionType, date: Date())
                 
-                transactions.append(transaction)
+                if let transactionToEdit = transactionToEdit {
+                    guard let index = transactions.firstIndex(of:  transactionToEdit) else {
+                        alertTitle = "Invalid Title"
+                        alertMessage = "Transaction title must be at least 2 characters."
+                        showAlert = true
+                        return
+                    }
+                } else {
+                    transactions.append(transaction)
+                }
+                
                 dismiss()
                 
             }, label: {

@@ -14,6 +14,7 @@ struct ContentView: View {
         Transaction(title: "Apple", amount: 5.00, type: .expense, date: Date())
         
     ]
+    @State private var showAddTransactionView = false
     
     fileprivate func FloatingButton() -> some View {
         VStack {
@@ -86,7 +87,13 @@ struct ContentView: View {
                     BalanceView()
                     List {
                         ForEach(transactions) { transaction in
-                            TransactionView(transaction: transaction)
+                            Button {
+                                showAddTransactionView = true
+                            } label: {
+                                TransactionView(transaction: transaction)
+                                    .foregroundStyle(.black)
+                            }
+
                         }
                     }
                     .scrollContentBackground(.hidden)
@@ -94,6 +101,9 @@ struct ContentView: View {
                 FloatingButton()
             }
             .navigationTitle("Income")
+            .navigationDestination(isPresented: $showAddTransactionView, destination: {
+                AddTransactionView(transactions: $transactions)
+            })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {

@@ -27,6 +27,7 @@ struct AddTransactionView: View {
                 .multilineTextAlignment(.center)
                 .keyboardType(.numberPad)
             Rectangle()
+                .fill(Color(uiColor: UIColor.lightGray))
                 .frame(height: 0.5)
                 .padding(.horizontal, 30)
             Picker("Choose Type", selection: $selectedTransactionType) {

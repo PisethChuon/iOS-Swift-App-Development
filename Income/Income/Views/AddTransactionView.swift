@@ -62,7 +62,7 @@ struct AddTransactionView: View {
                 dismiss()
                 
             }, label: {
-                Text("Create")
+                Text(transactionToEdit == nil ? "Create" : "Update")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(Color(.white))
                     .frame(height: 40)

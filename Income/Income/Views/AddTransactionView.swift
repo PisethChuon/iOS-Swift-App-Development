@@ -13,6 +13,12 @@ struct AddTransactionView: View {
     @State private var transactionTtile = ""
     @State private var selectedTransactionType: TransactionType = .expense
     
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var showAlert = false
+    @Binding var transactions: [Transaction]
+    @Environment(\.dismiss) var dismiss
+    
     var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
@@ -42,6 +48,17 @@ struct AddTransactionView: View {
                 .padding(.horizontal, 30)
                 .padding(.top)
             Button(action: {
+                guard transactionTtile.count >= 2 else {
+                    alertTitle = "Invalid Title"
+                    alertMessage = "Transaction title must be at least 2 characters."
+                    showAlert = true
+                    return
+                }
+                
+                let transaction = Transaction(title: transactionTtile, amount: amount, type: selectedTransactionType, date: Date())
+                
+                transactions.append(transaction)
+                dismiss()
                 
             }, label: {
                 Text("Create")
@@ -57,9 +74,20 @@ struct AddTransactionView: View {
             Spacer()
         }
         .padding(.top)
+        .alert(alertTitle, isPresented: $showAlert) {
+            Button {
+                
+            } label: {
+                Text("OK")
+            }
+
+        } message: {
+            Text(alertMessage)
+        }
+
     }
 }
 
 #Preview {
-    AddTransactionView()
+    AddTransactionView(transactions: .constant([]))
 }

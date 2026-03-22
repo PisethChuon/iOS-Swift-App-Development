@@ -19,7 +19,7 @@ struct ContentView: View {
         VStack {
             Spacer()
             NavigationLink {
-                AddTransactionView()
+                AddTransactionView(transactions: $transactions)
             } label: {
                 Text("+")
                     .font(.largeTitle)

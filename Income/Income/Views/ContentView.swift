@@ -24,6 +24,9 @@ struct ContentView: View {
                 sumExpences += transaction.amount
             }
         }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter.string(from: sumExpences as NSNumber) ?? "$.00"
         
     }
         

@@ -17,6 +17,17 @@ struct ContentView: View {
     @State private var showAddTransactionView = false
     @State private var transactionToEdit: Transaction?
     
+    var expences: String {
+        var sumExpences = 0.0
+        for transaction in transactions {
+            if transaction.type == .expense {
+                sumExpences += transaction.amount
+            }
+        }
+        
+    }
+        
+    
     fileprivate func FloatingButton() -> some View {
         VStack {
             Spacer()

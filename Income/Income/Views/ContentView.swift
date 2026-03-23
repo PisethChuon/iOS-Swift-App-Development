@@ -29,6 +29,18 @@ struct ContentView: View {
         return numberFormatter.string(from: sumExpences as NSNumber) ?? "$.00"
         
     }
+    
+    var income: String {
+        var sumIncome = 0.0
+        for transaction in transactions {
+            if transaction.type == .income {
+                sumIncome += transaction.amount
+            }
+        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter.string(from: sumIncome as NSNumber) ?? "$0.00"
+    }
         
     
     fileprivate func FloatingButton() -> some View {
@@ -80,7 +92,7 @@ struct ContentView: View {
                         Text("Income")
                             .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(Color.white)
-                        Text("$22")
+                        Text("\(income)")
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(Color.white)
                     }

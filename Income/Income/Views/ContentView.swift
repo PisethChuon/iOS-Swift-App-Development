@@ -9,11 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var transactions: [Transaction] = [
-        Transaction(title: "Apple", amount: 5.00, type: .expense, date: Date()),
-        Transaction(title: "Apple", amount: 5.00, type: .expense, date: Date())
-        
-    ]
+    @State private var transactions: [Transaction] = []
     @State private var showAddTransactionView = false
     @State private var transactionToEdit: Transaction?
     
@@ -45,10 +41,11 @@ struct ContentView: View {
     var balance: String {
         var sumBalance = 0.0
         for transaction in transactions {
-            if transaction.type == .expense {
-                sumBalance -= transaction.amount
-            } else if transaction.type == .income {
-                sumBalance += transaction.amount
+            switch transaction.type {
+                case .expense:
+                    sumBalance -= transaction.amount
+                case .income:
+                    sumBalance += transaction.amount
             }
         }
         let numberFormatter = NumberFormatter()
@@ -80,7 +77,7 @@ struct ContentView: View {
                 .fill(Color.primaryLightGreen)
             VStack (alignment: .leading, spacing: 8) {
                 HStack {
-                    VStack {
+                    VStack (alignment: .leading) {
                         Text("BALANCE")
                             .font(.caption)
                             .foregroundStyle(Color.white)

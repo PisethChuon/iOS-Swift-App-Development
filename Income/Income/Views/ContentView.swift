@@ -72,7 +72,7 @@ struct ContentView: View {
                         Text("Expense")
                             .font(.system(size: 15, weight: .regular))
                             .foregroundStyle(Color.white)
-                        Text("$22")
+                        Text("\(expences)")
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(Color.white)
                     }

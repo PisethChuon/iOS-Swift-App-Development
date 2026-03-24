@@ -11,21 +11,18 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Text("Todo")
-            
-            
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "plus")
+                        }
                         
-                    } label: {
-                        Image(systemName: "plus")
                     }
-
                 }
-            }
-            .navigationTitle("Tasks")
+                .navigationTitle("Tasks")
         }
-        
     }
 }
 

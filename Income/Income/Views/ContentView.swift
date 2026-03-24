@@ -21,23 +21,17 @@ struct ContentView: View {
         
     }
     
-    var income: String {
-        var sumIncome = transactions.filter({ $0.type == .income}).reduce(0, { $0 + $1.amount})
+    private var income: String {
+        let sumIncome = transactions.filter({ $0.type == .income}).reduce(0, { $0 + $1.amount})
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         return numberFormatter.string(from: sumIncome as NSNumber) ?? "$0.00"
     }
     
-    var balance: String {
-        var sumBalance = 0.0
-        for transaction in transactions {
-            switch transaction.type {
-                case .expense:
-                    sumBalance -= transaction.amount
-                case .income:
-                    sumBalance += transaction.amount
-            }
-        }
+    private var balance: String {
+        let sumExpences = transactions.filter({ $0.type == .expense}).reduce(0, { $0 + $1.amount})
+        let sumIncome = transactions.filter({ $0.type == .income}).reduce(0, { $0 + $1.amount})
+        let sumBalance = sumIncome - sumExpences
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         return numberFormatter.string(from: sumBalance as NSNumber) ?? "$0.00"

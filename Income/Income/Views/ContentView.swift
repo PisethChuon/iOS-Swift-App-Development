@@ -117,6 +117,7 @@ struct ContentView: View {
                             }
                             
                         }
+                        .onDelete(perform: deleteTransaction)
                     }
                     .scrollContentBackground(.hidden)
                 }
@@ -142,6 +143,10 @@ struct ContentView: View {
         }
         
         
+    }
+    
+    private func deleteTransaction(at offsets: IndexSet) {
+        transactions.remove(atOffsets: offsets)
     }
 }
 

@@ -14,12 +14,12 @@ struct ContentView: View {
     @State private var transactionToEdit: Transaction?
     
     var expences: String {
-        var sumExpences = 0.0
-        for transaction in transactions {
-            if transaction.type == .expense {
-                sumExpences += transaction.amount
-            }
-        }
+        var sumExpences = transactions.filter({$0.type == .expense})
+//        for transaction in transactions {
+//            if transaction.type == .expense {
+//                sumExpences += transaction.amount
+//            }
+//        }
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         return numberFormatter.string(from: sumExpences as NSNumber) ?? "$.00"

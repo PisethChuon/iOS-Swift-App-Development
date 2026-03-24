@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct CreateTaskSheetView: View {
+    
+    @State private var taskTitle: String = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Task Title")
-            Spacer()
+            
+            TextField("Task Title", text: $taskTitle)
+                .textFieldStyle(.roundedBorder)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal)
     }
 }

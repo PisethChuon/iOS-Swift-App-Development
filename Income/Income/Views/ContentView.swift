@@ -22,12 +22,7 @@ struct ContentView: View {
     }
     
     var income: String {
-        var sumIncome = 0.0
-        for transaction in transactions {
-            if transaction.type == .income {
-                sumIncome += transaction.amount
-            }
-        }
+        var sumIncome = transactions.filter({ $0.type == .income}).reduce(0, { $0 + $1.amount})
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         return numberFormatter.string(from: sumIncome as NSNumber) ?? "$0.00"

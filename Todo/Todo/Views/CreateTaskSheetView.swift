@@ -12,11 +12,16 @@ struct CreateTaskSheetView: View {
     @State private var taskTitle: String = ""
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20) {
             Text("Task Title")
+                .font(.system(size: 16, weight: .bold))
             
             TextField("Task Title", text: $taskTitle)
                 .textFieldStyle(.roundedBorder)
+            
+            Text("Priority")
+                .font(Font.system(size: 16, weight: .bold))
+            Text("Normal") // Priority, Urgent
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal)

@@ -21,7 +21,7 @@ struct CreateTaskSheetView: View {
             
             Text("Priority")
                 .font(Font.system(size: 16, weight: .bold))
-            Text("Normal") // Priority, Urgent
+            Text("Normal")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal)

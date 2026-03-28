@@ -16,6 +16,10 @@ struct Task: Identifiable {
 class TaskViewModel {
     var tasks: [Task] = [
         Task(title: "Walk the dog"),
-        Task(title: "Buy milk"),
     ]
+    
+    func addTask(title: String) {
+        let task = Task(title: title)
+        tasks.append(task)
+    }
 }

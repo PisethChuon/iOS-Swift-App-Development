@@ -20,7 +20,9 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink {
-                            AddTodoTask()
+                            AddTodoTask(onAdd: { title, priority in
+                                viewModel.addTask(title: title, priority: priority)
+                            })
                         } label: {
                             Image(systemName: "plus")
                         }

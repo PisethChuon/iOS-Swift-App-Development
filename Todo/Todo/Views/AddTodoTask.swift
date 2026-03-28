@@ -12,7 +12,7 @@ struct AddTodoTask: View {
     @State private var taskTitle: String = ""
     @State private var selectedPriorityType: PriorityType = .normal
     
-    var onAdd: (String) -> Void
+    var onAdd: (String, PriorityType) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -32,6 +32,8 @@ struct AddTodoTask: View {
             }
             Button {
                 guard !taskTitle.isEmpty else { return }
+                onAdd(taskTitle, selectedPriorityType)
+                taskTitle = ""
                 
             } label: {
                 Text("Add task")
@@ -50,5 +52,5 @@ struct AddTodoTask: View {
 }
 
 #Preview {
-    AddTodoTask()
+    AddTodoTask { _, _ in }
 }

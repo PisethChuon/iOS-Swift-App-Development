@@ -33,5 +33,5 @@ struct TaskView: View {
 }
 
 #Preview {
-    TaskView()
+    TaskView(task: Task(title: "Walk the dog"))
 }

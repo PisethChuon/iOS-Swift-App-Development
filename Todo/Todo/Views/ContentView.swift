@@ -15,8 +15,8 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                
+            List(viewModel.tasks) { task in
+                TaskView(task: task)
             }
             Text("Hello")
             

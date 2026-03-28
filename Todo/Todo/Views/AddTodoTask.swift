@@ -29,7 +29,7 @@ struct AddTodoTask: View {
                 }
             }
             Button {
-                
+                guard !taskTitle.isEmpty else { return }
             } label: {
                 Text("Add task")
                     .font(.system(size: 15, weight: .semibold))

@@ -11,13 +11,14 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showSheet = false
+    @State private var viewModel = TaskViewModel()
     
     var body: some View {
         NavigationStack {
-            List (selection: $multiSelection) {
-                TaskView()
+            List {
+                
             }
-            Text("\(multiSelection.count) selection")
+            Text("Hello")
             
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {

@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showSheet = false
     @State private var viewModel = TaskViewModel()
     
     var body: some View {
@@ -18,11 +17,10 @@ struct ContentView: View {
             List(viewModel.tasks) { task in
                 TaskView(task: task)
             }
-            Text("Hello")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            showSheet = true
+                            
                         } label: {
                             Image(systemName: "plus")
                         }
@@ -30,9 +28,7 @@ struct ContentView: View {
                 }
             
                 .navigationTitle("Tasks")
-                .sheet(isPresented: $showSheet) {
-                    CreateTaskSheetView()
-                }
+                
         }
     }
 }

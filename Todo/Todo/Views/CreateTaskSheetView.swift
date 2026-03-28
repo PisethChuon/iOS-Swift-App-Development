@@ -11,7 +11,6 @@ struct CreateTaskSheetView: View {
     
     @State private var taskTitle: String = ""
     @State private var selectedPriorityType: PriorityType = .normal
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {

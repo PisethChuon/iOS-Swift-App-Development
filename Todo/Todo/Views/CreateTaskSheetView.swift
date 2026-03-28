@@ -37,7 +37,7 @@ struct CreateTaskSheetView: View {
                     .frame(height: 40)
                     .frame(maxWidth: .infinity)
                     .foregroundStyle(Color.white)
-                    .background(Color.primaryLightGreen)
+                    .background(Color.green)
                     .clipShape(RoundedRectangle(cornerRadius: 6))
             }
 

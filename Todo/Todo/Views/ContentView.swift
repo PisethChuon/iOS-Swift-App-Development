@@ -13,7 +13,9 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            Text("Todo")
+            List {
+                
+            }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
@@ -21,7 +23,6 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "plus")
                         }
-                        
                     }
                 }
             

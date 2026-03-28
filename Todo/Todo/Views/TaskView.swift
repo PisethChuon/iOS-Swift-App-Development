@@ -7,13 +7,20 @@
 
 import SwiftUI
 
-// Model 'Task'
-struct Task: Identifiable {
-    let id = UUID()
-    var title: String
-}
-
 struct TaskView: View {
+    
+    struct Task: Identifiable {
+        let id = UUID()
+        var title: String
+    }
+
+    @State private var tasks = [
+        Task(title: "Walk the dog"),
+        Task(title: "Buy milk"),
+    ]
+
+    @State private var multiSelection = Set<UUID>()
+    
     var body: some View {
         VStack {
             HStack {

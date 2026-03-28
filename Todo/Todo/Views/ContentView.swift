@@ -11,7 +11,6 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showSheet = false
-    @State private var multiSelection = Set<UUID>()
     
     var body: some View {
         NavigationStack {

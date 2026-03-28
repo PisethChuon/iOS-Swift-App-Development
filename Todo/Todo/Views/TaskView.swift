@@ -7,33 +7,33 @@
 
 import SwiftUI
 
+struct Task: Identifiable {
+    let id = UUID()
+    var title: String
+}
+
 struct TaskView: View {
-    
-    struct Task: Identifiable {
-        let id = UUID()
-        var title: String
-    }
 
     @State private var tasks = [
         Task(title: "Walk the dog"),
         Task(title: "Buy milk"),
     ]
 
-    @State private var multiSelection = Set<UUID>()
-    
     var body: some View {
         VStack {
-            HStack {
-                Text("Walk the dog")
-                Spacer()
-                Text("Normal")
-                    .font(.system(size: 15))
-                    .foregroundStyle(Color.pgreen)
-                    .frame(width: 100, height: 23)
-                    .background(Color.sgreen)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
+            ForEach(tasks) { task in
+                HStack {
+                    Text(task.title)
+                    Spacer()
+                    Text("Normal")
+                        .font(.system(size: 15))
+                        .foregroundStyle(Color.green)
+                        .frame(width: 100, height: 23)
+                        .background(Color.green.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+                .padding(.horizontal, 15)
             }
-            .padding(.horizontal, 15)
         }
     }
 }

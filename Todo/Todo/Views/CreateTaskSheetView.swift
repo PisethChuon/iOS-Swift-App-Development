@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateTaskSheetView: View {
     
     @State private var taskTitle: String = ""
+    @State private var selectedPriorityType: PriorityType = .normal
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -21,7 +22,7 @@ struct CreateTaskSheetView: View {
             
             Text("Priority")
                 .font(Font.system(size: 16, weight: .bold))
-            Text("Normal")
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal)

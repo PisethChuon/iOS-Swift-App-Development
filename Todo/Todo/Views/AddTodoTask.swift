@@ -12,6 +12,8 @@ struct AddTodoTask: View {
     @State private var taskTitle: String = ""
     @State private var selectedPriorityType: PriorityType = .normal
     
+    var onAdd: (String) -> Void
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Task Title")

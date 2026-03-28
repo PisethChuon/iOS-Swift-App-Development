@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum PriorityType: String, CaseIterable, Identifiable {
     case normal, priority, urgent
@@ -19,6 +20,17 @@ enum PriorityType: String, CaseIterable, Identifiable {
             return "Priority"
         case .urgent:
             return "Urgent"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .normal:
+            return .blue
+        case .priority:
+            return .red
+        case .urgent:
+            return .yellow
         }
     }
 }

@@ -11,6 +11,7 @@ struct AddTodoTask: View {
     
     @State private var taskTitle: String = ""
     @State private var selectedPriorityType: PriorityType = .normal
+    @Environment(\.dismiss) private var dismiss
     
     var onAdd: (String, PriorityType) -> Void
     
@@ -34,6 +35,7 @@ struct AddTodoTask: View {
                 guard !taskTitle.isEmpty else { return }
                 onAdd(taskTitle, selectedPriorityType)
                 taskTitle = ""
+                dismiss()
                 
             } label: {
                 Text("Add task")

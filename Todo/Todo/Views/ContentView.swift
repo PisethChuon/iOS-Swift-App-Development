@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-// Model 'Task'
-struct Task: Identifiable {
-    let id = UUID()
-    var title: String
-}
 
 struct ContentView: View {
     

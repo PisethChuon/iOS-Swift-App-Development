@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+// Model 'Task'
+struct Task: Identifiable {
+    let id = UUID()
+    var title: String
+}
+
 struct TaskView: View {
     var body: some View {
         VStack {

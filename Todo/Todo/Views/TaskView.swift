@@ -18,7 +18,7 @@ struct TaskView: View {
             HStack {
                 Text(task.title)
                 Spacer()
-                Text("Normal")
+                Text(task.priority.title)
                     .font(.system(size: 15))
                     .foregroundStyle(Color.green)
                     .frame(width: 100, height: 23)

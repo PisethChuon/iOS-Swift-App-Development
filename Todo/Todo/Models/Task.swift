@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Task: Identifiable {
+struct Task: Identifiable, Hashable {
     let id = UUID()
     var title: String
     var priority: PriorityType
@@ -22,5 +22,9 @@ class TaskViewModel {
     func addTask(title: String, priority: PriorityType) {
         let task = Task(title: title, priority: priority)
         tasks.append(task)
+    }
+    
+    func deleteTasks(ids: Set<Task.ID>) {
+        tasks.removeAll { ids.contains($0.id) }
     }
 }

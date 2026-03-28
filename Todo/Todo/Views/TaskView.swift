@@ -20,7 +20,7 @@ struct TaskView: View {
                 Spacer()
                 Text(task.priority.title)
                     .font(.system(size: 15))
-                    .foregroundStyle(Color.green)
+                    .foregroundStyle(task.priority.color)
                     .frame(width: 100, height: 23)
                     .background(Color.green.opacity(0.2))
                     .clipShape(RoundedRectangle(cornerRadius: 6))

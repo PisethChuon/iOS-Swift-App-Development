@@ -7,4 +7,20 @@
 
 import Foundation
 
+enum PriorityType: String, Identifiable {
+    case normal, priority, urgent
+    var id: Self { self }
+    
+    var title: String {
+        switch self {
+        case .normal:
+            return "Normal"
+        case .priority:
+            return "Priority"
+        case .urgent:
+            return "Urgent"
+        }
+    }
+}
+
 

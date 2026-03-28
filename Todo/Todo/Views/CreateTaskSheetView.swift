@@ -28,6 +28,18 @@ struct CreateTaskSheetView: View {
                         .tag(priority)
                 }
             }
+            Button {
+                
+            } label: {
+                Text("Add task")
+                    .font(.system(size: 15, weight: .semibold))
+                    .frame(height: 40)
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(Color.white)
+                    .background(Color.primaryLightGreen)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+            }
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal)

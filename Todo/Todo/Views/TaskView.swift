@@ -22,7 +22,7 @@ struct TaskView: View {
                     .font(.system(size: 15))
                     .foregroundStyle(task.priority.color)
                     .frame(width: 100, height: 23)
-                    .background(Color.green.opacity(0.2))
+                    .background(task.priority.color.opacity(0.2))
                     .clipShape(RoundedRectangle(cornerRadius: 6))
             }
             .padding(.horizontal, 15)

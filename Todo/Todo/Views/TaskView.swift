@@ -11,8 +11,7 @@ import SwiftUI
 struct TaskView: View {
     
     let task: Task
-    
-    
+
     var body: some View {
         VStack {
             

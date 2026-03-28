@@ -19,7 +19,6 @@ struct ContentView: View {
                 TaskView(task: task)
             }
             Text("Hello")
-            
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {

@@ -22,7 +22,12 @@ struct CreateTaskSheetView: View {
             
             Text("Priority")
                 .font(Font.system(size: 16, weight: .bold))
-            
+            Picker("Choose Priority", selection: $selectedPriorityType) {
+                ForEach(PriorityType.allCases) { priority in
+                    Text(priority.title)
+                        .tag(priority)
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(.horizontal)

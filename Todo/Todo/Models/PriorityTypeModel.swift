@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PriorityType: String, Identifiable {
+enum PriorityType: String, CaseIterable, Identifiable {
     case normal, priority, urgent
     var id: Self { self }
     

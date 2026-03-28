@@ -19,10 +19,8 @@ struct ContentView: View {
             }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            NavigationLink("") {
-                                
-                            }
+                        NavigationLink ("Add Task") {
+                            AddTodoTask()
                         } label: {
                             Image(systemName: "plus")
                         }

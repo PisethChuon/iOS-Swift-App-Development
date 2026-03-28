@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreateTaskSheetView: View {
+struct AddTodoTask: View {
     
     @State private var taskTitle: String = ""
     @State private var selectedPriorityType: PriorityType = .normal
@@ -47,5 +47,5 @@ struct CreateTaskSheetView: View {
 }
 
 #Preview {
-    CreateTaskSheetView()
+    AddTodoTask()
 }

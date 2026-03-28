@@ -20,13 +20,14 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            
+                            NavigationLink("") {
+                                
+                            }
                         } label: {
                             Image(systemName: "plus")
                         }
                     }
                 }
-            
                 .navigationTitle("Tasks")
                 
         }

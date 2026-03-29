@@ -11,6 +11,13 @@ struct SettingsView: View {
     
     @State private var orderDescending = false
     @State private var currency: Currency = .usd
+    @State private var filterMinimum = 0.0
+    
+    var numberFormatter: NumberFormatter {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        return numberFormatter
+    }
     
     var body: some View {
         List {
@@ -26,6 +33,10 @@ struct SettingsView: View {
                         Text(currency.title)
                     }
                 }
+            }
+            HStack {
+                Text("Filter Minimum")
+                TextField("", value: $filterMinimum, formatter: numberFormatter)
             }
         }
     }

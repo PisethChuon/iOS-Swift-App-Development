@@ -20,25 +20,28 @@ struct SettingsView: View {
     }
     
     var body: some View {
-        List {
-            HStack {
-                Toggle(isOn: $orderDescending) {
-                    Text("Order \(orderDescending ? "(Earliest)" : "(Latest)")")
-                }
-            }
-            HStack {
-                Picker("Currency", selection: $currency) {
-                    ForEach (Currency.allCases, id: \.self) {
-                        currency in
-                        Text(currency.title)
+        NavigationStack {
+            List {
+                HStack {
+                    Toggle(isOn: $orderDescending) {
+                        Text("Order \(orderDescending ? "(Earliest)" : "(Latest)")")
                     }
                 }
+                HStack {
+                    Picker("Currency", selection: $currency) {
+                        ForEach (Currency.allCases, id: \.self) {
+                            currency in
+                            Text(currency.title)
+                        }
+                    }
+                }
+                HStack {
+                    Text("Filter Minimum")
+                    TextField("", value: $filterMinimum, formatter: numberFormatter)
+                        .multilineTextAlignment(.trailing)
+                }
             }
-            HStack {
-                Text("Filter Minimum")
-                TextField("", value: $filterMinimum, formatter: numberFormatter)
-                    .multilineTextAlignment(.trailing)
-            }
+            .navigationTitle("Settings")
         }
     }
 }

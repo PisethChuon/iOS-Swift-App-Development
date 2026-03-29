@@ -37,6 +37,7 @@ struct SettingsView: View {
             HStack {
                 Text("Filter Minimum")
                 TextField("", value: $filterMinimum, formatter: numberFormatter)
+                    .multilineTextAlignment(.trailing)
             }
         }
     }

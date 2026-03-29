@@ -33,8 +33,6 @@ struct AddTodoTask: View {
                 .padding(.top)
             }
             
-            
-            
             Text("Task Title")
                 .font(.system(size: 16, weight: .bold))
             

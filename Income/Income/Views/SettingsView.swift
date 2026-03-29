@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @State private var orderDescending = false
+//    @State private var currency: Currency = .usd
+    
     var body: some View {
-        Text("Hello, world!")
+        List {
+            HStack {
+                Toggle(isOn: $orderDescending) {
+                    Text("Order \(orderDescending ? "(Earliest)" : "(Latest)")")
+                }
+            }
+        }
     }
 }
 

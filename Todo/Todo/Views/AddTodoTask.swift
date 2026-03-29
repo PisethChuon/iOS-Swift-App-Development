@@ -12,11 +12,29 @@ struct AddTodoTask: View {
     @State private var taskTitle: String = ""
     @State private var selectedPriorityType: PriorityType = .normal
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     
     var onAdd: (String, PriorityType) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
+            
+            if verticalSizeClass == .compact{
+                HStack {
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(Color.black)
+                    }
+                }
+                .padding(.top)
+            }
+            
+            
+            
             Text("Task Title")
                 .font(.system(size: 16, weight: .bold))
             

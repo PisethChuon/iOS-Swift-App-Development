@@ -42,8 +42,6 @@ struct TransactionView: View {
     }
 }
 
-
-
 #Preview {
     TransactionView(transaction:
         Transaction(title: "Apple", amount: 5.00, type: .expense, date: Date())

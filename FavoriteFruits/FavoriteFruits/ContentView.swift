@@ -22,16 +22,32 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button("Add Fruit") {
-                
+                addFruit()
             }
         }
         .padding()
     }
     
-    
+    func addFruit() {
+        guard !fruitName.isEmpty, let qty = Int16(quantity) else { return }
+        
+        let newFruit = Fruit(context: viewContext)
+        newFruit.name = fruitName
+        newFruit.quantity = qty
+        
+        do {
+            try viewContext.save()
+            fruitName = ""
+            quantity = ""
+            print("Fruit saved!")
+        } catch {
+            print("Error saving fruit: \(error)")
+        }
+    }
 }
 
 
 #Preview {
     ContentView()
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

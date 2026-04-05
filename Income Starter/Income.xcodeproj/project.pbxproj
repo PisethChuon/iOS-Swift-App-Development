@@ -19,6 +19,8 @@
 		20FB862C2B6921BD00E430BE /* TransactionTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB862B2B6921BD00E430BE /* TransactionTypeModel.swift */; };
 		20FB862E2B69285F00E430BE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20FB862D2B69285F00E430BE /* Colors.xcassets */; };
 		7BB4379F2F82BAB1006E6851 /* IncomeData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4379D2F82BAB1006E6851 /* IncomeData.xcdatamodeld */; };
+		7BB437A22F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB437A02F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift */; };
+		7BB437A32F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB437A12F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		20FB862B2B6921BD00E430BE /* TransactionTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypeModel.swift; sourceTree = "<group>"; };
 		20FB862D2B69285F00E430BE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7BB4379E2F82BAB1006E6851 /* IncomeData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeData.xcdatamodel; sourceTree = "<group>"; };
+		7BB437A02F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7BB437A12F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				7BB4379D2F82BAB1006E6851 /* IncomeData.xcdatamodeld */,
+				7BB437A12F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift */,
+				7BB437A02F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -192,6 +198,8 @@
 				20467A3C2B738D7000CCAF5C /* CurrencyModel.swift in Sources */,
 				20FB862A2B69213900E430BE /* TransactionModel.swift in Sources */,
 				206DB8A92B6A6B980076400A /* TransactionView.swift in Sources */,
+				7BB437A22F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift in Sources */,
+				7BB437A32F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift in Sources */,
 				206DB8AB2B6A7ABC0076400A /* AddTransactionView.swift in Sources */,
 				20FB861D2B691FE700E430BE /* HomeView.swift in Sources */,
 				20FB861B2B691FE700E430BE /* IncomeApp.swift in Sources */,

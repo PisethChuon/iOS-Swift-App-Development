@@ -29,3 +29,25 @@ extension TransactionItem {
 extension TransactionItem : Identifiable {
 
 }
+
+extension TransactionItem {
+    var wrappedId: UUID {
+        return id!
+    }
+    
+    var wrappedTitle: String {
+        return title ?? ""
+    }
+    
+    var wrappedDate: Date {
+        return date ?? Date()
+    }
+    
+    var wrappedTransactionType: TransactionType {
+        return TransactionType(rawValue: Int(type)) ?? .expense
+    }
+    
+    var wrappedAmount: Double {
+        return amount
+    }
+}

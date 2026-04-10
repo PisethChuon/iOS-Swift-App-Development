@@ -47,7 +47,6 @@ extension TransactionItem {
         return TransactionType(rawValue: Int(type)) ?? .expense
     }
     
-    
     var wrappedAmount: Double {
         return amount
     }

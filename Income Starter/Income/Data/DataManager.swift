@@ -7,3 +7,16 @@
 
 import Foundation
 import CoreData
+
+class DataManager {
+    let container = NSPersistentContainer(name: "IncomeData")
+    
+    init() {
+        container.loadPersistentStores { storeDescription, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+}

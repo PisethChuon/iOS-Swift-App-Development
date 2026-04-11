@@ -10,8 +10,9 @@ import CoreData
 
 class DataManager {
     let container = NSPersistentContainer(name: "IncomeData")
+    static let shared = DataManager()
     
-    init() {
+    private init() {
         container.loadPersistentStores { storeDescription, error in
             if let error = error {
                 print(error.localizedDescription)

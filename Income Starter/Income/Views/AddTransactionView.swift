@@ -15,7 +15,8 @@ struct AddTransactionView: View {
     @State private var showAlert = false
     @Binding var transactions: [Transaction]
     var transactionToEdit: Transaction?
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) private var viewContext
     
     @AppStorage("currency") var currency = Currency.usd
     
@@ -67,8 +68,26 @@ struct AddTransactionView: View {
                     let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: transactionToEdit.date)
                     transactions[indexOfTransaction] = transaction
                 } else {
-                    let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: Date())
-                    transactions.append(transaction)
+                    
+                    let transaction = TransactionItem(context: viewContext)
+                    transaction.id = UUID()
+                    transaction.title = transactionTitle
+                    transaction.amount = amount
+                    transaction.type = Int16(selectedTransactionType.rawValue)
+                    transaction.date = Date()
+                    
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        alertTitle = "Something went wrong"
+                        alertMessage = "Cannot update this transaction right now."
+                        showAlert = true
+                        return
+                    }
+                    
+                    
+//                    let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: Date())
+//                    transactions.append(transaction)
                 }
                 
                 dismiss()

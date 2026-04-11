@@ -21,6 +21,7 @@
 		7BB4379F2F82BAB1006E6851 /* IncomeData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4379D2F82BAB1006E6851 /* IncomeData.xcdatamodeld */; };
 		7BB437A22F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB437A02F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift */; };
 		7BB437A32F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB437A12F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift */; };
+		7BFE894D2F8A31070062E06E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFE894C2F8A31000062E06E /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		7BB4379E2F82BAB1006E6851 /* IncomeData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeData.xcdatamodel; sourceTree = "<group>"; };
 		7BB437A02F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7BB437A12F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7BFE894C2F8A31000062E06E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		7BB4379C2F82BA56006E6851 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7BFE894C2F8A31000062E06E /* DataManager.swift */,
 				7BB4379D2F82BAB1006E6851 /* IncomeData.xcdatamodeld */,
 				7BB437A12F82C0CC006E6851 /* TransactionItem+CoreDataProperties.swift */,
 				7BB437A02F82C0CC006E6851 /* TransactionItem+CoreDataClass.swift */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A796E72B710D2200D33962 /* SettingsView.swift in Sources */,
+				7BFE894D2F8A31070062E06E /* DataManager.swift in Sources */,
 				20FB862C2B6921BD00E430BE /* TransactionTypeModel.swift in Sources */,
 				7BB4379F2F82BAB1006E6851 /* IncomeData.xcdatamodeld in Sources */,
 				20467A3C2B738D7000CCAF5C /* CurrencyModel.swift in Sources */,

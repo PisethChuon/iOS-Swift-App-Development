@@ -10,7 +10,7 @@ import CoreData
 struct HomeView: View {
     
     @State private var transactions: [Transaction] = []
-    @FetchRequest(sortDescriptors: []) var transactions: FetchedResults<TransactionItem>
+    @FetchRequest(sortDescriptors: []) var transactionItems: FetchedResults<TransactionItem>
     @State private var showAddTransactionView = false
     @State private var transactionToEdit: TransactionItem?
     
@@ -163,8 +163,8 @@ struct HomeView: View {
     
     private func delete(at offsets: IndexSet) {
         for index in offsets {
-            let transaction = transactions[index]
-            viewContext.delete(transaction)
+            let item = transactionItems[index]
+            viewContext.delete(item)
         }
     }
     

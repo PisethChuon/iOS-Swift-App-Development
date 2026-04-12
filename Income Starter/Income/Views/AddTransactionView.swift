@@ -59,15 +59,17 @@ struct AddTransactionView: View {
 //                let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: Date())
                 
                 if let transactionToEdit = transactionToEdit {
-                    guard let indexOfTransaction = transactions.firstIndex(of: transactionToEdit) else {
+                    transactionToEdit.title = transactionTitle
+                    transactionToEdit.amount = amount
+                    transactionToEdit.type = Int16(selectedTransactionType.rawValue)
+                    
+                    do {
+                        try viewContext.save()
+                    } catch {
                         alertTitle = "Something went wrong"
                         alertMessage = "Cannot update this transaction right now."
                         showAlert = true
                         return
-                    }
-                    if let transactionToEdit = transactionToEdit {
-                        transactionToEdit.title = transactionTitle
-                        transactionToEdit.amount = amount
                     }
                 } else {
                     

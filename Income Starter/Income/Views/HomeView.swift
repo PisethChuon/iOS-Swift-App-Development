@@ -5,10 +5,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
     
     @State private var transactions: [Transaction] = []
+    @FetchRequest(sortDescriptors: []) var transactions: FetchedResults<TransactionItem>
     @State private var showAddTransactionView = false
     @State private var transactionToEdit: TransactionItem?
     
@@ -17,6 +19,8 @@ struct HomeView: View {
     @AppStorage("orderDescending") var orderDescending = false
     @AppStorage("filterMinimum") var filterMinimum = 0.0
     @AppStorage("currency") var currency = Currency.usd
+    
+    @Environment(\.managedObjectContext) private var viewContext
     
     private var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
@@ -158,7 +162,10 @@ struct HomeView: View {
     }
     
     private func delete(at offsets: IndexSet) {
-        transactions.remove(atOffsets: offsets)
+        for index in offsets {
+            let transaction = transactions[index]
+            viewContext.delete(transaction)
+        }
     }
     
 }

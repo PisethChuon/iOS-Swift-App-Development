@@ -10,7 +10,7 @@ struct HomeView: View {
     
     @State private var transactions: [Transaction] = []
     @State private var showAddTransactionView = false
-    @State private var transactionToEdit: Transaction?
+    @State private var transactionToEdit: TransactionItem?
     
     @State private var showSettings = false
     
@@ -122,7 +122,7 @@ struct HomeView: View {
                     List {
                         ForEach(displayTransactions) { transaction in
                             Button(action: {
-                                transactionToEdit = transaction
+                                transactionToEdit = transactionToEdit
                             }, label: {
                                 TransactionView(transaction: transaction)
                                     .foregroundStyle(.black)

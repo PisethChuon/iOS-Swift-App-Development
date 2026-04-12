@@ -14,7 +14,7 @@ struct AddTransactionView: View {
     @State private var alertMessage = ""
     @State private var showAlert = false
     @Binding var transactions: [Transaction]
-    var transactionToEdit: Transaction?
+    var transactionToEdit: TransactionItem?
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -65,8 +65,10 @@ struct AddTransactionView: View {
                         showAlert = true
                         return
                     }
-                    let transaction = Transaction(title: transactionTitle, type: selectedTransactionType, amount: amount, date: transactionToEdit.date)
-                    transactions[indexOfTransaction] = transaction
+                    if let transactionToEdit = transactionToEdit {
+                        transactionToEdit.title = transactionTitle
+                        transactionToEdit.amount = amount
+                    }
                 } else {
                     
                     let transaction = TransactionItem(context: viewContext)

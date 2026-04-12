@@ -113,8 +113,8 @@ struct AddTransactionView: View {
         .onAppear(perform: {
             if let transactionToEdit = transactionToEdit {
                 amount = transactionToEdit.amount
-                transactionTitle = transactionToEdit.title
-                selectedTransactionType = transactionToEdit.type
+                transactionTitle = transactionToEdit.wrappedTitle
+                selectedTransactionType = transactionToEdit.wrappedTransactionType
             }
         })
         .padding(.top)

@@ -23,8 +23,9 @@ struct ContentView: View {
         Button("Add Task") {
             let newTask = TaskItem(context: viewContext)
             
-            newTask.title = "New Task"
+            newTask.title = "Task \(Int.random(in: 1...100))"
             newTask.createdAt = Date()
+            newTask.isDone = false
             
             do {
                 try viewContext.save()
@@ -36,7 +37,7 @@ struct ContentView: View {
         
         List {
             ForEach(tasks) { task in
-                Text(task.title ?? "No title")
+                Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
             }
         }
         

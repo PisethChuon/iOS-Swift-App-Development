@@ -10,10 +10,12 @@ import CoreData
 
 struct ContentView: View {
     
+    // Connection to CoreData database; use to read/write data
     @Environment(\.managedObjectContext) private var viewContext
+    // Automatic load data from database, when database change UI update automacicly
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \TaskItem.createdAt, ascending: true)],
-        animation: .default)
+        animation: .default) // sorted by 'createdAt'
     private var tasks: FetchedResults<TaskItem>
     
     var body: some View {

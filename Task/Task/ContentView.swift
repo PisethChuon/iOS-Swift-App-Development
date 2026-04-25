@@ -10,8 +10,14 @@ import CoreData
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
-        
+        Button("Add Task") {
+            let newTask = Task(context: viewContext)
+//            newTask.title = "My first task"
+//            newTask.createdAt = Date()
+        }
     }
     
 }

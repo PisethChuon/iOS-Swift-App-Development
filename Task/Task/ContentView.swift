@@ -39,8 +39,19 @@ struct ContentView: View {
             ForEach(tasks) { task in
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
             }
+            .onDelete(perform: deleteTasks)
         }
         
+    }
+    
+    private func deleteTasks(offsets: IndexSet) {
+        offsets.map { tasks[$0] }.forEach(viewContext.delete)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error deleting")
+        }
     }
     
     

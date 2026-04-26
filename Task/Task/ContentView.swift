@@ -38,9 +38,13 @@ struct ContentView: View {
         List {
             ForEach(tasks) { task in
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
+                Button("Delete") {
+                    viewContext.delete(task)
+                    try? viewContext.save()
+                }
             }
 
-            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
+//            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
         }
         
     }

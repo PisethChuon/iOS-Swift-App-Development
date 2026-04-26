@@ -39,6 +39,8 @@ struct ContentView: View {
             ForEach(tasks) { task in
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
             }
+
+            //          Tell core data "delete this object"
             .onDelete(perform: deleteTasks)
         }
         
@@ -48,7 +50,7 @@ struct ContentView: View {
         offsets.map { tasks[$0] }.forEach(viewContext.delete)
         
         do {
-            try viewContext.save()
+            try viewContext.save()  // Save the context again
         } catch {
             print("Error deleting")
         }

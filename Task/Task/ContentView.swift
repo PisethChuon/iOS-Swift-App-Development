@@ -64,7 +64,7 @@ struct ContentView: View {
                     }
                 }
             }
-//            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
+            //            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
         }
         
     }

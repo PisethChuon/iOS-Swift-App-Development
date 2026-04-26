@@ -14,20 +14,29 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     // Automatic load data from database, when database change UI update automacicly
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \TaskItem.createdAt, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \TaskItem.createdAt, ascending: false)],
         animation: .default) // sorted by 'createdAt'
     private var tasks: FetchedResults<TaskItem>
     
+    @State private var inputTitle: String = ""
+    
     var body: some View {
+        TextField("Enter task...", text: $inputTitle)
+            .textFieldStyle(.roundedBorder)
+            .padding()
         
         Button("Add Task") {
             let newTask = TaskItem(context: viewContext)
             
-            newTask.title = "Task \(Int.random(in: 1...100))"
+            newTask.title = inputTitle
             newTask.createdAt = Date()
             newTask.isDone = false
             
             do {
+                if inputTitle.isEmpty {
+                    return print("No input")
+                }
+                
                 try viewContext.save()
                 print("Save!")
             } catch {
@@ -38,9 +47,7 @@ struct ContentView: View {
         List {
             ForEach(tasks) { task in
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
-                Spacer()
-                Button("Update") {
-//                    task.title = "Updated \(Int.random(in: 1...100))"
+                Button("Done") {
                     task.isDone = true
                     do {
                         try viewContext.save()
@@ -48,8 +55,16 @@ struct ContentView: View {
                         print("Update failed")
                     }
                 }
+                Button("Delete") {
+                    viewContext.delete(task)
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        print("Error deleting")
+                    }
+                }
             }
-            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
+//            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
         }
         
     }

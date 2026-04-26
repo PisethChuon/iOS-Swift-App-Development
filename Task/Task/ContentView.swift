@@ -38,13 +38,18 @@ struct ContentView: View {
         List {
             ForEach(tasks) { task in
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
-                Button("Delete") {
-                    viewContext.delete(task)
-                    try? viewContext.save()
+                Spacer()
+                Button("Update") {
+//                    task.title = "Updated \(Int.random(in: 1...100))"
+                    task.isDone = true
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        print("Update failed")
+                    }
                 }
             }
-
-//            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
+            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
         }
         
     }

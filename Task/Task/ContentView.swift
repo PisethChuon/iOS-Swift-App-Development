@@ -1,71 +1,95 @@
-//
-//  ContentView.swift
-//  Task
-//
-//  Created by chuonpiseth on 25/4/26.
-//
-
 import SwiftUI
 import CoreData
 
 struct ContentView: View {
     
-    // Connection to CoreData database; use to read/write data
     @Environment(\.managedObjectContext) private var viewContext
-    // Automatic load data from database, when database change UI update automacicly
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \TaskItem.createdAt, ascending: false)],
-        animation: .default) // sorted by 'createdAt'
+        animation: .default)
     private var tasks: FetchedResults<TaskItem>
     
     @State private var inputTitle: String = ""
     
     var body: some View {
-        TextField("Enter task...", text: $inputTitle)
-            .textFieldStyle(.roundedBorder)
-            .padding()
-        
-        Button("Add Task") {
-            let category = Category(context: viewContext)
-            category.name = "Work"
+        VStack {
             
-            let newTask = TaskItem(context: viewContext)
-            newTask.title = inputTitle
-            newTask.createdAt = Date()
-            newTask.isDone = false
-            newTask.category = category
+            // Input
+            TextField("Enter task...", text: $inputTitle)
+                .textFieldStyle(.roundedBorder)
+                .padding()
             
-            do {
-                try viewContext.save()
-                print("Save!")
-            } catch {
-                print("Error saving")
+            // Add Button
+            Button("Add Task") {
+                addTask()
+            }
+            .padding(.bottom)
+            
+            // List
+            List {
+                ForEach(tasks) { task in
+                    HStack {
+                        Text(task.title ?? "No title")
+                        Spacer()
+                        Text(task.category?.name ?? "No category")
+                            .foregroundColor(.gray)
+                    }
+                }
+                .onDelete(perform: deleteTasks)
             }
         }
-        
-        List {
-            ForEach(tasks) { task in
-                Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
-            }
-            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
-        }
-        
     }
     
+    // MARK: - Add Task
+    private func addTask() {
+        guard !inputTitle.isEmpty else { return }
+        
+        let random = Bool.random()
+        let categoryName = random ? "Work" : "Personal"
+        let category = getOrCreateCategory(name: categoryName)
+        
+        let newTask = TaskItem(context: viewContext)
+        newTask.title = inputTitle
+        newTask.createdAt = Date()
+        newTask.isDone = false
+        newTask.category = category
+        
+        do {
+            try viewContext.save()
+            inputTitle = ""
+            print("Saved!")
+        } catch {
+            print("Error saving")
+        }
+    }
+    
+    // MARK: - Delete
     private func deleteTasks(offsets: IndexSet) {
         offsets.map { tasks[$0] }.forEach(viewContext.delete)
         
         do {
-            try viewContext.save()  // Save the context again
+            try viewContext.save()
         } catch {
             print("Error deleting")
         }
     }
     
-    
+    // MARK: - Get or Create Category
+    private func getOrCreateCategory(name: String) -> Category {
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", name)
+        
+        if let result = try? viewContext.fetch(request),
+           let existing = result.first {
+            return existing
+        }
+        
+        let newCategory = Category(context: viewContext)
+        newCategory.name = name
+        return newCategory
+    }
 }
-
-
 
 #Preview {
     ContentView()

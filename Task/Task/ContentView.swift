@@ -40,8 +40,7 @@ struct ContentView: View {
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
             }
 
-            //          Tell core data "delete this object"
-            .onDelete(perform: deleteTasks)
+            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
         }
         
     }

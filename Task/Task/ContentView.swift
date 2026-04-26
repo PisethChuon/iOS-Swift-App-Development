@@ -26,17 +26,16 @@ struct ContentView: View {
             .padding()
         
         Button("Add Task") {
-            let newTask = TaskItem(context: viewContext)
+            let category = Category(context: viewContext)
+            category.name = "Work"
             
+            let newTask = TaskItem(context: viewContext)
             newTask.title = inputTitle
             newTask.createdAt = Date()
             newTask.isDone = false
+            newTask.category = category
             
             do {
-                if inputTitle.isEmpty {
-                    return print("No input")
-                }
-                
                 try viewContext.save()
                 print("Save!")
             } catch {
@@ -47,24 +46,8 @@ struct ContentView: View {
         List {
             ForEach(tasks) { task in
                 Text("\(task.title ?? "No title") — \(task.isDone ? "Done" : "Not done")")
-                Button("Done") {
-                    task.isDone = true
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print("Update failed")
-                    }
-                }
-                Button("Delete") {
-                    viewContext.delete(task)
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        print("Error deleting")
-                    }
-                }
             }
-            //            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
+            .onDelete(perform: deleteTasks) // Tell core data "delete this object"
         }
         
     }

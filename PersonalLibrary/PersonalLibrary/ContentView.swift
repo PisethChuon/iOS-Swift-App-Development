@@ -6,18 +6,17 @@ struct ContentView: View {
     @State private var books: [Book] = []
     
     var body: some View {
-        Button("Add Test Book") {
-            let book = Book(title: "Dune", author: "Frank Herbert")
-            context.insert(book)    // Write to DB
+        NavigationStack {
+            
         }
     }
     
-    func fetchBooks() {
-        let descriptor = FetchDescriptor<Book>(
-            shortBy: [SortDescriptor(\.title)]
-        )
-        books = (try? context.fetch(descriptor)) ??? []
-    }
+//    func fetchBooks() {
+//        let descriptor = FetchDescriptor<Book>(
+//            shortBy: [SortDescriptor(\.title)]
+//        )
+//        books = (try? context.fetch(descriptor)) ??? []
+//    }
 }
 
 

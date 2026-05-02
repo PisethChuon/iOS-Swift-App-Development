@@ -16,6 +16,8 @@ struct ContentView: View {
             }
             .toolbar{
                 Button("Add Book") { addBook() }
+                Button("Mark All Read") { markAllRead() }
+                Button("Delete Read") { deleteRead() }
             }
             .onAppear{ fetchBooks() }
         }
@@ -41,6 +43,7 @@ struct ContentView: View {
     func deleteRead() {
         try? context.delete(model: Book.self, where: #Predicate { $0.isRead == true })
         fetchBooks()
+        print("Delete Read")
     }
 }
 

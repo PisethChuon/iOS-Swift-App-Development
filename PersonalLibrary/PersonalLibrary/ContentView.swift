@@ -44,7 +44,7 @@ struct ContentView: View {
                     VStack(alignment: .leading) {
                         Text(book.title).font(.headline)
                         Text(book.author).font(.subheadline)
-                        Text(book.isRead ? "✅ Read" : "📖 Unread")
+                        Text(book.isRead ? "Read" : "Unread")
                     }
                     .onTapGesture {
                         book.isRead.toggle() // ← direct update, no save needed

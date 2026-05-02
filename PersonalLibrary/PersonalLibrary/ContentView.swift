@@ -7,6 +7,14 @@ struct ContentView: View {
     @State private var searchText = ""
     
     var body: some View {
+        NavigationStack {
+            BookListView(searchText: searchText)
+                .searchable(text: $searchText)
+                .toolbar {
+                    Button("Add book") { addBook() }
+                }
+                .navigationTitle("My Library")
+        }
     }
     
     func addBook() {
@@ -42,9 +50,9 @@ struct ContentView: View {
                         book.isRead.toggle() // ← direct update, no save needed
                     }
                 }
-            }
-            .onDelete { indexSet in
-                indexSet.forEach { context.delete(books[$0]) }
+                .onDelete { indexSet in
+                    indexSet.forEach { context.delete(books[$0]) }
+                }
             }
         }
         

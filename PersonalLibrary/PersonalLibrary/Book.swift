@@ -4,13 +4,13 @@ import Foundation
 @Model
 class Book {
     var title: String
-    var author: String
     var isRead: Bool
     var dateAdded: Date
+    var author: Author?
+    var categories: [Category] = []
     
-    init(title: String, author: String, isRead: Bool = false) {
+    init(title: String, isRead: Bool = false) {
         self.title = title
-        self.author = author
         self.isRead = isRead
         self.dateAdded = Date()
     }

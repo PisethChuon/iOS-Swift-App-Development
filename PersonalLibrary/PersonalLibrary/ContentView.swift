@@ -33,6 +33,15 @@ struct ContentView: View {
            context.insert(book)
            fetchBooks() // refresh list
     }
+    
+    func markAllRead() {
+        books.forEach{$0.isRead = true}
+    }
+    
+    func deleteRead() {
+            try? context.delete(model: Book.self, where: #Predicate { $0.isRead == true })
+            fetchBooks()
+        }
 }
 
 

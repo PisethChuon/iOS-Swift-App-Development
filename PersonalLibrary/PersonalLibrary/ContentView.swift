@@ -4,6 +4,7 @@ import SwiftData
 struct ContentView: View {
     
     @Environment(\.modelContext) private var context
+    @State private var searchText = ""
     
     var body: some View {
     }
@@ -14,6 +15,17 @@ struct ContentView: View {
             author: "Author"
         )
         context.insert(book)
+    }
+    
+    struct BookListView: View {
+        @Query var books: [Book]
+        @Environment(\.modelContext) private var context
+        
+        
+        
+        var body: some View {
+            
+        }
     }
     
 }

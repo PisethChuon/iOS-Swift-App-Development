@@ -29,9 +29,9 @@ struct ContentView: View {
     }
     
     func addBook() {
-           let book = Book(title: "Book \(Int.random(in: 1...100))", author: "Author")
-           context.insert(book)
-           fetchBooks() // refresh list
+        let book = Book(title: "Book \(Int.random(in: 1...100))", author: "Author")
+        context.insert(book)
+        fetchBooks() // refresh list
     }
     
     func markAllRead() {
@@ -39,9 +39,9 @@ struct ContentView: View {
     }
     
     func deleteRead() {
-            try? context.delete(model: Book.self, where: #Predicate { $0.isRead == true })
-            fetchBooks()
-        }
+        try? context.delete(model: Book.self, where: #Predicate { $0.isRead == true })
+        fetchBooks()
+    }
 }
 
 

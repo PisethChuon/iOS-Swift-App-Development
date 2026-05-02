@@ -21,16 +21,37 @@ struct ContentView: View {
         @Query var books: [Book]
         @Environment(\.modelContext) private var context
         
-        
+        init(searchText: String) {
+            _books = Query(
+                filter: #Predicate<Book> {
+                    searchText.isEmpty ? true : $0.title.contains(searchText)
+                },
+                sort: \Book.title
+            )
+        }
         
         var body: some View {
-            
+            List {
+                ForEach(books, id: \.id) { book in
+                    VStack(alignment: .leading) {
+                        Text(book.title).font(.headline)
+                        Text(book.author).font(.subheadline)
+                        Text(book.isRead ? "✅ Read" : "📖 Unread")
+                    }
+                    .onTapGesture {
+                        book.isRead.toggle() // ← direct update, no save needed
+                    }
+                }
+            }
+            .onDelete { indexSet in
+                indexSet.forEach { context.delete(books[$0]) }
+            }
         }
+        
     }
+}
     
-}
-
-
-#Preview {
-    ContentView()
-}
+    
+    #Preview {
+        ContentView()
+    }

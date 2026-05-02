@@ -7,6 +7,6 @@ struct PersonalLibraryApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Book.self) // Create the DB
+        .modelContainer(for: [Book.self, Author.self, Category.self]) // Create the DB
     }
 }

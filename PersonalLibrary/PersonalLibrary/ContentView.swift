@@ -7,16 +7,32 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            
+            List(books, id: \.id) { book in
+                VStack(alignment: .leading) {
+                    Text(book.title).font(.headline)
+                    Text(book.author).font(.subheadline)
+                    Text(book.isRead ? "Red" : "Unread")
+                }
+            }
+            .toolbar{
+                Button("Add Book") { addBook() }
+            }
+            .onAppear{ fetchBooks() }
         }
     }
     
-//    func fetchBooks() {
-//        let descriptor = FetchDescriptor<Book>(
-//            shortBy: [SortDescriptor(\.title)]
-//        )
-//        books = (try? context.fetch(descriptor)) ??? []
-//    }
+    func fetchBooks() {
+        let descriptor = FetchDescriptor<Book>(
+            sortBy: [SortDescriptor(\.title)]
+        )
+        books = (try? context.fetch(descriptor)) ?? []
+    }
+    
+    func addBook() {
+           let book = Book(title: "Book \(Int.random(in: 1...100))", author: "Author")
+           context.insert(book)
+           fetchBooks() // refresh list
+    }
 }
 
 

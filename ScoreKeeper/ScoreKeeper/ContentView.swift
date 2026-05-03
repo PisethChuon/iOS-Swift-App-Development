@@ -20,9 +20,18 @@ struct ContentView: View {
                 .font(.title)
                 .bold()
                 .padding(.bottom)
-            ForEach($players) { $player in
-                TextField("Name", text: $player.name)
-                Stepper("\(player.score)", value: $player.score)
+            Grid {
+                GridRow {
+                    Text("Player")
+                    Text("Score")
+                }
+                .font(.headline)
+                ForEach($players) { $player in
+                    GridRow {
+                        TextField("Name", text: $player.name)
+                        Stepper("\(player.score)", value: $player.score)
+                    }
+                }
             }
             Button("Add Player", systemImage: "plus") {
                 players.append(Player(name: "", score: 0))

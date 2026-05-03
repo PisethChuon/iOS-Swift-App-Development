@@ -40,5 +40,13 @@ class BookViewModel {
     func toggleRead(_ book: Book) {
         book.isRead.toggle()
     }
+    
+    func delete(_ book: Book) {
+        context.delete(book)
+    }
+    
+    func delete(at offsets: IndexSet, in books:[Book]) {
+        offsets.forEach { context.delete(books[$0]) }
+    }
 }
 

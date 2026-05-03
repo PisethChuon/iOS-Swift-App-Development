@@ -36,5 +36,9 @@ class BookViewModel {
         context.insert(author)
         context.insert(book)
     }
+    
+    func toggleRead(_ book: Book) {
+        book.isRead.toggle()
+    }
 }
 

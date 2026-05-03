@@ -48,16 +48,5 @@ class BookViewModel {
     func delete(at offsets: IndexSet, in books:[Book]) {
         offsets.forEach { context.delete(books[$0]) }
     }
-    
-    func importBooks(from data:[BookData]) async {
-        await Task.detached(priority: .background) {
-            let backgroundContext = ModelContext(
-                    for item in data {
-                        let book = Book(title: item.title)
-                        backgroundContext.insert(book)
-                }
-            )
-        }
-    }
 }
 

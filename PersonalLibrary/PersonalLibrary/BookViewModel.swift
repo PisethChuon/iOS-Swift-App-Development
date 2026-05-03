@@ -25,5 +25,16 @@ class BookViewModel {
         )
         return (try? context.fetch(descriptor)) ?? []
     }
+    
+    func addBook(title: String, authorName: String) {
+        guard !title.isEmpty else {return}
+        
+        let author = Author(name: authorName)
+        let book = Book(title: title)
+        book.author = author
+        
+        context.insert(author)
+        context.insert(book)
+    }
 }
 

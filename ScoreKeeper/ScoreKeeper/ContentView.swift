@@ -21,6 +21,7 @@ struct ContentView: View {
                 players.append("")
                 score.append(0)
             }
+            Spacer()
         }
         .padding()
     }

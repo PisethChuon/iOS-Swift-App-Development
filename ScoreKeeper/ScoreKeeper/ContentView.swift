@@ -23,16 +23,21 @@ struct ContentView: View {
             Grid {
                 GridRow {
                     Text("Player")
+                        .gridColumnAlignment(.leading)
                     Text("Score")
                 }
                 .font(.headline)
                 ForEach($players) { $player in
                     GridRow {
                         TextField("Name", text: $player.name)
+                        Text("\(player.score)")
                         Stepper("\(player.score)", value: $player.score)
+                            .labelsHidden()
                     }
                 }
             }
+            .padding(.vertical)
+            
             Button("Add Player", systemImage: "plus") {
                 players.append(Player(name: "", score: 0))
             }

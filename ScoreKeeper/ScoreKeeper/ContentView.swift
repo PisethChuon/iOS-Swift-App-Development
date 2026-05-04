@@ -9,11 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var scoreboard = Scoreboard()
-    @State private var players: [Player] = [
-        Player(name: "Elisha", score: 0),
-        Player(name: "Andre", score: 0),
-        Player(name: "Jasmine", score: 0),
-    ]
+    
     
     var body: some View {
         VStack(alignment: .leading) {

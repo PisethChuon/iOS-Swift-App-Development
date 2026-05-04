@@ -9,7 +9,7 @@ import Testing
 @testable import ScoreKeeper
 
 struct ScoreKeeperTests {
-
+    
     @Test("Reset player scores", arguments: [0, 10, 20])
     @MainActor
     func resetScores(to newValue: Int) async throws {

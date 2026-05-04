@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var scoreboard = Scoreboard()
     @State private var players: [Player] = [
         Player(name: "Elisha", score: 0),
         Player(name: "Andre", score: 0),

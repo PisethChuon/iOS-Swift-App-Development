@@ -28,7 +28,7 @@ struct ContentView: View {
                     Text("Score")
                 }
                 .font(.headline)
-                ForEach($players) { $player in
+                ForEach($scoreboard.players) { $player in
                     GridRow {
                         TextField("Name", text: $player.name)
                         Text("\(player.score)")

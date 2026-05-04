@@ -54,4 +54,19 @@ struct ScoreKeeperTests {
         let winners = scoreboard.winners
         #expect(winners == [Player(name: "Elisha", score: 0)])
     }
+    
+    @Test("Both score winner")
+    func bothScoreWinner() {
+        let scoreboard = Scoreboard(
+            players: [
+                Player(name: "Elisha", score: 4),
+                Player(name: "Andre", score: 4),
+            ],
+            
+            state: .gameOver,
+            doesHighestScoreWin: true
+        )
+        let bothWinners = scoreboard.winners
+        #expect(bothWinners.count == 2)
+    }
 }

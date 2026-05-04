@@ -39,6 +39,15 @@ struct ContentView: View {
                 scoreboard.players.append(Player(name: "", score: 0))
             }
             Spacer()
+            
+            switch scoreboard.state {
+            case .setup:
+                Button("Start Game", systemImage: "play.fill") {
+                    scoreboard.state = .playing
+                }
+            default:
+                EmptyView()
+            }
         }
         .padding()
     }

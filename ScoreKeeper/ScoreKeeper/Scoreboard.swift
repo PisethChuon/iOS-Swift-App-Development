@@ -14,4 +14,5 @@ struct Scoreboard {
         Player(name: "Jasmine", score: 0),
     ]
     
+    var state = GameState.setup
 }

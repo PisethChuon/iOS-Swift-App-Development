@@ -14,7 +14,6 @@ struct ContentView: View {
     @Environment(\.modelContext) private var context
     
     @State private var itemName = ""
-    @State private var isCart: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -24,7 +23,7 @@ struct ContentView: View {
                         .bold()
                     Spacer()
                     
-                    Toggle("", isOn: $isCart)
+                    Toggle("", isOn: Binding(get: {groceryList.isCart}, set: {groceryList.isCart = $0}))
                 }
             }
             

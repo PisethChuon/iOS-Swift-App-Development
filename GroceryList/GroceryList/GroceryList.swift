@@ -12,8 +12,10 @@ import SwiftData
 @Model
 class GroceryList {
     var items: String
+    var isCart: Bool = false
     
-    init(items: String) {
+    init(items: String, isCart: Bool = false) {
         self.items = items
+        self.isCart = isCart
     }
 }

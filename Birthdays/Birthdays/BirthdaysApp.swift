@@ -14,5 +14,6 @@ struct BirthdaysApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Friend.self)
     }
 }

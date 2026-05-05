@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Query(sort: [SortDescriptor(\Friend.birthday), SortDescriptor(\Friend.name)]) private var friends: [Friend]
+    @Query(sort: \Friend.name) private var friends: [Friend]
     @Environment(\.modelContext) private var context
     
     @State private var newName = ""

@@ -13,6 +13,10 @@ struct ContentView: View {
             Tab("Friends", systemImage: "person.and.person") {
                 Text("Friends")
             }
+            
+            Tab("Movie", systemImage: "film.stack") {
+                Text("Movies")
+            }
         }
     }
 }

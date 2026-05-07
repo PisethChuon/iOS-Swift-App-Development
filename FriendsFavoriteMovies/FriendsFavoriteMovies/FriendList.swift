@@ -13,7 +13,11 @@ struct FriendList: View {
     @Environment(\.modelContext) private var context
     
     var body: some View {
-        Text("Hello, world!")
+        List {
+            ForEach(friends) { friend in
+                    Text(friend.name)
+            }
+        }
     }
 }
 

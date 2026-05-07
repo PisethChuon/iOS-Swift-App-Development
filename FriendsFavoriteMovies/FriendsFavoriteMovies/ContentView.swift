@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @Query private var friends: [Friend]
+    @Environment(\.modelContext) private var context
+    
     var body: some View {
         TabView {
             Tab("Friends", systemImage: "person.and.person") {
-                Text("Friends")
+                FriendList()
             }
             
             Tab("Movie", systemImage: "film.stack") {
@@ -23,4 +27,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: Friend.self, inMemory: true)
+    
 }

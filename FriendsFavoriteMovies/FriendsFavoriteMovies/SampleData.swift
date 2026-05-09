@@ -19,5 +19,10 @@ class SampleData {
         ])
         let modelCongiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         
+        do {
+            modelContainer = try ModelContainer(for: schema, configurations: [modelCongiguration])
+        } catch {
+            fatalError()
+        }
     }
 }

@@ -19,7 +19,7 @@ struct ContentView: View {
             }
             
             Tab("Movie", systemImage: "film.stack") {
-                Text("Movies")
+                MovieList()
             }
         }
     }

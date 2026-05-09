@@ -21,7 +21,7 @@ class SampleData {
     init() {
         let schema = Schema([
             Friend.self,
-            Moive.self,
+            Movie.self,
         ])
         let modelCongiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         
@@ -39,6 +39,10 @@ class SampleData {
     private func insertSampleData() {
         for friend in Friend.sampleData {
             context.insert(friend)
+        }
+        
+        for movie in Movie.sampleData {
+            context.insert(movie)
         }
     }
 }

@@ -29,6 +29,8 @@ class SampleData {
             modelContainer = try ModelContainer(for: schema, configurations: [modelCongiguration])
             
             insertSampleData()
+            
+            try context.save()
         } catch {
             fatalError("Cound not create ModelContainer: \(error)")
         }

@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct FriendDetail: View {
     @Bindable var friend: Friend
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
     
     var body: some View {
         Form {
@@ -28,7 +30,7 @@ struct FriendDetail: View {
             
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") {
-                    dismiss()                    
+                    dismiss()
                 }
             }
         }

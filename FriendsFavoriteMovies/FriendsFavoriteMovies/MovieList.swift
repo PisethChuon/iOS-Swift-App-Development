@@ -24,12 +24,21 @@ struct MovieList: View {
                 }
             }
             .navigationTitle("Movies")
+            .toolbar {
+                ToolbarItem {
+                    Button("Add movie", systemImage: "plus", action: addMovie)
+                }
+            }
         } detail: {
             Text("Select a movie")
                 .navigationTitle("Moive")
                 .navigationBarTitleDisplayMode(.inline)
         }
         
+    }
+    
+    private func addMovie() {
+        context.insert(Movie(title: "New Movie", releaseDate: .now))
     }
 }
 

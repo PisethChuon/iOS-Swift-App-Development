@@ -35,6 +35,6 @@ struct MovieList: View {
 }
 
 #Preview {
-    FriendList()
+    MovieList()
         .modelContainer(SampleData.shared.modelContainer)
 }

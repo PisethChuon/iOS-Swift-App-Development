@@ -12,6 +12,11 @@ struct FriendDetail: View {
     @Bindable var friend: Friend
     
     var body: some View {
-        Text("FriendDetail")
+        TextField("Name", text: $friend.name)
+            .autocorrectionDisabled()
     }
+}
+
+#Preview {
+    FriendDetail(friend: SampleData.shared.friend)
 }

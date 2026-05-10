@@ -13,10 +13,12 @@ struct MovieDetail: View {
     var body: some View {
         Form {
             TextField("Moive", text: $movie.title)
+            
+            DatePicker("Release date", selection: $movie.releaseDate, displayedComponents: .date)
         }
     }
 }
 
 #Preview {
-    MovieDetail(movie: SampleData.shared.movieq)
+    MovieDetail(movie: SampleData.shared.movie)
 }

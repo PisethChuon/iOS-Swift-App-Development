@@ -22,7 +22,7 @@ class SampleData {
         Friend.sampleData.first!
     }
     
-    var movieq: Movie {
+    var movie: Movie {
         Movie.sampleData.first!
     }
     

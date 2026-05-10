@@ -22,6 +22,21 @@ struct MovieDetail: View {
         }
         .navigationTitle("Moive")
         .navigationBarTitleDisplayMode(.inline)
+        
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Save") {
+                    dismiss()
+                }
+            }
+            
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel") {
+                    context.delete(movie)
+                    dismiss()
+                }
+            }
+        }
     }
 }
 

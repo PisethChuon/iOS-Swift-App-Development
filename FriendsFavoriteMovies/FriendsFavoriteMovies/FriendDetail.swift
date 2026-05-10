@@ -30,6 +30,7 @@ struct FriendDetail: View {
             
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") {
+                    context.delete(friend)
                     dismiss()
                 }
             }

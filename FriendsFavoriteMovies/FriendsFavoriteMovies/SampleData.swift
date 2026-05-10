@@ -22,6 +22,10 @@ class SampleData {
         Friend.sampleData.first!
     }
     
+    var movieq: Movie {
+        Movie.sampleData.first!
+    }
+    
     private init() {
         let schema = Schema([
             Friend.self,

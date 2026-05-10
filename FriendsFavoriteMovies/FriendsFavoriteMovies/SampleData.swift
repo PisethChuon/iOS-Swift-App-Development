@@ -18,7 +18,11 @@ class SampleData {
         modelContainer.mainContext
     }
     
-    init() {
+    var friend: Friend {
+        Friend.sampleData.first!
+    }
+    
+    private init() {
         let schema = Schema([
             Friend.self,
             Movie.self,

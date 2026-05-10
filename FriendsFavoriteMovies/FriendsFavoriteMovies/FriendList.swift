@@ -18,8 +18,7 @@ struct FriendList: View {
                 ForEach(friends) { friend in
                     NavigationLink(friend.name) {
                         FriendDetail(friend: friend)
-                            .navigationTitle("Friend")
-                            .navigationBarTitleDisplayMode(.inline)
+                            
                     }
                 }
             }

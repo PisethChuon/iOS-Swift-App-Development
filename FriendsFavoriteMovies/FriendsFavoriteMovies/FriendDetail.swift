@@ -10,6 +10,7 @@ import SwiftUI
 
 struct FriendDetail: View {
     @Bindable var friend: Friend
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         Form {
@@ -21,7 +22,7 @@ struct FriendDetail: View {
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
-                    
+                    dismiss()
                 }
             }
         }

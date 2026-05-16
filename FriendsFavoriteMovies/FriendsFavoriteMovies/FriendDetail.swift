@@ -29,6 +29,7 @@ struct FriendDetail: View {
             Picker("Favorite Movie", selection: $friend.favoriteMovies) {
                 ForEach(movies) { movie in
                     Text(movie.title)
+                        .tag(movie)
                 }
             }
         }

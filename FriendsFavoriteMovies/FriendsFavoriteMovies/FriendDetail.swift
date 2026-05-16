@@ -5,7 +5,6 @@
 //  Created by chuonpiseth on 10/5/26.
 //
 
-import Foundation
 import SwiftUI
 import SwiftData
 
@@ -27,7 +26,9 @@ struct FriendDetail: View {
                 .autocorrectionDisabled()
             
             Picker("Favorite Movie", selection: $friend.favoriteMovies) {
-                
+                ForEach(movies) { movie in
+                    Text(movie.title)
+                }
             }
         }
         .navigationTitle(isNew ? "New Friend" : "Friend")

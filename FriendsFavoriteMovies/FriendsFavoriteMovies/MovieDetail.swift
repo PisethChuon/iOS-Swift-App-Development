@@ -21,7 +21,9 @@ struct MovieDetail: View {
     }
     
     var sortedFriends: [Friend] {
-        movie.favoriteBy
+        movie.favoriteBy.sorted { first, second in
+            first.name < second.name
+        }
     }
     
     var body: some View {
@@ -32,7 +34,7 @@ struct MovieDetail: View {
             
             if !movie.favoriteBy.isEmpty {
                 Section("Favorited by") {
-                    ForEach(movie.favoriteBy) { friend in
+                    ForEach(sortedFriends) { friend in
                         Text(friend.name)
                     }
                 }

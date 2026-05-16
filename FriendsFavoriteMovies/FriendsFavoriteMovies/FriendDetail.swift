@@ -25,6 +25,10 @@ struct FriendDetail: View {
         Form {
             TextField("Name", text: $friend.name)
                 .autocorrectionDisabled()
+            
+            Picker("Favorite Movie", selection: $friend.favoriteMovies) {
+                
+            }
         }
         .navigationTitle(isNew ? "New Friend" : "Friend")
         .navigationBarTitleDisplayMode(.inline)

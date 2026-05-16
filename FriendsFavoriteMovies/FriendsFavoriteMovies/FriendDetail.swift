@@ -56,4 +56,5 @@ struct FriendDetail: View {
     NavigationStack {
         FriendDetail(friend: SampleData.shared.friend, isNew: true)
     }
+    .modelContainer(SampleData.shared.modelContainer)
 }

@@ -20,6 +20,10 @@ struct MovieDetail: View {
         self.isNew = isNew
     }
     
+    var sortedFriends: [Friend] {
+        movie.favoriteBy
+    }
+    
     var body: some View {
         Form {
             TextField("Moive", text: $movie.title)

@@ -54,6 +54,7 @@ class SampleData {
         }
         
         Friend.sampleData[0].favoriteMovies = Movie.sampleData[1]
+        Friend.sampleData[2].favoriteMovies = Movie.sampleData[0]
         
     }
 }

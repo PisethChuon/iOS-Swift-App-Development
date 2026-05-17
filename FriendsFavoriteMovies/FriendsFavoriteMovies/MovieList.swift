@@ -64,7 +64,16 @@ struct MovieList: View {
     }
 }
 
+#Preview {
+    NavigationStack {
+        MovieList()
+            .modelContainer(SampleData.shared.modelContainer)
+    }
+}
+
 #Preview("Filtered") {
-    MovieList(titleFilter: "tr")
-        .modelContainer(SampleData.shared.modelContainer)
+    NavigationStack {
+        MovieList(titleFilter: "tr")
+            .modelContainer(SampleData.shared.modelContainer)
+    }
 }

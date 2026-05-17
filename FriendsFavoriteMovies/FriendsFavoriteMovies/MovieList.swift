@@ -22,36 +22,32 @@ struct MovieList: View {
     }
     
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(movies) { movie in
-                    NavigationLink(movie.title) {
-                        MovieDetail(movie: movie)
-                            
-                    }
-                }
-                .onDelete(perform: deleteMovie(indexes:))
-            }
-            .navigationTitle("Movies")
-            .toolbar {
-                ToolbarItem {
-                    Button("Add movie", systemImage: "plus", action: addMovie)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
+        
+        List {
+            ForEach(movies) { movie in
+                NavigationLink(movie.title) {
+                    MovieDetail(movie: movie)
+                    
                 }
             }
-            .sheet(item: $newMovie) { movies in
-                NavigationStack {
-                    MovieDetail(movie: movies, isNew: true)
-                }
-                .interactiveDismissDisabled()
-            }
-        } detail: {
-            Text("Select a movie")
-                .navigationTitle("Moive")
-                .navigationBarTitleDisplayMode(.inline)
+            .onDelete(perform: deleteMovie(indexes:))
         }
+        .navigationTitle("Movies")
+        .toolbar {
+            ToolbarItem {
+                Button("Add movie", systemImage: "plus", action: addMovie)
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                EditButton()
+            }
+        }
+        .sheet(item: $newMovie) { movies in
+            NavigationStack {
+                MovieDetail(movie: movies, isNew: true)
+            }
+            .interactiveDismissDisabled()
+        }
+        
         
     }
     

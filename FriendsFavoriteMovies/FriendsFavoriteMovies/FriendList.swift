@@ -15,30 +15,33 @@ struct FriendList: View {
     
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(friends) { friend in
-                    NavigationLink(friend.name) {
-                        FriendDetail(friend: friend)
+            
+            if !friends.isEmpty {
+                List {
+                    ForEach(friends) { friend in
+                        NavigationLink(friend.name) {
+                            FriendDetail(friend: friend)
                             
+                        }
+                    }
+                    .onDelete(perform: deleteFriend(indexes:))
+                }
+                .navigationTitle("Friends")
+                .toolbar {
+                    ToolbarItem {
+                        Button("Add friend", systemImage: "plus", action: addFriend)
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        EditButton()
                     }
                 }
-                .onDelete(perform: deleteFriend(indexes:))
-            }
-            .navigationTitle("Friends")
-            .toolbar {
-                ToolbarItem {
-                    Button("Add friend", systemImage: "plus", action: addFriend)
+                .sheet(item: $newFriend) { friend in
+                    NavigationStack {
+                        FriendDetail(friend: friend, isNew: true)
+                    }
+                    .interactiveDismissDisabled()
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
-                }
-            }
-            .sheet(item: $newFriend) { friend in
-                NavigationStack {
-                    FriendDetail(friend: friend, isNew: true)
-                }
-                .interactiveDismissDisabled()
             }
         } detail: {
             Text("Select a friend")

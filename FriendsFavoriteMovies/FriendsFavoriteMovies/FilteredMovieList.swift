@@ -12,6 +12,10 @@ struct FilteredMovieList: View {
     var body: some View {
         NavigationSplitView {
             MovieList()
+        } detail: {
+            Text("Select a movie")
+                .navigationTitle("Moive")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

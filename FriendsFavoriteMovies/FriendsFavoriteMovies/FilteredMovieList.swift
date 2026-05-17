@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct FilteredMovieList: View {
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationSplitView {
             MovieList()

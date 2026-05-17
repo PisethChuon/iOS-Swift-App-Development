@@ -26,24 +26,27 @@ struct FriendList: View {
                         }
                         .onDelete(perform: deleteFriend(indexes:))
                     }
-                    .navigationTitle("Friends")
-                    .toolbar {
-                        ToolbarItem {
-                            Button("Add friend", systemImage: "plus", action: addFriend)
-                        }
-                        
-                        ToolbarItem(placement: .topBarTrailing) {
-                            EditButton()
-                        }
-                    }
-                    .sheet(item: $newFriend) { friend in
-                        NavigationStack {
-                            FriendDetail(friend: friend, isNew: true)
-                        }
-                        .interactiveDismissDisabled()
-                    }
+                } else {
+                    ContentUnavailableView("Add Friends", systemImage: "person.and.person")
                 }
             }
+            .navigationTitle("Friends")
+            .toolbar {
+                ToolbarItem {
+                    Button("Add friend", systemImage: "plus", action: addFriend)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    EditButton()
+                }
+            }
+            .sheet(item: $newFriend) { friend in
+                NavigationStack {
+                    FriendDetail(friend: friend, isNew: true)
+                }
+                .interactiveDismissDisabled()
+            }
+            
             
         } detail: {
             Text("Select a friend")

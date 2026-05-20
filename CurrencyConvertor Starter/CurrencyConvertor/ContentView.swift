@@ -9,6 +9,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var amount: String = ""
+    @State private var conversion: String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,6 +30,9 @@ struct ContentView: View {
                     .padding(.vertical)
                 Spacer()
             }
+            
+            Text("Converted To")
+                .font(.system(size: 15))
         }
         .padding(.horizontal)
     }

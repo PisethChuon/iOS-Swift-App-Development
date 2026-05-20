@@ -7,9 +7,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject private var viewModel = ContentViewModel()
     @State private var amount: String = ""
-    @State private var conversion: String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,8 +31,8 @@ struct ContentView: View {
             }
             
             Text("Converted To")
+            TextField("", text: $viewModel.convertedAmount)
                 .font(.system(size: 15))
-            TextField("", text: $conversion)
                 .font(.system(size: 18, weight: .semibold))
                 .padding()
                 .overlay {

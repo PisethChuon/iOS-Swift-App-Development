@@ -33,6 +33,14 @@ struct ContentView: View {
             
             Text("Converted To")
                 .font(.system(size: 15))
+            TextField("", text: $conversion)
+                .font(.system(size: 18, weight: .semibold))
+                .padding()
+                .overlay {
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(.clear)
+                        .stroke(Color.gray, lineWidth: 1)
+                }
         }
         .padding(.horizontal)
     }

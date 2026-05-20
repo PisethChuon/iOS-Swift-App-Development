@@ -25,6 +25,8 @@ struct ContentView: View {
             HStack {
                 Spacer()
                 Image(systemName: "arrow.up.arrow.down")
+                    .font(.system(size: 20, weight: .bold))
+                    .padding(.vertical)
                 Spacer()
             }
         }

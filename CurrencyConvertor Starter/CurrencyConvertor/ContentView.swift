@@ -41,6 +41,14 @@ struct ContentView: View {
                         .fill(.clear)
                         .stroke(Color.gray, lineWidth: 1)
                 }
+            
+            HStack {
+                Spacer()
+                Text("1.00000 USD = 2.00000 EUR")
+                    .font(.system(size: 18, weight: .semibold))
+                    .padding(.top, 25)
+                Spacer()
+            }
         }
         .padding(.horizontal)
     }

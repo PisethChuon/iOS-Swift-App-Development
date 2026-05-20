@@ -8,5 +8,12 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
-    @Published var convertedAmount = ""
+    @Published var convertedAmount = 1.0
+    
+    var numberFormatter: NumberFormatter {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.currencySymbol = ""
+        return numberFormatter
+    }
 }

@@ -31,7 +31,7 @@ struct ContentView: View {
             }
             
             Text("Converted To")
-            TextField("", text: $viewModel.convertedAmount)
+            TextField("", value: $viewModel.convertedAmount, formatter: viewModel.numberFormatter)
                 .font(.system(size: 15))
                 .font(.system(size: 18, weight: .semibold))
                 .padding()

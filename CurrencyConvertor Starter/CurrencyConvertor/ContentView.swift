@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             Text("Amount")
                 .font(.system(size: 15))
-            TextField("", text: $amount)
+            TextField("", value: $viewModel.baseAmount, formatter: viewModel.numberFormatter)
                 .font(.system(size: 18, weight: .semibold))
                 .padding()
                 .overlay {

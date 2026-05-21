@@ -22,6 +22,11 @@ struct ContentView: View {
                         .fill(.clear)
                         .stroke(Color.gray, lineWidth: 1)
                 }
+                .overlay() {
+                    HStack {
+                        Text ("a")
+                    }
+                }
             HStack {
                 Spacer()
                 Image(systemName: "arrow.up.arrow.down")

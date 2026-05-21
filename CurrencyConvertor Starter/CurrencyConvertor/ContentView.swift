@@ -22,11 +22,17 @@ struct ContentView: View {
                         .fill(.clear)
                         .stroke(Color.gray, lineWidth: 1)
                 }
-                .overlay() {
+                .overlay(alignment: .trailing) {
                     HStack {
-                        Text ("a")
+                        viewModel.baseCurrency.image()
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .clipShape(Circle())
                     }
+                    .padding(.trailing)
                 }
+                
             HStack {
                 Spacer()
                 Image(systemName: "arrow.up.arrow.down")

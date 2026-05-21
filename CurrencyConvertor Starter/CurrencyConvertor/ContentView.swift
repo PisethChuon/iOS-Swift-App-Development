@@ -30,7 +30,15 @@ struct ContentView: View {
                             .frame(width: 30, height: 30)
                             .clipShape(Circle())
                         Menu {
-                            
+                            ForEach(CurrencyChoice.allCases) { currencyChoice in
+                                Button(action:  {
+                                    viewModel.baseCurrency = currencyChoice
+                                }, label: {
+                                    Text(currencyChoice.fetchMenuName())
+                                })
+                                
+                                
+                            }
                         } label: {
                             Text(viewModel.baseCurrency.rawValue)
                                 .font(.system(size: 16, weight: .bold))
@@ -39,11 +47,11 @@ struct ContentView: View {
                                 .font(Font.system(size: 16, weight: .bold))
                                 .foregroundStyle(.black)
                         }
-
+                        
                     }
                     .padding(.trailing)
                 }
-                
+            
             HStack {
                 Spacer()
                 Image(systemName: "arrow.up.arrow.down")

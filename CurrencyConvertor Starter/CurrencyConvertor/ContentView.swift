@@ -29,6 +29,17 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 30, height: 30)
                             .clipShape(Circle())
+                        Menu {
+                            
+                        } label: {
+                            Text(viewModel.baseCurrency.rawValue)
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundStyle(.black)
+                            Image(systemName: "chevron.down")
+                                .font(Font.system(size: 16, weight: .bold))
+                                .foregroundStyle(.black)
+                        }
+
                     }
                     .padding(.trailing)
                 }

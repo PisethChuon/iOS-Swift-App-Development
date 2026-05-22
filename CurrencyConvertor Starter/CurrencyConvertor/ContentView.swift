@@ -80,7 +80,7 @@ struct ContentView: View {
                         Menu {
                             ForEach(CurrencyChoice.allCases) { currencyChoice in
                                 Button(action:  {
-                                    viewModel.baseCurrency = currencyChoice
+                                    viewModel.convertedCurrency = currencyChoice
                                 }, label: {
                                     Text(currencyChoice.fetchMenuName())
                                 })

@@ -88,7 +88,7 @@ struct ContentView: View {
                                 
                             }
                         } label: {
-                            Text(viewModel.baseCurrency.rawValue)
+                            Text(viewModel.convertedCurrency.rawValue)
                                 .font(.system(size: 16, weight: .bold))
                                 .foregroundStyle(.black)
                             Image(systemName: "chevron.down")

@@ -70,6 +70,35 @@ struct ContentView: View {
                         .fill(.clear)
                         .stroke(Color.gray, lineWidth: 1)
                 }
+                .overlay(alignment: .trailing) {
+                    HStack {
+                        viewModel.baseCurrency.image()
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .clipShape(Circle())
+                        Menu {
+                            ForEach(CurrencyChoice.allCases) { currencyChoice in
+                                Button(action:  {
+                                    viewModel.baseCurrency = currencyChoice
+                                }, label: {
+                                    Text(currencyChoice.fetchMenuName())
+                                })
+                                
+                                
+                            }
+                        } label: {
+                            Text(viewModel.baseCurrency.rawValue)
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundStyle(.black)
+                            Image(systemName: "chevron.down")
+                                .font(Font.system(size: 16, weight: .bold))
+                                .foregroundStyle(.black)
+                        }
+                        
+                    }
+                    .padding(.trailing)
+                }
             
             HStack {
                 Spacer()

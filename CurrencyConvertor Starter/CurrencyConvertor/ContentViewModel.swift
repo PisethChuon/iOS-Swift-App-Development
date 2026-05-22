@@ -12,7 +12,7 @@ class ContentViewModel: ObservableObject {
     @Published var convertedAmount = 1.0
     @Published var baseAmount = 1.0
     @Published var baseCurrency: CurrencyChoice = .Usa
-    @Published var convertedCurrency: CurrencyChoice = .Japan
+    @Published var convertedCurrency: CurrencyChoice = .Usa
     
     var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()

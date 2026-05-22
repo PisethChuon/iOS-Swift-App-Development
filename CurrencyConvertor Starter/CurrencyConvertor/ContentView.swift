@@ -72,7 +72,7 @@ struct ContentView: View {
                 }
                 .overlay(alignment: .trailing) {
                     HStack {
-                        viewModel.baseCurrency.image()
+                        viewModel.convertedCurrency.image()
                             .resizable()
                             .scaledToFit()
                             .frame(width: 30, height: 30)

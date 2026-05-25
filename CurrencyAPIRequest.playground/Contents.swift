@@ -12,5 +12,13 @@ URLSession.shared.dataTask(with: urlRequest) { data, _, error in
         return
     }
     
+    guard let data else {
+        return
+    }
+    do {
+        try JSONSerialization.jsonObject(with: data)
+    } catch {
+        
+    }
     
 }

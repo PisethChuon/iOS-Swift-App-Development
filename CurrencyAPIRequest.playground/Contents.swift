@@ -7,8 +7,8 @@ let url = URL(string: baseURL)!
 let urlRequest = URLRequest(url: url)
 
 URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-        if let error = error {
-            print(error.localizedDescription)
+    if let error = error {
+        print(error.localizedDescription)
         return
     }
     
@@ -28,3 +28,4 @@ URLSession.shared.dataTask(with: urlRequest) { data, _, error in
     }
     
 }
+.resume()

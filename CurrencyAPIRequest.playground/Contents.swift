@@ -16,7 +16,12 @@ URLSession.shared.dataTask(with: urlRequest) { data, _, error in
         return
     }
     do {
-        try JSONSerialization.jsonObject(with: data) as? [String: Any]
+        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return
+        }
+        
+        print("--- SUCCESS ---")
+        print(json)
         
     } catch {
         print(error.localizedDescription)

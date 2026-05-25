@@ -16,7 +16,7 @@ URLSession.shared.dataTask(with: urlRequest) { data, _, error in
         return
     }
     do {
-        try JSONSerialization.jsonObject(with: data)
+        try JSONSerialization.jsonObject(with: data) as? [String: Any]
         
     } catch {
         print(error.localizedDescription)

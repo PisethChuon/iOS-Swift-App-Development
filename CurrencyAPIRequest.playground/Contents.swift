@@ -1,3 +1,3 @@
 import UIKit
 
-var greeting = "Hello, playground"
+let baseURL = "https://openexchangerates.org/api/latest.json"

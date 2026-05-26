@@ -14,6 +14,9 @@ func fetchRates() async {
             return
         }
         
+        print("--- SUCCESS ---")
+        print(json)
+        
     } catch {
         print(error.localizedDescription)
     }

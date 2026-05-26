@@ -9,6 +9,11 @@ let urlRequest = URLRequest(url: url)
 func fetchRates() async {
     do {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        
+        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return
+        }
+        
     } catch {
         print(error.localizedDescription)
     }

@@ -6,8 +6,12 @@ let url = URL(string: baseURL)!
 
 let urlRequest = URLRequest(url: url)
 
-func fetchRates() {
-    
+func fetchRates() async {
+    do {
+        try await URLSession.shared.data(for: urlRequest)
+    } catch {
+        print(error.localizedDescription)
+    }
 }
 
 URLSession.shared.dataTask(with: urlRequest) { data, _, error in

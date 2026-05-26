@@ -6,10 +6,14 @@ let url = URL(string: baseURL)!
 
 let urlRequest = URLRequest(url: url)
 
+print("FIRST")
+
 func fetchRates() async {
     do {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         
+        print("SECOND")
+        
         guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
             return
         }
@@ -20,28 +24,34 @@ func fetchRates() async {
     } catch {
         print(error.localizedDescription)
     }
+    
+    print("THIRD")
 }
 
-URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-    if let error = error {
-        print(error.localizedDescription)
-        return
-    }
-    
-    guard let data else {
-        return
-    }
-    do {
-        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-            return
-        }
-        
-        print("--- SUCCESS ---")
-        print(json)
-        
-    } catch {
-        print(error.localizedDescription)
-    }
-    
+Task {
+    await fetchRates()
 }
-.resume()
+
+//URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+//    if let error = error {
+//        print(error.localizedDescription)
+//        return
+//    }
+//    
+//    guard let data else {
+//        return
+//    }
+//    do {
+//        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+//            return
+//        }
+//        
+//        print("--- SUCCESS ---")
+//        print(json)
+//        
+//    } catch {
+//        print(error.localizedDescription)
+//    }
+//    
+//}
+//.resume()

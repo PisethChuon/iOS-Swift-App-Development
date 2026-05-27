@@ -55,10 +55,9 @@
 		2066DA032B93522F00AF726C /* CurrencyConvertor */ = {
 			isa = PBXGroup;
 			children = (
+				7B80B8782FC7B25800465FDA /* Models */,
 				2066DA042B93522F00AF726C /* CurrencyConvertorApp.swift */,
-				2066DA062B93522F00AF726C /* ContentView.swift */,
-				7B7683B92FBE7F8100FF8098 /* ContentViewModel.swift */,
-				2020EB262B93B5A000C60D05 /* CurrencyChoice.swift */,
+				7B80B8772FC7B25000465FDA /* Views */,
 				2066DA082B93523100AF726C /* Assets.xcassets */,
 				2066DA0A2B93523100AF726C /* Preview Content */,
 			);
@@ -71,6 +70,23 @@
 				2066DA0B2B93523100AF726C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7B80B8772FC7B25000465FDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2066DA062B93522F00AF726C /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B80B8782FC7B25800465FDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2020EB262B93B5A000C60D05 /* CurrencyChoice.swift */,
+				7B7683B92FBE7F8100FF8098 /* ContentViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

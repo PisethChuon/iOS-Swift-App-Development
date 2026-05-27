@@ -13,6 +13,7 @@
 		2066DA092B93523100AF726C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2066DA082B93523100AF726C /* Assets.xcassets */; };
 		2066DA0C2B93523100AF726C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2066DA0B2B93523100AF726C /* Preview Assets.xcassets */; };
 		7B7683BA2FBE7F8800FF8098 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7683B92FBE7F8100FF8098 /* ContentViewModel.swift */; };
+		7B80B87A2FC7B37100465FDA /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B80B8792FC7B36C00465FDA /* Rates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2066DA082B93523100AF726C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2066DA0B2B93523100AF726C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B7683B92FBE7F8100FF8098 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		7B80B8792FC7B36C00465FDA /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		7B80B8782FC7B25800465FDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7B80B8792FC7B36C00465FDA /* Rates.swift */,
 				2020EB262B93B5A000C60D05 /* CurrencyChoice.swift */,
 				7B7683B92FBE7F8100FF8098 /* ContentViewModel.swift */,
 			);
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B7683BA2FBE7F8800FF8098 /* ContentViewModel.swift in Sources */,
+				7B80B87A2FC7B37100465FDA /* Rates.swift in Sources */,
 				2066DA072B93522F00AF726C /* ContentView.swift in Sources */,
 				2066DA052B93522F00AF726C /* CurrencyConvertorApp.swift in Sources */,
 				2020EB272B93B5A000C60D05 /* CurrencyChoice.swift in Sources */,

@@ -22,8 +22,15 @@ class ContentViewModel: ObservableObject {
     }
     
     func fetchRates() async {
-        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else { return }
+        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else { return
+        }
+        let urlRequest = URLRequest(url: url)
+        do {
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            let result = try JSONDecoder().decode(Rates.self, from: data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
-    let urlRequest = URLRequest(url: url)
 }

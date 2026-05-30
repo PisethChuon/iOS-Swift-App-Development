@@ -20,8 +20,8 @@ class ContentViewModel: ObservableObject {
         numberFormatter.currencySymbol = ""
         return numberFormatter
     }
-    
     func fetchRates() async {
+        
         guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else { return
         }
         let urlRequest = URLRequest(url: url)

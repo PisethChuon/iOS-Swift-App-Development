@@ -13,5 +13,7 @@ let task = URLSession.shared.dataTask(with: url) { data, response, error in
         return
     }
     
+    print(String(data: data, encoding: .utf8) ?? "")
     
 }
+

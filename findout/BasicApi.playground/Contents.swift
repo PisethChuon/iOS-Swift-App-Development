@@ -1,8 +1,13 @@
 import Foundation
 
 struct User: Codable {
-    let id: Int
-    let name: String
+    let userId: Int
+    let fullName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case userId = "user_id"
+        case fullName = "full_name"
+    }
 }
 
 let data = """
@@ -15,12 +20,12 @@ let data = """
 """.data(using: .utf8)!
 
 do {
-    let users = try JSONDecoder().decode(
+    let user = try JSONDecoder().decode(
         User.self,
         from: data
     )
     
-    
+    print(user.fullName)
 } catch {
     print(error)
 }

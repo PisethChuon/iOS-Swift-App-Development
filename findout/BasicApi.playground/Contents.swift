@@ -17,3 +17,4 @@ let task = URLSession.shared.dataTask(with: url) { data, response, error in
     
 }
 
+task.resume()

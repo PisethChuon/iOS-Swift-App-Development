@@ -1,19 +1,15 @@
 import Foundation
 
-let url = URL(string: "https://jsonplaceholder.typicode.com/users")!
-let task = URLSession.shared.dataTask(with: url) { data, response, error in
-    
-    if let error = error {
-        print("Error: \(error)")
-        return
-    }
-    
-    guard let data = data else {
-        print("No data received")
-        return
-    }
-    
-    print(String(data: data, encoding: .utf8) ?? "")
+struct User: Codable {
+    let id: Int
+    let name: String
+    let email: String
 }
 
-task.resume()
+let json = """
+{
+ "id": 1,
+"name": "Leanne Graham",
+"email": "leanne@example.com"   
+}
+""".data(using: .utf8)!

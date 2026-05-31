@@ -5,30 +5,21 @@ struct User: Codable {
     let name: String
 }
 
-let json = """
+let data = """
 
-[
-  {
-    "id": 1,
-    "name": "Leanne"
-  },
-  {
-    "id": 2,
-    "name": "Ervin"
-  }
-]
+{
+  "user_id": 1,
+  "full_name": "Piseth"
+}
 
 """.data(using: .utf8)!
 
 do {
     let users = try JSONDecoder().decode(
-        [User].self,
-        from: json
+        User.self,
+        from: data
     )
     
-    if let firstuser = users.first {
-        print(firstuser.name)
-    }
     
 } catch {
     print(error)

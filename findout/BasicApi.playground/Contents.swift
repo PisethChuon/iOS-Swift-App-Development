@@ -1,31 +1,37 @@
 import Foundation
 
 struct User: Codable {
-    let userId: Int
-    let fullName: String
+    let id: Int
+    let name: String
+    let username: String
+    let email: String
+}
+
+let url = URL(string: "https://jsonplaceholder.typicode.com/users")!
+
+let task = URLSession.shared.dataTask(with: url) { data, response, error in
     
-    enum CodingKeys: String, CodingKey {
-        case userId = "user_id"
-        case fullName = "full_name"
+    if let error = error {
+        print("Error: \(error)")
+        return
     }
-}
-
-let data = """
-
-{
-  "user_id": 1,
-  "full_name": "Piseth"
-}
-
-""".data(using: .utf8)!
-
-do {
-    let user = try JSONDecoder().decode(
-        User.self,
-        from: data
-    )
     
-    print(user.fullName)
-} catch {
-    print(error)
+    guard let data = data else {
+        print("No data received")
+        return
+    }
+    
+    do {
+        let users = try JSONDecoder().decode([User].self, from: data)
+//        for user in users {
+//            print(user.name, "-", user.email)
+//        }
+        print(users[1].name)
+    } catch {
+        print(error)
+    }
+    
+    
 }
+
+task.resume()

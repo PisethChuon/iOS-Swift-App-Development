@@ -7,11 +7,17 @@ struct User: Codable {
 }
 
 let json = """
+
 {
+
     "id": 1,
+
     "name": "Leanne Graham",
-    "email": "leanne@example.com"   
+
+    "email": "leanne@example.com"
+
 }
+
 """.data(using: .utf8)!
 
 do {
@@ -20,10 +26,7 @@ do {
         from: json
     )
     
-    print(user.id)
     print(user.name)
-    print(user.email)
-    
 } catch {
     print(error)
 }

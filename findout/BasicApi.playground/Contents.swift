@@ -6,7 +6,7 @@ Task {
     do {
         
     } catch {
-        
+        print(error)
     }
 }
 

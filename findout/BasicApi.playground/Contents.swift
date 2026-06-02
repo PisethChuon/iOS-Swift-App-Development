@@ -1,1 +1,1 @@
-let (data, response) = try await
+let (data, response) = try await URLSession.shared.data(from: url)

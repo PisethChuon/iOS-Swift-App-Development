@@ -17,4 +17,8 @@ func fetchUsers() async throws -> [User] {
     guard let httpsResponse = response as? HTTPURLResponse else {
         throw NetworkError.invalidResponse
     }
+    
+    guard (200...299).contains(httpsResponse.statusCode) else {
+        throw NetworkError.badStatusCode(httpsResponse.statusCode)
+    }
 }

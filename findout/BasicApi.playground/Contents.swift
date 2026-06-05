@@ -1,6 +1,4 @@
-enum NetworkError: Error {
-    case invalideURL
-    case invalidResponse
-    case badStatusCode(Int)
-    case decodingError
+struct User: Codable {
+    let id: Int
+    let name: String
 }

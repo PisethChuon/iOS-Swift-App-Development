@@ -5,20 +5,4 @@ enum NetworkError: Error {
     case decodingError
 }
 
-func fetchUsers() async throws -> [User] {
-    guard let url = URL(
-        strint: "https://jsonplaceholder.typicode.com/users"
-    ) else {
-        throw NetworkError.invalidURL
-    }
-    
-    let (data, response) = try await URLSession.shared.data(from: url)
-    
-    guard let httpsResponse = response as? HTTPURLResponse else {
-        throw NetworkError.invalidResponse
-    }
-    
-    guard (200...299).contains(httpsResponse.statusCode) else {
-        throw NetworkError.badStatusCode(httpsResponse.statusCode)
-    }
-}
+

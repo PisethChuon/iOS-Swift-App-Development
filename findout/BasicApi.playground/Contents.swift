@@ -1,8 +1,9 @@
-enum NetworkError: Error {
-    case invalideURL
-    case invalidResponse
-    case badStatusCode(Int)
-    case decodingError
+Task {
+    do {
+        let users = try await fetchUsers()
+        print(users)
+    } catch {
+        print(error)
+    }
 }
-
 

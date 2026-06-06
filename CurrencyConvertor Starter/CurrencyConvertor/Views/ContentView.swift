@@ -73,7 +73,7 @@ struct ContentView: View {
                 
                 Text("Converted To")
                     .font(.system(size: 15))
-                TextField("", value: $viewModel.baseAmount, formatter: viewModel.numberFormatter)
+                TextField("", value: $viewModel.convertedAmount, formatter: viewModel.numberFormatter)
                     .font(.system(size: 18, weight: .semibold))
                     .padding()
                     .overlay {
@@ -113,7 +113,7 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Text("1.00000 USD = 2.00000 EUR")
+                    Text("\(String(format: "%.5f", viewModel.baseAmount)) \(viewModel.baseCurrency.rawValue) = \(String(format: "%.5f", viewModel.convertedAmount)) \(viewModel.convertedCurrency.rawValue)")
                         .font(.system(size: 18, weight: .semibold))
                         .padding(.top, 25)
                     Spacer()

@@ -128,11 +128,13 @@ struct ContentView: View {
                     Color.black.opacity(0.3)
                         .ignoresSafeArea()
                     ProgressView()
-                        .tint(Color.white)
+                        .tint(Color.gray)
                 }
             }
         }
-        
+        .onTapGesture {
+            viewModel.convert()
+        }
     }
 }
 

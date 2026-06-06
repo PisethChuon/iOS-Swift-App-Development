@@ -28,7 +28,7 @@ class ContentViewModel: ObservableObject {
     }
     
     func fetchRates() async {
-        guard let url = URL(string: "PUT_YOUR_API_KEY_HERE") else {
+        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else {
             errorMessage = "Could not fetch rates."
             print("API url is not valid")
             return

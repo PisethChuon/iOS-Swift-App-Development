@@ -15,7 +15,7 @@ class ContentViewModel: ObservableObject {
     @Published var convertedCurrency: CurrencyChoice = .Usa
     @Published var rates: Rates?
     @Published var isLoading = false
-    @Published var errorMessage = "Fake Error"
+    @Published var errorMessage = ""
     
     var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
@@ -25,7 +25,10 @@ class ContentViewModel: ObservableObject {
     }
     func fetchRates() async {
         
-        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else { return
+        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else {
+            errorMessage = "Could not fetch rates."
+            print("API url invalid")
+            return
         }
         let urlRequest = URLRequest(url: url)
         isLoading = true

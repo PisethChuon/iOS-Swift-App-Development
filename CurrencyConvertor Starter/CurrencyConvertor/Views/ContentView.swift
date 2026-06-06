@@ -133,15 +133,8 @@ struct ContentView: View {
             }
         }
         ZStack {
-            Color.clear
-                .contentShape(Rectangle())
-                .ignoresSafeArea()
-                .onTapGesture {
-                    print("Tap")
-                }
-
-            VStack {
-                // your existing content
+            .onTapGesture {
+                print("Tap")
             }
         }
     }

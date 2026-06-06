@@ -1,12 +1,6 @@
-//
-//  ContentViewModel.swift
-//  CurrencyConvertor
-//
-//  Created by chuonpiseth on 21/5/26.
-//
-
 import Foundation
 
+@MainActor
 class ContentViewModel: ObservableObject {
     
     @Published var convertedAmount = 1.0
@@ -23,11 +17,20 @@ class ContentViewModel: ObservableObject {
         numberFormatter.currencySymbol = ""
         return numberFormatter
     }
+    
+    var conversionRate: Double {
+        if let rates = rates,
+           let baseExchangeRate = rates.rates[baseCurrency.rawValue],
+           let convertedExchangeRate = rates.rates[convertedCurrency.rawValue] {
+            return convertedExchangeRate / baseExchangeRate
+        }
+        return 1
+    }
+    
     func fetchRates() async {
-        
-        guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else {
+        guard let url = URL(string: "PUT_YOUR_API_KEY_HERE") else {
             errorMessage = "Could not fetch rates."
-            print("API url invalid")
+            print("API url is not valid")
             return
         }
         let urlRequest = URLRequest(url: url)
@@ -36,6 +39,7 @@ class ContentViewModel: ObservableObject {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             rates = try JSONDecoder().decode(Rates.self, from: data)
         } catch {
+            errorMessage = "Could not fetch rates."
             print(error.localizedDescription)
         }
         isLoading = false

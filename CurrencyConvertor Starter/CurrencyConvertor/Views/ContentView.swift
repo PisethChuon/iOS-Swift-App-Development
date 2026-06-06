@@ -132,11 +132,7 @@ struct ContentView: View {
                 }
             }
         }
-        ZStack {
-            .onTapGesture {
-                print("Tap")
-            }
-        }
+        
     }
 }
 

@@ -113,6 +113,11 @@ struct ContentView: View {
             .task {
                 await viewModel.fetchRates()
             }
+            if viewModel.isLoading {
+                ZStack {
+                    Color.black.opacity(0.3)
+                }
+            }
         }
     }
 }

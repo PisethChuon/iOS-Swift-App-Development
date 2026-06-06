@@ -116,6 +116,7 @@ struct ContentView: View {
             if viewModel.isLoading {
                 ZStack {
                     Color.black.opacity(0.3)
+                        .ignoresSafeArea()
                 }
             }
         }

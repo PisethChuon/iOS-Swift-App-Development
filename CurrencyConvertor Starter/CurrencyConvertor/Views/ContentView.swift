@@ -23,6 +23,9 @@ struct ContentView: View {
                 Text("Amount")
                     .font(.system(size: 15))
                 TextField("", value: $viewModel.baseAmount, formatter: viewModel.numberFormatter)
+                    .onSubmit {
+                        viewModel.convert()
+                    }
                     .font(.system(size: 18, weight: .semibold))
                     .padding()
                     .overlay {
@@ -69,8 +72,8 @@ struct ContentView: View {
                 }
                 
                 Text("Converted To")
-                TextField("", value: $viewModel.convertedAmount, formatter: viewModel.numberFormatter)
                     .font(.system(size: 15))
+                TextField("", value: $viewModel.baseAmount, formatter: viewModel.numberFormatter)
                     .font(.system(size: 18, weight: .semibold))
                     .padding()
                     .overlay {
@@ -127,6 +130,18 @@ struct ContentView: View {
                     ProgressView()
                         .tint(Color.white)
                 }
+            }
+        }
+        ZStack {
+            Color.clear
+                .contentShape(Rectangle())
+                .ignoresSafeArea()
+                .onTapGesture {
+                    print("Tap")
+                }
+
+            VStack {
+                // your existing content
             }
         }
     }

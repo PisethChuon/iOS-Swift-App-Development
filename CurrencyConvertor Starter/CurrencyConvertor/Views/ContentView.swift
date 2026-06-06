@@ -117,6 +117,7 @@ struct ContentView: View {
                 ZStack {
                     Color.black.opacity(0.3)
                         .ignoresSafeArea()
+                    ProgressView()
                 }
             }
         }

@@ -13,7 +13,9 @@ class ContentViewModel: ObservableObject {
     @Published var baseAmount = 1.0
     @Published var baseCurrency: CurrencyChoice = .Usa
     @Published var convertedCurrency: CurrencyChoice = .Usa
-    @Published var isLoading = true
+    @Published var rates: Rates?
+    @Published var isLoading = false
+    @Published var errorMessage = "Fake Error"
     
     var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
@@ -26,12 +28,14 @@ class ContentViewModel: ObservableObject {
         guard let url = URL(string: "https://openexchangerates.org/api/latest.json?app_id=a921f26b655c4b4597b4d60d4106ed50") else { return
         }
         let urlRequest = URLRequest(url: url)
+        isLoading = true
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            let result = try JSONDecoder().decode(Rates.self, from: data)
+            rates = try JSONDecoder().decode(Rates.self, from: data)
         } catch {
             print(error.localizedDescription)
         }
+        isLoading = false
     }
     
 }

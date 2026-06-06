@@ -13,6 +13,13 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
+                HStack {
+                    Spacer()
+                    Text(viewModel.errorMessage)
+                        .foregroundStyle(Color.red)
+                        .font(.system(size: 18, weight: .semibold))
+                    Spacer()
+                }
                 Text("Amount")
                     .font(.system(size: 15))
                 TextField("", value: $viewModel.baseAmount, formatter: viewModel.numberFormatter)

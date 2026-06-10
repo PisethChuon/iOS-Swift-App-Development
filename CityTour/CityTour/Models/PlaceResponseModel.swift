@@ -12,5 +12,8 @@ struct PlaceResponseModel: Decodable {
 }
 
 struct PlaceDetailResponseModel: Decodable {
-//    let
+    let name: String
+    let rating: Double
+    let vicinity: String
+//    let photos: [PhotoResponseModel]
 }

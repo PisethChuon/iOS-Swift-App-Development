@@ -15,5 +15,9 @@ struct PlaceDetailResponseModel: Decodable {
     let name: String
     let rating: Double
     let vicinity: String
-//    let photos: [PhotoResponseModel]
+    let photos: [PhotoInfo]
+}
+
+struct PhotoInfo: Decodable {
+    let photo_reference: String
 }

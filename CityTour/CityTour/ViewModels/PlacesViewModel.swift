@@ -15,17 +15,21 @@ import CoreLocation
 // 5. Receive the location
 
 @MainActor
-class PlacesViewModel: ObservableObject {
+class PlacesViewModel: NSObject, ObservableObject {
     
-    let apiClient = APIClient()
+    private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
     
-    init() {
+    override init() {
         locationManager.requestWhenInUseAuthorization()
     }
     
     func fetchPlaces() {
         
     }
+    
+}
+
+extension PlacesViewModel: CLLocationManagerDelegate {
     
 }

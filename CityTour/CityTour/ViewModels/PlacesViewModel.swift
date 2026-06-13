@@ -12,4 +12,8 @@ class PlacesViewModel: ObservableObject {
     
     let apiClient = APIClient()
     
+    func fetchPlaces() {
+        
+    }
+    
 }

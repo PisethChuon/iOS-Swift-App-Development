@@ -35,9 +35,9 @@ class PlacesViewModel: NSObject, ObservableObject {
 
 extension PlacesViewModel: CLLocationManagerDelegate {
     
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-//        
-//    }
+    nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Location error: \(error.localizedDescription)")
+    }
     
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
@@ -45,6 +45,7 @@ extension PlacesViewModel: CLLocationManagerDelegate {
             Task { @MainActor in
                 locationManager.requestLocation()
             }
+        case .denied:
         default:
             break
         }

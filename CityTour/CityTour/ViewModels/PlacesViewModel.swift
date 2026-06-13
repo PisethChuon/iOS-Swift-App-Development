@@ -31,5 +31,14 @@ class PlacesViewModel: NSObject, ObservableObject {
 }
 
 extension PlacesViewModel: CLLocationManagerDelegate {
-    
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            Task { @MainActor in
+                locationManager.requestLocation()
+            }
+        default:
+            break
+        }
+    }
 }

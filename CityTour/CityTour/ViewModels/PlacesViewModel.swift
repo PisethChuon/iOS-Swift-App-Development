@@ -20,6 +20,10 @@ class PlacesViewModel: ObservableObject {
     let apiClient = APIClient()
     private let locationManager = CLLocationManager()
     
+    init() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
     func fetchPlaces() {
         
     }

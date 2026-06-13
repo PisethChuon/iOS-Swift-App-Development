@@ -19,8 +19,11 @@ class PlacesViewModel: NSObject, ObservableObject {
     
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
     
     override init() {
+        super.init()
+        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
     }
     
@@ -31,6 +34,11 @@ class PlacesViewModel: NSObject, ObservableObject {
 }
 
 extension PlacesViewModel: CLLocationManagerDelegate {
+    
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+//        
+//    }
+    
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
@@ -39,6 +47,13 @@ extension PlacesViewModel: CLLocationManagerDelegate {
             }
         default:
             break
+        }
+    }
+    
+    nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        Task { @MainActor in
+            currentLocation = location
         }
     }
 }

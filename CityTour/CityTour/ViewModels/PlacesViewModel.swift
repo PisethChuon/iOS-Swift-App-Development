@@ -10,4 +10,6 @@ import Foundation
 @MainActor
 class PlacesViewModel: ObservableObject {
     
+    let apiClient = APIClient()
+    
 }

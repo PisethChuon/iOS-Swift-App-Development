@@ -18,6 +18,8 @@ struct PlacesView: View {
                         
                     } label: {
                         Text(keyword.title)
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundStyle(Color.black)
                     }
 
                 }

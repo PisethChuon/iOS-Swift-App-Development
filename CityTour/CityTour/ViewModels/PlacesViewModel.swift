@@ -27,8 +27,8 @@ class PlacesViewModel: NSObject, ObservableObject {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func fetchPlaces() {
-        
+    func fetchPlaces(location: CLLocation) async {
+        await apiClient.getPlaces(forKeyword: "coffee", location: location)
     }
     
 }

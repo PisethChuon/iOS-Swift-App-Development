@@ -23,8 +23,8 @@ class PlacesViewModel: NSObject, ObservableObject {
     
     override init() {
         super.init()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
     }
     
     func fetchPlaces(location: CLLocation) async {

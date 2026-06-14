@@ -10,7 +10,7 @@ struct PlacesView: View {
     
     @StateObject private var viewModel = PlacesViewModel()
     
-    var body: some View {
+    private var HorizontalList: some View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: 12) {
                 ForEach(Keyword.allCases) { keyword in
@@ -27,6 +27,10 @@ struct PlacesView: View {
             }
             .frame(height: 50)
         }
+    }
+    
+    var body: some View {
+        HorizontalList
         Spacer()
     }
 }

@@ -28,7 +28,8 @@ class PlacesViewModel: NSObject, ObservableObject {
     }
     
     func fetchPlaces(location: CLLocation) async {
-        await apiClient.getPlaces(forKeyword: "coffee", location: location)
+        print("DEBUG: latitude \(location.coordinate.latitude), longitude \(location.coordinate.longitude)")
+        await apiClient.getPlaces(forKeyword: "Coffee", location: location)
     }
     
 }
@@ -45,7 +46,6 @@ extension PlacesViewModel: CLLocationManagerDelegate {
             Task { @MainActor in
                 locationManager.requestLocation()
             }
-        case .denied:
         default:
             break
         }
@@ -54,7 +54,7 @@ extension PlacesViewModel: CLLocationManagerDelegate {
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         Task { @MainActor in
-            currentLocation = location
+            await fetchPlaces(location: location)
         }
     }
 }

@@ -29,7 +29,14 @@ class PlacesViewModel: NSObject, ObservableObject {
     
     func fetchPlaces(location: CLLocation) async {
         print("DEBUG: latitude \(location.coordinate.latitude), longitude \(location.coordinate.longitude)")
-        await apiClient.getPlaces(forKeyword: "Coffee", location: location)
+        let result = await apiClient.getPlaces(forKeyword: "Coffee", location: location)
+        
+        switch result {
+        case .success(let placesResponseModel):
+            break
+        case .failure(let placesError):
+            break
+        }
     }
     
 }

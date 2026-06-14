@@ -20,12 +20,12 @@ class PlacesViewModel: NSObject, ObservableObject {
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
     @Published var selectedKeyword: Keyword = .cafe
-    @Published var places: [PlaceDetailResponseModel] = []
+    @Published var places: [PlaceRowModel] = []
     
     override init() {
         super.init()
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
     
     func fetchPlaces(location: CLLocation) async {
@@ -34,7 +34,8 @@ class PlacesViewModel: NSObject, ObservableObject {
         
         switch result {
         case .success(let placesResponseModel):
-            break
+            let places = placesResponseModel.results
+            self.places = places.compactMap({ PlaceRowModel(place: $0) })
         case .failure(let placesError):
             break
         }

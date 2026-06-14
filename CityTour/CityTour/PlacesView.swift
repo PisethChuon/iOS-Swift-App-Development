@@ -32,6 +32,11 @@ struct PlacesView: View {
     var body: some View {
         // Horizontal Navigation Bar
         HorizontalList
+        List {
+            ForEach(viewModel.places) { place in
+                Text(place.name)
+            }
+        }
         Spacer()
     }
 }

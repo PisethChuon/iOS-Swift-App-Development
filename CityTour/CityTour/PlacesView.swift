@@ -20,11 +20,15 @@ struct PlacesView: View {
                         Text(keyword.title)
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(Color.black)
+                            .padding(.horizontal, 10)
                     }
 
                 }
             }
+            .frame(height: 50)
         }
+        .background(Color.red)
+        Spacer()
     }
 }
 

@@ -19,7 +19,7 @@ struct PlacesView: View {
                     } label: {
                         Text(keyword.title)
                             .font(.system(size: 15, weight: .semibold))
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(viewModel.selectedKeyword == keyword ? Color.gray : Color.black)
                             .padding(.horizontal, 10)
                     }
                     .scaleEffect(viewModel.selectedKeyword == keyword ? 0.85 : 1)
@@ -27,7 +27,6 @@ struct PlacesView: View {
             }
             .frame(height: 50)
         }
-        .background(Color.red)
         Spacer()
     }
 }

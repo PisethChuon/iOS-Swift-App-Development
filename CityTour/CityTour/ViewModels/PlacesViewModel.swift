@@ -20,6 +20,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
     @Published var selectedKeyword: Keyword = .cafe
+    @Published var places: [PlaceDetailResponseModel] = []
     
     override init() {
         super.init()

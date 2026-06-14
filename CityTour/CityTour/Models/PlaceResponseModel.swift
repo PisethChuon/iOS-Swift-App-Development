@@ -14,8 +14,8 @@ struct PlaceResponseModel: Decodable {
 struct PlaceDetailResponseModel: Decodable {
     let placeId: String
     let name: String
-    let rating: Double?
-    let vicinity: String?
+    let rating: Double
+    let vicinity: String
     let photos: [PhotoInfo]?
     
     enum CodingKeys: String, CodingKey {

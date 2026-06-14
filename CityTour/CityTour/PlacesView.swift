@@ -22,7 +22,7 @@ struct PlacesView: View {
                             .foregroundStyle(viewModel.selectedKeyword == keyword ? Color.gray : Color.black)
                             .padding(.horizontal, 10)
                     }
-                    .scaleEffect(viewModel.selectedKeyword == keyword ? 0.85 : 1.0)
+                    .scaleEffect(viewModel.selectedKeyword == keyword ? 0.85 : 1)
                 }
             }
             .frame(height: 50)

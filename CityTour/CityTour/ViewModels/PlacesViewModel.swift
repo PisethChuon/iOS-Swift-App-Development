@@ -19,7 +19,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
+    @Published var selectedKeyword: Keyword = .cafe
     
     override init() {
         super.init()

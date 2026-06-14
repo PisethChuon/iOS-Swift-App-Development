@@ -30,7 +30,7 @@ struct PlacesView: View {
     }
     
     var body: some View {
-        // Horizontal Navigation
+        // Horizontal Navigation Bar
         HorizontalList
         Spacer()
     }

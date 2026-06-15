@@ -19,6 +19,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
+    private let currentLocation: CLLocation?
     @Published var selectedKeyword: Keyword = .cafe
     @Published var places: [PlaceRowModel] = []
     
@@ -26,6 +27,10 @@ class PlacesViewModel: NSObject, ObservableObject {
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func changeKeyword(to keyword: Keyword) async {
+        await apiClient.getPlaces(forKeyword: keyword.apiName, location: currentLocation)
     }
     
     func fetchPlaces(location: CLLocation) async {

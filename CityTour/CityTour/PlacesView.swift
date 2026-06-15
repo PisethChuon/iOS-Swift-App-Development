@@ -14,14 +14,16 @@ struct PlacesView: View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: 12) {
                 ForEach(Keyword.allCases) { keyword in
-                    Button {
-                        viewModel.selectedKeyword = keyword
-                    } label: {
+                    Button(action: {
+                        Task { @MainActor in
+                            await viewModel.changeKeyword(to: keyword)
+                        }
+                    }, label: {
                         Text(keyword.title)
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(viewModel.selectedKeyword == keyword ? Color.gray : Color.black)
                             .padding(.horizontal, 10)
-                    }
+                    })
                     .scaleEffect(viewModel.selectedKeyword == keyword ? 0.85 : 1)
                 }
             }

@@ -20,6 +20,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
+    @Published var isLoading: Bool = false
     @Published var selectedKeyword: Keyword = .cafe
     @Published var places: [PlaceRowModel] = []
     
@@ -37,28 +38,19 @@ class PlacesViewModel: NSObject, ObservableObject {
         } else {
             selectedKeyword = keyword
         }
+        isLoading = true
         let result = await apiClient.getPlaces(forKeyword: keyword.apiName, location: currentLocation)
-        
-        switch result {
-        case .success(let placesResponseModel):
-            let places = placesResponseModel.results
-            self.places = places.compactMap({ PlaceRowModel(place: $0) })
-        case .failure(let placesError):
-            break
-        }
+        isLoading = false
+        parseAPI(result: result)
     }
     
     func fetchPlaces(location: CLLocation) async {
         print("DEBUG: latitude \(location.coordinate.latitude), longitude \(location.coordinate.longitude)")
-        let result = await apiClient.getPlaces(forKeyword: selectedKeyword.apiName, location: location)
         
-        switch result {
-        case .success(let placesResponseModel):
-            let places = placesResponseModel.results
-            self.places = places.compactMap({ PlaceRowModel(place: $0) })
-        case .failure(let placesError):
-            break
-        }
+        isLoading = true
+        let result = await apiClient.getPlaces(forKeyword: selectedKeyword.apiName, location: location)
+        isLoading = false
+        parseAPI(result: result)
     }
     
 }
@@ -85,6 +77,16 @@ extension PlacesViewModel: CLLocationManagerDelegate {
         Task { @MainActor in
             self.currentLocation = location
             await changeKeyword(to: self.selectedKeyword)
+        }
+    }
+    
+    func parseAPI(result: APIClient.PlacesResult) {
+        switch result {
+        case .success(let placesResponseModel):
+            let places = placesResponseModel.results
+            self.places = places.compactMap({ PlaceRowModel(place: $0) })
+        case .failure(let placesError):
+            break
         }
     }
 }

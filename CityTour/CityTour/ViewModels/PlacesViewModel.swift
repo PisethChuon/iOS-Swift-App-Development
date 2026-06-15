@@ -19,7 +19,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     
     private let apiClient = APIClient()
     private let locationManager = CLLocationManager()
-    private let currentLocation: CLLocation?
+    private var currentLocation: CLLocation?
     @Published var selectedKeyword: Keyword = .cafe
     @Published var places: [PlaceRowModel] = []
     
@@ -30,7 +30,13 @@ class PlacesViewModel: NSObject, ObservableObject {
     }
     
     func changeKeyword(to keyword: Keyword) async {
-        await apiClient.getPlaces(forKeyword: keyword.apiName, location: currentLocation)
+        guard let currentLocation = currentLocation else { return }
+        if selectedKeyword == keyword {
+            return
+        } else {
+            selectedKeyword = keyword
+        }
+        let result = await apiClient.getPlaces(forKeyword: keyword.apiName, location: currentLocation)
     }
     
     func fetchPlaces(location: CLLocation) async {

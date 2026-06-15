@@ -30,6 +30,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     }
     
     func changeKeyword(to keyword: Keyword) async {
+        // Ensure current location exits FIRST
         guard let currentLocation = currentLocation else { return }
         if selectedKeyword == keyword {
             return
@@ -37,6 +38,14 @@ class PlacesViewModel: NSObject, ObservableObject {
             selectedKeyword = keyword
         }
         let result = await apiClient.getPlaces(forKeyword: keyword.apiName, location: currentLocation)
+        
+        switch result {
+        case .success(let placesResponseModel):
+            let places = placesResponseModel.results
+            self.places = places.compactMap({ PlaceRowModel(place: $0) })
+        case .failure(let placesError):
+            break
+        }
     }
     
     func fetchPlaces(location: CLLocation) async {

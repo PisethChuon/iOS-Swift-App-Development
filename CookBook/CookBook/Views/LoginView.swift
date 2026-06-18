@@ -14,16 +14,16 @@ struct LoginView: View {
         VStack(alignment: .leading) {
             Text("Email")
                 .font(.system(size: 15))
-            AuthTextFieldView(inputTextField: $viewModel.email)
-            Rectangle()
-                .frame(height: 1)
-                .padding(.bottom, 15)
+            TextField("Email", text: $viewModel.email)
+                .keyboardType(.emailAddress)
+                .textFieldStyle(AuthTextFieldStyle())
             
             Text("Password")
                 .font(.system(size: 15))
             SecureField("Password", text: $viewModel.password)
                 .font(.system(size: 15))
             Rectangle()
+                .fill(Color.border)
                 .frame(height: 1)
                 .padding(.bottom, 15)
             
@@ -62,15 +62,4 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-}
-
-struct AuthTextFieldView: View {
-    @Binding var inputTextField: String
-    
-    var body: some View {
-        TextField("Email", text: $inputTextField)
-            .font(.system(size: 14))
-            .keyboardType(.emailAddress)
-            .textInputAutocapitalization(.never)
-    }
 }

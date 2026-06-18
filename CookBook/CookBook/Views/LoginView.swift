@@ -9,14 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Email")
                 .font(.system(size: 15))
-            TextField("Email", text: $email)
+            TextField("Email", text: $viewModel.email)
                 .font(.system(size: 14))
                 .keyboardType(.emailAddress)
                 .textInputAutocapitalization(.never)
@@ -26,13 +25,12 @@ struct LoginView: View {
             
             Text("Password")
                 .font(.system(size: 15))
-            SecureField("Password", text: $password)
+            SecureField("Password", text: $viewModel.password)
                 .font(.system(size: 15))
             Rectangle()
                 .frame(height: 1)
                 .padding(.bottom, 15)
             
-//            Login Button
             Button {
                 
             } label: {
@@ -49,7 +47,7 @@ struct LoginView: View {
                 Spacer()
                 Text("Don't have an account?")
                 Button(action: {
-                    
+                    viewModel.presentRegister = true
                 }, label: {
                   Text("Register now")
                         .font(.system(size: 15, weight: .semibold))
@@ -60,6 +58,9 @@ struct LoginView: View {
             
         }
         .padding(.horizontal, 10)
+        .fullScreenCover(isPresented: $viewModel.presentRegister, content: {
+            RegisterView()
+        })
     }
 }
 

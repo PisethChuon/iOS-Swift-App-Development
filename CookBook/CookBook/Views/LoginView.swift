@@ -20,12 +20,38 @@ struct LoginView: View {
             
             Text("Password")
                 .font(.system(size: 15))
-            SecureField("Password", text: $viewModel.password)
-                .font(.system(size: 15))
-            Rectangle()
-                .fill(Color.border)
-                .frame(height: 1)
-                .padding(.bottom, 15)
+            
+            if viewModel.showPassword {
+                TextField("Password", text: $viewModel.password)
+                    .textFieldStyle(AuthTextFieldStyle())
+                    .overlay(alignment: .trailing) {
+                        Button(action: {
+                            viewModel.showPassword = false
+                        }, label: {
+                            Image(systemName: "eye")
+                                .foregroundStyle(.black)
+                                .padding(.bottom)
+                        })
+                    }
+            } else {
+                VStack {
+                    SecureField("Password", text: $viewModel.password)
+                        .font(.system(size: 15))
+                    Rectangle()
+                        .fill(Color.border)
+                        .frame(height: 1)
+                        .padding(.bottom, 15)
+                }
+                .overlay(alignment: .trailing) {
+                    Button(action: {
+                        viewModel.showPassword = true
+                    }, label: {
+                        Image(systemName: "eye.slash")
+                            .foregroundStyle(.black)
+                            .padding(.bottom)
+                    })
+                }
+            }
             
             Button {
                 
@@ -45,7 +71,7 @@ struct LoginView: View {
                 Button(action: {
                     viewModel.presentRegister = true
                 }, label: {
-                  Text("Register now")
+                    Text("Register now")
                         .font(.system(size: 15, weight: .semibold))
                 })
                 Spacer()

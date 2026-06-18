@@ -11,4 +11,5 @@ class LoginViewModel: ObservableObject {
     @Published var presentRegister: Bool = false
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var showPassword: Bool = false
 }

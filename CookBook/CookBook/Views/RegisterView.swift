@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @StateObject var viewModel = RegisterViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text("Username")
+                .font(.system(size: 15))
+            TextField("Username", text: $viewModel.username)
+                .textFieldStyle(AuthTextFieldStyle())
+            
+            Text("Email")
+                .font(.system(size: 15))
+            TextField("Email", text: $viewModel.email)
+                .keyboardType(.emailAddress)
+                .textFieldStyle(AuthTextFieldStyle())
+            
+            
+        }
+        .padding(.horizontal, 10)
     }
 }
 

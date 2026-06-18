@@ -26,9 +26,13 @@ struct LoginView: View {
             
             Text("Password")
                 .font(.system(size: 15))
-            TextField("Password", text: $password)
+            SecureField("Password", text: $password)
                 .font(.system(size: 15))
-                .textInputAutocapitalization(.never)
+            Rectangle()
+                .frame(height: 1)
+                .padding(.bottom, 15)
+            
+            
         }
         .padding(.horizontal, 10)
     }

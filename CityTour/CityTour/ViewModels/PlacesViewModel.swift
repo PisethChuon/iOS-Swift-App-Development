@@ -70,6 +70,12 @@ extension PlacesViewModel: CLLocationManagerDelegate {
             Task { @MainActor in
                 locationManager.requestLocation()
             }
+        case .denied:
+            Task { @MainActor in
+                alertTitle = "Permission denied"
+                alertMessage = "Please, allow location access in settings"
+                isShowingAlert = true
+            }
         default:
             break
         }

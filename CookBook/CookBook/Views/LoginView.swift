@@ -32,6 +32,7 @@ struct LoginView: View {
                 .frame(height: 1)
                 .padding(.bottom, 15)
             
+//            Login Button
             Button {
                 
             } label: {
@@ -43,8 +44,19 @@ struct LoginView: View {
                     .background(Color.green)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
             }
-
             
+            HStack {
+                Spacer()
+                Text("Don't have an account?")
+                Button(action: {
+                    
+                }, label: {
+                  Text("Register now")
+                        .font(.system(size: 15, weight: .semibold))
+                })
+                Spacer()
+            }
+            .padding(.top, 20)
             
         }
         .padding(.horizontal, 10)

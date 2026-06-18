@@ -25,6 +25,7 @@ class PlacesViewModel: NSObject, ObservableObject {
     @Published var places: [PlaceRowModel] = []
     @Published var alertTitle: String?
     @Published var alertMessage: String?
+    @Published var isShowingAlert: Bool = false
     
     override init() {
         super.init()
@@ -96,7 +97,7 @@ extension PlacesViewModel: CLLocationManagerDelegate {
                 alertTitle = "Something gone wrong"
                 alertMessage = "Pls check your internet connection"
             }
-        
+        isShowingAlert = true
         }
     }
 }

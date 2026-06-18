@@ -10,5 +10,6 @@ import Foundation
 enum PlacesError: Error {
     case invalidURL
     case invalidResponse
-    case apiError
+    case serverError
+    case badRequestError
 }

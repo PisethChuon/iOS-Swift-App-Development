@@ -32,6 +32,19 @@ struct LoginView: View {
                 .frame(height: 1)
                 .padding(.bottom, 15)
             
+            Button {
+                
+            } label: {
+                Text("Login")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.white)
+                    .padding(12)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.green)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+
+            
             
         }
         .padding(.horizontal, 10)

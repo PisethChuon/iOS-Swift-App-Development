@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    
     @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Email")
                 .font(.system(size: 15))
-            TextField("Email", text: $viewModel.email)
-                .font(.system(size: 14))
-                .keyboardType(.emailAddress)
-                .textInputAutocapitalization(.never)
+            AuthTextFieldView(inputTextField: $viewModel.email)
             Rectangle()
                 .frame(height: 1)
                 .padding(.bottom, 15)
@@ -66,4 +62,15 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+}
+
+struct AuthTextFieldView: View {
+    @Binding var inputTextField: String
+    
+    var body: some View {
+        TextField("Email", text: $inputTextField)
+            .font(.system(size: 14))
+            .keyboardType(.emailAddress)
+            .textInputAutocapitalization(.never)
+    }
 }

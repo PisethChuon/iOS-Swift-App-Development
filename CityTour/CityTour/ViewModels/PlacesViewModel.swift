@@ -88,7 +88,15 @@ extension PlacesViewModel: CLLocationManagerDelegate {
             let places = placesResponseModel.results
             self.places = places.compactMap({ PlaceRowModel(place: $0) })
         case .failure(let placesError):
-            break
+            switch placesError {
+            case .invalidURL, .invalidResponse, .badRequestError:
+                alertTitle = "Something gone wrong"
+                alertMessage = "Please try again"
+            case .serverError:
+                alertTitle = "Something gone wrong"
+                alertMessage = "Pls check your internet connection"
+            }
+        
         }
     }
 }

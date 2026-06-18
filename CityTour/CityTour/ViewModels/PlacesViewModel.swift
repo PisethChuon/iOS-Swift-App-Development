@@ -23,8 +23,8 @@ class PlacesViewModel: NSObject, ObservableObject {
     @Published var isLoading: Bool = false
     @Published var selectedKeyword: Keyword = .cafe
     @Published var places: [PlaceRowModel] = []
-    @Published var alertTitle: String?
-    @Published var alertMessage: String?
+    @Published var alertTitle: String = ""
+    @Published var alertMessage: String = ""
     @Published var isShowingAlert: Bool = false
     
     override init() {

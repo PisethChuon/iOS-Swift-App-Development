@@ -9,6 +9,20 @@ struct HomeView: View {
     @EnvironmentObject var sessionManager: SessionManager
     @StateObject var viewModel = HomeViewModel()
     
+    fileprivate func ReceipeRow(receipe: Receipe) -> some View {
+        VStack (alignment: .leading) {
+            Image(receipe.image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: itemWidth, height: itemHeight)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .clipped()
+            Text(receipe.name)
+                .lineLimit(1)
+                .font(.system(size: 15, weight: .semibold))
+        }
+    }
+    
     let spacing: CGFloat = 5
     let padding: CGFloat = 5
     
@@ -25,38 +39,8 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 HStack(spacing: spacing) {
-                    VStack (alignment: .leading) {
-                        Image(Receipe.mockReceipes[0].image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: itemWidth, height: itemHeight)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .clipped()
-                        Text(Receipe.mockReceipes[0].name)
-                            .lineLimit(1)
-                            .font(.system(size: 15, weight: .semibold))
-                    }
-                    VStack (alignment: .leading) {
-                        Image(Receipe.mockReceipes[1].image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: itemWidth, height: itemHeight)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .clipped()
-                        Text(Receipe.mockReceipes[1].name)
-                            .lineLimit(1)
-                            .font(.system(size: 15, weight: .semibold))
-                    }
-                    VStack(alignment: .leading) {
-                        Image(Receipe.mockReceipes[2].image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: itemWidth, height: itemHeight)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .clipped()
-                        Text(Receipe.mockReceipes[2].name)
-                            .lineLimit(1)
-                            .font(.system(size: 15, weight: .semibold))
+                    ForEach(0...2, id: \.self) { index in
+                        ReceipeRow(receipe: Receipe.mockReceipes[index])
                     }
                 }
                 .padding(.horizontal, padding)

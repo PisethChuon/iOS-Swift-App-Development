@@ -8,9 +8,16 @@ import SwiftUI
 
 @main
 struct CookBookApp: App {
+    @StateObject var sessionManager = SessionManager()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            switch sessionManager.sessionState {
+            case .loggedIn:
+                HomeView()
+            case .loggedOut:
+                LoginView()
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ struct HomeView: View {
             Text(receipe.name)
                 .lineLimit(1)
                 .font(.system(size: 15, weight: .semibold))
+                .foregroundStyle(.black)
         }
     }
     
@@ -39,8 +40,12 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 HStack(spacing: spacing) {
-                    ForEach(0...2, id: \.self) { index in
-                        ReceipeRow(receipe: Receipe.mockReceipes[index])
+                    NavigationLink {
+                        RecipeDetailView(recipe: Receipe.mockReceipes[0])
+                    } label: {
+                        ForEach(0...2, id: \.self) { index in
+                            ReceipeRow(receipe: Receipe.mockReceipes[index])
+                        }
                     }
                 }
                 .padding(.horizontal, padding)

@@ -8,5 +8,5 @@
 import Foundation
 
 class SessionManager: ObservableObject {
-    
+    @Published var sessionState: SessionState = .loggedOut
 }

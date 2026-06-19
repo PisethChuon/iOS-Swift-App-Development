@@ -17,6 +17,9 @@
 		7B4492AF2FE50868001023B8 /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4492AE2FE50860001023B8 /* SessionState.swift */; };
 		7B4492B32FE5256E001023B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4492B22FE52567001023B8 /* HomeViewModel.swift */; };
 		7B4492B72FE58B8A001023B8 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4492B62FE58B8A001023B8 /* RecipeDetailView.swift */; };
+		7B4492B92FE5A4CF001023B8 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4492B82FE5A4CF001023B8 /* AddRecipeView.swift */; };
+		7B4492BB2FE5AA8B001023B8 /* CapsuleTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4492BA2FE5AA7A001023B8 /* CapsuleTextFieldStyle.swift */; };
+		7B4492BD2FE5B1FC001023B8 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4492BC2FE5B1F1001023B8 /* PrimaryButtonStyle.swift */; };
 		7B7859DB2FE4269E002F2436 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859DA2FE4269E002F2436 /* LoginView.swift */; };
 		7B7859DE2FE42FFB002F2436 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859DD2FE42FFB002F2436 /* LoginViewModel.swift */; };
 		7B7859E02FE43183002F2436 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859DF2FE43183002F2436 /* RegisterView.swift */; };
@@ -37,6 +40,9 @@
 		7B4492AE2FE50860001023B8 /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
 		7B4492B22FE52567001023B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7B4492B62FE58B8A001023B8 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		7B4492B82FE5A4CF001023B8 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		7B4492BA2FE5AA7A001023B8 /* CapsuleTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleTextFieldStyle.swift; sourceTree = "<group>"; };
+		7B4492BC2FE5B1F1001023B8 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		7B7859DA2FE4269E002F2436 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7B7859DD2FE42FFB002F2436 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7B7859DF2FE43183002F2436 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 				7B7859DA2FE4269E002F2436 /* LoginView.swift */,
 				7B7859DF2FE43183002F2436 /* RegisterView.swift */,
 				7B4492B62FE58B8A001023B8 /* RecipeDetailView.swift */,
+				7B4492B82FE5A4CF001023B8 /* AddRecipeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +152,8 @@
 		7B7859E12FE4510A002F2436 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7B4492BC2FE5B1F1001023B8 /* PrimaryButtonStyle.swift */,
+				7B4492BA2FE5AA7A001023B8 /* CapsuleTextFieldStyle.swift */,
 				7B7859E22FE45119002F2436 /* AuthTextFieldStyle.swift */,
 				7B7859E42FE45DDF002F2436 /* PasswordComponentView.swift */,
 			);
@@ -226,9 +235,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B4492B92FE5A4CF001023B8 /* AddRecipeView.swift in Sources */,
 				20FA15DF2B9BC4C100C835F0 /* Receipe.swift in Sources */,
 				20FA15DB2B9BC32B00C835F0 /* HomeView.swift in Sources */,
 				7B4492B72FE58B8A001023B8 /* RecipeDetailView.swift in Sources */,
+				7B4492BD2FE5B1FC001023B8 /* PrimaryButtonStyle.swift in Sources */,
+				7B4492BB2FE5AA8B001023B8 /* CapsuleTextFieldStyle.swift in Sources */,
 				7B7859E32FE45137002F2436 /* AuthTextFieldStyle.swift in Sources */,
 				7B7859DB2FE4269E002F2436 /* LoginView.swift in Sources */,
 				7B7859E02FE43183002F2436 /* RegisterView.swift in Sources */,

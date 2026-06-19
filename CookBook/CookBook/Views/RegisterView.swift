@@ -33,13 +33,8 @@ struct RegisterView: View {
                 
             } label: {
                 Text("Sign up")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(12)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.green)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
             }
+            .buttonStyle(PrimaryButtonStyle())
             
             HStack {
                 Spacer()

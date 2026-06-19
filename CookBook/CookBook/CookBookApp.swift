@@ -15,8 +15,10 @@ struct CookBookApp: App {
             switch sessionManager.sessionState {
             case .loggedIn:
                 HomeView()
+                    .environmentObject(sessionManager)
             case .loggedOut:
                 LoginView()
+                    .environmentObject(sessionManager)
             }
         }
     }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel()
+    @EnvironmentObject var sessionManager: SessionManager
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,7 +24,7 @@ struct LoginView: View {
             PasswordComponentView(showPassword: $viewModel.showPassword, password: $viewModel.password)
             
             Button {
-                
+                sessionManager.sessionState = .loggedIn
             } label: {
                 Text("Login")
                     .font(.system(size: 15, weight: .semibold))
@@ -57,4 +58,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(SessionManager())
 }

@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var sessionManager: SessionManager
     
     var body: some View {
         VStack {
@@ -17,6 +18,7 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(SessionManager())
 }
 
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @StateObject var viewModel = AddRecipeViewModel()
+    @State var viewModel = AddRecipeViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -53,7 +53,7 @@ struct AddRecipeView: View {
                 .frame(height: 150)
                 .background(Color.primaryFormEntry)
                 .scrollContentBackground(.hidden)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 10) )
             
             Button(action: {
                 

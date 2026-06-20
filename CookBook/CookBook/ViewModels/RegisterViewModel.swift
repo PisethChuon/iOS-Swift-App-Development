@@ -7,9 +7,10 @@
 
 import Foundation
 
-class RegisterViewModel: ObservableObject {
-    @Published var username: String = ""
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var showPassword: Bool = false
+@Observable
+class RegisterViewModel {
+    var username: String = ""
+    var email: String = ""
+    var password: String = ""
+    var showPassword: Bool = false
 }

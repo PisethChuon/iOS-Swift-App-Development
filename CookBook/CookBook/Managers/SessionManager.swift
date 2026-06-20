@@ -7,6 +7,7 @@
 
 import Foundation
 
-class SessionManager: ObservableObject {
-    @Published var sessionState: SessionState = .loggedOut
+@Observable
+class SessionManager {
+    var sessionState: SessionState = .loggedOut
 }

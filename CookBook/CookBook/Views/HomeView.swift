@@ -6,8 +6,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var sessionManager: SessionManager
-    @StateObject var viewModel = HomeViewModel()
+    @Environment(SessionManager.self) var sessionManager: SessionManager
+    @State var viewModel = HomeViewModel()
     
     fileprivate func ReceipeRow(receipe: Receipe) -> some View {
         VStack (alignment: .leading) {
@@ -85,7 +85,7 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environmentObject(SessionManager())
+        .environment(SessionManager())
 }
 
 

@@ -7,8 +7,9 @@
 
 import Foundation
 
-class AddRecipeViewModel: ObservableObject {
-    @Published var recipeName: String = ""
-    @Published var prepTime: Int = 0
-    @Published var instructions: String = ""
+@Observable
+class AddRecipeViewModel {
+    var recipeName: String = ""
+    var prepTime: Int = 0
+    var instructions: String = ""
 }

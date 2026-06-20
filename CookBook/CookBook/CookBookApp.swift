@@ -8,17 +8,17 @@ import SwiftUI
 
 @main
 struct CookBookApp: App {
-    @StateObject var sessionManager = SessionManager()
+    @State var sessionManager = SessionManager()
     
     var body: some Scene {
         WindowGroup {
             switch sessionManager.sessionState {
             case .loggedIn:
                 HomeView()
-                    .environmentObject(sessionManager)
+                    .environment(sessionManager)
             case .loggedOut:
                 LoginView()
-                    .environmentObject(sessionManager)
+                    .environment(sessionManager)
             }
         }
     }

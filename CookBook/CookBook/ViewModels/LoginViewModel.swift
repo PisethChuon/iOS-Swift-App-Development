@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
-class LoginViewModel: ObservableObject {
-    @Published var presentRegister: Bool = false
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var showPassword: Bool = false
+@Observable
+class LoginViewModel {
+    var presentRegister: Bool = false
+    var email: String = ""
+    var password: String = ""
+    var showPassword: Bool = false
 }

@@ -6,8 +6,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var sessionManager: SessionManager
-    @StateObject var viewModel = HomeViewModel()
+    @Environment(SessionManager.self) var sessionManager: SessionManager
+    @State var viewModel = HomeViewModel()
     
     fileprivate func ReceipeRow(receipe: Receipe) -> some View {
         VStack (alignment: .leading) {
@@ -50,6 +50,13 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, padding)
                 Spacer()
+                Button(action: {
+                    viewModel.showAddRecipeView = true
+                }, label: {
+                    Text("Add Recipe")
+                })
+                .buttonStyle(PrimaryButtonStyle())
+                .padding(.horizontal)
             }
             .toolbar(content: {
                 ToolbarItem {
@@ -69,13 +76,16 @@ struct HomeView: View {
                 }
             }
         }
+        .sheet(isPresented: $viewModel.showAddRecipeView, content: {
+            AddRecipeView()
+        })
     }
     
 }
 
 #Preview {
     HomeView()
-        .environmentObject(SessionManager())
+        .environment(SessionManager())
 }
 
 

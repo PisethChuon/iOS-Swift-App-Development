@@ -7,6 +7,8 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
-    @Published var showSignOutAlert: Bool = false
+@Observable
+class HomeViewModel {
+    var showSignOutAlert: Bool = false
+    var showAddRecipeView: Bool = false
 }

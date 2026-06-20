@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel()
-    @EnvironmentObject var sessionManager: SessionManager
+    @State var viewModel = LoginViewModel()
+    @Environment(SessionManager.self) var sessionManager: SessionManager
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,13 +27,8 @@ struct LoginView: View {
                 sessionManager.sessionState = .loggedIn
             } label: {
                 Text("Login")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(12)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.green)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
             }
+            .buttonStyle(PrimaryButtonStyle())
             
             HStack {
                 Spacer()
@@ -58,5 +53,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-        .environmentObject(SessionManager())
+        .environment(SessionManager())
 }

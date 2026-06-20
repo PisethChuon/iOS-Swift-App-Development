@@ -9,4 +9,5 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var showSignOutAlert: Bool = false
+    @Published var showAddRecipeView: Bool = false
 }

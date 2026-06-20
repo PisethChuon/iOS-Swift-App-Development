@@ -26,6 +26,7 @@
 		7B7859E32FE45137002F2436 /* AuthTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859E22FE45119002F2436 /* AuthTextFieldStyle.swift */; };
 		7B7859E52FE45DDF002F2436 /* PasswordComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859E42FE45DDF002F2436 /* PasswordComponentView.swift */; };
 		7B7859E72FE461B7002F2436 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859E62FE461A2002F2436 /* RegisterViewModel.swift */; };
+		7BBB0E812FE67382002FACAB /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB0E802FE6737A002FACAB /* AddRecipeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		7B7859E22FE45119002F2436 /* AuthTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldStyle.swift; sourceTree = "<group>"; };
 		7B7859E42FE45DDF002F2436 /* PasswordComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordComponentView.swift; sourceTree = "<group>"; };
 		7B7859E62FE461A2002F2436 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7BBB0E802FE6737A002FACAB /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		7B7859DC2FE42FD4002F2436 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7BBB0E802FE6737A002FACAB /* AddRecipeViewModel.swift */,
 				7B4492B22FE52567001023B8 /* HomeViewModel.swift */,
 				7B7859E62FE461A2002F2436 /* RegisterViewModel.swift */,
 				7B7859DD2FE42FFB002F2436 /* LoginViewModel.swift */,
@@ -242,6 +245,7 @@
 				7B4492BD2FE5B1FC001023B8 /* PrimaryButtonStyle.swift in Sources */,
 				7B4492BB2FE5AA8B001023B8 /* CapsuleTextFieldStyle.swift in Sources */,
 				7B7859E32FE45137002F2436 /* AuthTextFieldStyle.swift in Sources */,
+				7BBB0E812FE67382002FACAB /* AddRecipeViewModel.swift in Sources */,
 				7B7859DB2FE4269E002F2436 /* LoginView.swift in Sources */,
 				7B7859E02FE43183002F2436 /* RegisterView.swift in Sources */,
 				7B4492AF2FE50868001023B8 /* SessionState.swift in Sources */,

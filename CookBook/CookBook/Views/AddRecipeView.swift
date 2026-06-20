@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @State private var recipeName: String = ""
-    @State private var prepTime: Int = 0
-    @State private var instructions: String = ""
+    @StateObject var viewModel = AddRecipeViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +26,7 @@ struct AddRecipeView: View {
                 .padding(.top)
                 .font(.system(size: 15, weight: .semibold))
             
-            TextField("Recipe Name", text: $recipeName)
+            TextField("Recipe Name", text: $viewModel.recipeName)
                 .textFieldStyle(CapsuleTextFieldStyle())
                 .autocorrectionDisabled()
                 .textInputAutocapitalization(.never)
@@ -36,7 +34,7 @@ struct AddRecipeView: View {
             Text("Preparation Time")
                 .font(.system(size: 15, weight: .semibold))
                 .padding(.top)
-            Picker(selection: $prepTime) {
+            Picker(selection: $viewModel.prepTime) {
                 ForEach(0..<120, id: \.self) { time in
                     if time % 5 == 0 {
                         Text("\(time) min")
@@ -51,7 +49,7 @@ struct AddRecipeView: View {
             Text("Cooking Instructions")
                 .font(.system(size: 15, weight: .semibold))
                 .padding(.top)
-            TextEditor(text: $instructions)
+            TextEditor(text: $viewModel.instructions)
                 .frame(height: 150)
                 .background(Color.primaryFormEntry)
                 .scrollContentBackground(.hidden)

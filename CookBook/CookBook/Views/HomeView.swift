@@ -50,6 +50,13 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, padding)
                 Spacer()
+                Button(action: {
+                    viewModel.showAddRecipeView = true
+                }, label: {
+                    Text("Add Recipe")
+                })
+                .buttonStyle(PrimaryButtonStyle())
+                .padding(.horizontal)
             }
             .toolbar(content: {
                 ToolbarItem {
@@ -69,6 +76,9 @@ struct HomeView: View {
                 }
             }
         }
+        .sheet(isPresented: $viewModel.showAddRecipeView, content: {
+            AddRecipeView()
+        })
     }
     
 }

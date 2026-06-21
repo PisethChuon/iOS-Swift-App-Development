@@ -30,7 +30,9 @@ struct RegisterView: View {
             PasswordComponentView(showPassword: $viewModel.showPassword, password: $viewModel.password)
             
             Button {
-                
+                Task {
+                    await viewModel.signUp()
+                }
             } label: {
                 Text("Sign up")
             }

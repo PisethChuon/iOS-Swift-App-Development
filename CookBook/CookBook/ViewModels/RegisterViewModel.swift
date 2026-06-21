@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 @Observable
 class RegisterViewModel {
@@ -13,4 +14,12 @@ class RegisterViewModel {
     var email: String = ""
     var password: String = ""
     var showPassword: Bool = false
+    
+    func signUp() async {
+        do {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+        } catch {
+            
+        }
+    }
 }

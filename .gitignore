@@ -75,3 +75,6 @@ playground.xcworkspace
 
 # TestFlight
 AuthKey_*.p8
+
+# Firebae
+*GoogleService-Info.plist

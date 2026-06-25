@@ -31,6 +31,7 @@
 		7B7859E52FE45DDF002F2436 /* PasswordComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859E42FE45DDF002F2436 /* PasswordComponentView.swift */; };
 		7B7859E72FE461B7002F2436 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7859E62FE461A2002F2436 /* RegisterViewModel.swift */; };
 		7BBB0E812FE67382002FACAB /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB0E802FE6737A002FACAB /* AddRecipeViewModel.swift */; };
+		7BCF1D1A2FED724700334DDE /* LoadingComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF1D192FED724700334DDE /* LoadingComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		7B7859E42FE45DDF002F2436 /* PasswordComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordComponentView.swift; sourceTree = "<group>"; };
 		7B7859E62FE461A2002F2436 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7BBB0E802FE6737A002FACAB /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
+		7BCF1D192FED724700334DDE /* LoadingComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				7B4492BA2FE5AA7A001023B8 /* CapsuleTextFieldStyle.swift */,
 				7B7859E22FE45119002F2436 /* AuthTextFieldStyle.swift */,
 				7B7859E42FE45DDF002F2436 /* PasswordComponentView.swift */,
+				7BCF1D192FED724700334DDE /* LoadingComponentView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				7B4492B32FE5256E001023B8 /* HomeViewModel.swift in Sources */,
 				20FA154B2B9A788F00C835F0 /* CookBookApp.swift in Sources */,
 				7B7859E72FE461B7002F2436 /* RegisterViewModel.swift in Sources */,
+				7BCF1D1A2FED724700334DDE /* LoadingComponentView.swift in Sources */,
 				7B4492AD2FE50845001023B8 /* SessionManager.swift in Sources */,
 				7B7859E52FE45DDF002F2436 /* PasswordComponentView.swift in Sources */,
 			);

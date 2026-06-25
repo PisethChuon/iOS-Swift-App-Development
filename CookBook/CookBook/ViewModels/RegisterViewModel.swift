@@ -15,9 +15,11 @@ class RegisterViewModel {
     var email: String = ""
     var password: String = ""
     var showPassword: Bool = false
+    var isLoading: Bool = false
     
     func signUp() async {
         do {
+            isLoading = true
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
             let userData: [String: Any] = [
@@ -25,6 +27,7 @@ class RegisterViewModel {
                 "email": email
             ]
             try await Firestore.firestore().collection("users").document(userId).setData(userData)
+            isLoading = false
         } catch {
             
         }

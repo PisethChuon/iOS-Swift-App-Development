@@ -53,7 +53,9 @@ struct RegisterView: View {
                 .padding(.top, 20)
             }
             .padding(.horizontal, 10)
-            LoadingComponentView()
+            if viewModel.isLoading { 
+                LoadingComponentView()
+            }
         }
     }
 }

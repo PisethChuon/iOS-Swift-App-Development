@@ -20,6 +20,24 @@ class RegisterViewModel {
     var presentAlert: Bool = false
     
     func signUp() async -> Bool {
+        guard validateUsername() else {
+            errorMessage = "Username must be at least 3 characters"
+            presentAlert = true
+            return false
+        }
+        
+        guard let usernameDocuments = try? await Firestore.firestore().collection("users").whereField("username", isEqualTo: username).getDocuments() else {
+            errorMessage = "Failed to connect to server"
+            presentAlert = true
+            return false
+        }
+        
+        guard usernameDocuments.documents.count == 0 else {
+            errorMessage = "Username is already taken"
+            presentAlert = true
+            return false
+        }
+        
         isLoading = true
         defer { isLoading = false }
         do {
@@ -52,5 +70,9 @@ class RegisterViewModel {
             presentAlert = true
             return false
         }
+    }
+    
+    func validateUsername() -> Bool {
+        username.count >= 3 && username.count <= 25
     }
 }

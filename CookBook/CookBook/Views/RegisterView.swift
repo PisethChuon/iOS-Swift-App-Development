@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RegisterView: View {
     @State var viewModel = RegisterViewModel()
-    
     @Environment(\.dismiss) var dismiss
+    @Environment(SessionManager.self) var sessionManager: SessionManager
     
     var body: some View {
         ZStack {
@@ -57,9 +57,16 @@ struct RegisterView: View {
                 LoadingComponentView()
             }
         }
+        .alert("Error", isPresented: $viewModel.presentAlert) {
+            
+        } message: {
+            Text(viewModel.errorMessage)
+        }
+
     }
 }
 
 #Preview {
     RegisterView()
+        .environment(SessionManager())
 }

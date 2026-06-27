@@ -16,10 +16,13 @@ class RegisterViewModel {
     var password: String = ""
     var showPassword: Bool = false
     var isLoading: Bool = false
+    var errorMessage = ""
+    var presentAlert: Bool = false
     
-    func signUp() async {
+    func signUp() async -> Bool {
+        isLoading = true
+        defer { isLoading = false }
         do {
-            isLoading = true
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
             let userData: [String: Any] = [
@@ -27,9 +30,27 @@ class RegisterViewModel {
                 "email": email
             ]
             try await Firestore.firestore().collection("users").document(userId).setData(userData)
-            isLoading = false
+            return true
         } catch {
+            // Cast directly to Firebase AuthErrorCode
+            if let authError = error as? AuthErrorCode {
+                switch authError.code {
+                case .emailAlreadyInUse:
+                    errorMessage = "Email is already in use"
+                case .invalidEmail:
+                    errorMessage = "Invalid email"
+                case .wrongPassword:
+                    errorMessage = "Wrong password"
+                default:
+                    errorMessage = "An unknown error occurred: \(error.localizedDescription)"
+                }
+            } else {
+                // Catches Firestore errors or other network issues
+                errorMessage = error.localizedDescription
+            }
             
+            presentAlert = true
+            return false
         }
     }
 }

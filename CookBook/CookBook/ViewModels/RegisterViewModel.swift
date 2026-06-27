@@ -43,10 +43,6 @@ class RegisterViewModel {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
-//            let userData: [String: Any] = [
-//                "username": username,
-//                "email": email
-//            ]
             let user = User(id: userId, username: username, email: email)
             try Firestore.firestore().collection("users").document(userId).setData(from: user)
             return true

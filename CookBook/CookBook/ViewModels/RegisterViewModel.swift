@@ -16,6 +16,7 @@ class RegisterViewModel {
     var password: String = ""
     var showPassword: Bool = false
     var isLoading: Bool = false
+    var errorMessage = ""
     
     func signUp() async -> Bool {
         do {
@@ -34,13 +35,13 @@ class RegisterViewModel {
             if let authError = AuthErrorCode(_bridgedNSError: nsError) {
                 switch authError.code {
                 case .emailAlreadyInUse:
-                    // Handle email already in use
+                    errorMessage = "Email is already in use"
                     break
                 case .invalidEmail:
-                    // Handle invalid email
+                    errorMessage = "Invalid email"
                     break
-                case .weakPassword:
-                    // Handle weak password
+                case .wrongPassword:
+                    errorMessage = "Wrong password"
                     break
                 default:
                     break

@@ -17,7 +17,7 @@ class RegisterViewModel {
     var showPassword: Bool = false
     var isLoading: Bool = false
     
-    func signUp() async {
+    func signUp() async -> Bool {
         do {
             isLoading = true
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
@@ -28,8 +28,25 @@ class RegisterViewModel {
             ]
             try await Firestore.firestore().collection("users").document(userId).setData(userData)
             isLoading = false
-        } catch {
-            
+            return true
+        } catch(let error) {
+            let nsError = error as NSError
+            if let authError = AuthErrorCode(_bridgedNSError: nsError) {
+                switch authError.code {
+                case .emailAlreadyInUse:
+                    // Handle email already in use
+                    break
+                case .invalidEmail:
+                    // Handle invalid email
+                    break
+                case .weakPassword:
+                    // Handle weak password
+                    break
+                default:
+                    break
+                }
+            }
+            return false
         }
     }
 }

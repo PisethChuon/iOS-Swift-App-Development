@@ -20,6 +20,11 @@ class RegisterViewModel {
     var presentAlert: Bool = false
     
     func signUp() async -> Bool {
+        guard validateUsername() else {
+            errorMessage = "Username must be at least 3 characters"
+            return false
+        }
+        
         isLoading = true
         defer { isLoading = false }
         do {
@@ -52,5 +57,9 @@ class RegisterViewModel {
             presentAlert = true
             return false
         }
+    }
+    
+    func validateUsername() -> Bool {
+        username.count >= 3 && username.count <= 25
     }
 }

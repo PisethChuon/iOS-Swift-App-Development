@@ -19,23 +19,23 @@ class RegisterViewModel {
     var errorMessage = ""
     var presentAlert: Bool = false
     
-    func signUp() async -> Bool {
+    func signUp() async -> User? {
         guard validateUsername() else {
             errorMessage = "Username must be at least 3 characters"
             presentAlert = true
-            return false
+            return nil
         }
         
         guard let usernameDocuments = try? await Firestore.firestore().collection("users").whereField("username", isEqualTo: username).getDocuments() else {
             errorMessage = "Failed to connect to server"
             presentAlert = true
-            return false
+            return nil
         }
         
         guard usernameDocuments.documents.count == 0 else {
             errorMessage = "Username is already taken"
             presentAlert = true
-            return false
+            return nil
         }
         
         isLoading = true
@@ -45,7 +45,7 @@ class RegisterViewModel {
             let userId = result.user.uid
             let user = User(id: userId, username: username, email: email)
             try Firestore.firestore().collection("users").document(userId).setData(from: user)
-            return true
+            return user
         } catch {
             // Cast directly to Firebase AuthErrorCode
             if let authError = error as? AuthErrorCode {
@@ -65,7 +65,7 @@ class RegisterViewModel {
             }
             
             presentAlert = true
-            return false
+            return nil
         }
     }
     

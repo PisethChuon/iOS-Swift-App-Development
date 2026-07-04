@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 class AddRecipeViewModel {
@@ -13,4 +14,6 @@ class AddRecipeViewModel {
     var prepTime: Int = 0
     var instructions: String = ""
     var showImageOptions: Bool = false
+    var showLibrary: Bool = false
+    var displayedReceipeImage: Image?
 }

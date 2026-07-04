@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddRecipeView: View {
     @State var viewModel = AddRecipeViewModel()
+    @StateObject var imageLoaderViewModel = ImageLoaderViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -62,13 +64,20 @@ struct AddRecipeView: View {
                 
             }, label: {
                 Text("Add Recipe")
-                    
+                
             })
             .buttonStyle(PrimaryButtonStyle())
             
             Spacer()
         }
         .padding(.horizontal)
+        .photosPicker(isPresented: $viewModel.showLibrary, selection: $imageLoaderViewModel.imageSelection, matching: .images, photoLibrary: .shared())
+        .onChange(of: imageLoaderViewModel.imageToUpload, { _, newValue in
+            if let newValue = newValue {
+                viewModel.displayedReceipeImage = Image(uiImage: newValue)
+                viewModel.receipeImage = newValue
+            }
+        })
         .confirmationDialog("Upload an image to your recipe", isPresented: $viewModel.showImageOptions, titleVisibility: .visible) {
             Button(action: {
                 
@@ -80,12 +89,13 @@ struct AddRecipeView: View {
             }, label: {
                 Text("Upload an image from library")
             })
-
         }
-
+        
+        
     }
 }
 
 #Preview {
     AddRecipeView()
 }
+

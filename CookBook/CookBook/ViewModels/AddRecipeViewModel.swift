@@ -12,4 +12,5 @@ class AddRecipeViewModel {
     var recipeName: String = ""
     var prepTime: Int = 0
     var instructions: String = ""
+    var showImageOptions: Bool = false
 }

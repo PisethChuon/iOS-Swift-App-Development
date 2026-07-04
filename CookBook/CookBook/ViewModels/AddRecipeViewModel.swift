@@ -16,4 +16,5 @@ class AddRecipeViewModel {
     var showImageOptions: Bool = false
     var showLibrary: Bool = false
     var displayedReceipeImage: Image?
+    var receipeImage: UIImage?
 }

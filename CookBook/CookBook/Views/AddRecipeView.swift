@@ -64,7 +64,7 @@ struct AddRecipeView: View {
                 
             }, label: {
                 Text("Add Recipe")
-                
+                    
             })
             .buttonStyle(PrimaryButtonStyle())
             
@@ -73,14 +73,14 @@ struct AddRecipeView: View {
         .padding(.horizontal)
         .photosPicker(isPresented: $viewModel.showLibrary, selection: $imageLoaderViewModel.imageSelection, matching: .images, photoLibrary: .shared())
         .onChange(of: imageLoaderViewModel.imageToUpload, { _, newValue in
-            if let newValue = newValue {
-                viewModel.displayedReceipeImage = Image(uiImage: newValue)
-                viewModel.receipeImage = newValue
-            }
-        })
+                        if let newValue = newValue {
+                            viewModel.displayedReceipeImage = Image(uiImage: newValue)
+                            viewModel.receipeImage = newValue
+                        }
+                    })
         .confirmationDialog("Upload an image to your recipe", isPresented: $viewModel.showImageOptions, titleVisibility: .visible) {
             Button(action: {
-                
+                viewModel.showLibrary = true
             }, label: {
                 Text("Upload an image from library")
             })
@@ -91,7 +91,7 @@ struct AddRecipeView: View {
             })
         }
         
-        
+
     }
 }
 

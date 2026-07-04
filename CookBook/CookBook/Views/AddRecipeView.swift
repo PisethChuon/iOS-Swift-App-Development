@@ -96,7 +96,7 @@ struct AddRecipeView: View {
                 Text("Upload an image from library")
             })
             Button(action: {
-                
+//                Padding
             }, label: {
                 Text("Upload an image from camera")
             })

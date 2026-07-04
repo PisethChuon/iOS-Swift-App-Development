@@ -10,7 +10,6 @@ import FirebaseCore
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//    FirebaseApp.configure()
     return true
   }
 }
@@ -18,7 +17,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct CookBookApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @State var sessionManager = SessionManager()
+    @State var sessionManager: SessionManager
+
+    init() {
+        FirebaseApp.configure()
+        _sessionManager = State(initialValue: SessionManager())
+    }
     
     var body: some Scene {
         WindowGroup {

@@ -15,7 +15,7 @@ class SessionManager {
     var currentUser: User?
     
     init() {
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         sessionState = Auth.auth().currentUser != nil ? .loggedIn : .loggedOut
     }
 }

@@ -12,42 +12,59 @@ struct LoginView: View {
     @Environment(SessionManager.self) var sessionManager: SessionManager
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Email")
-                .font(.system(size: 15))
-            TextField("Email", text: $viewModel.email)
-                .keyboardType(.emailAddress)
-                .textFieldStyle(AuthTextFieldStyle())
-            
-            Text("Password")
-                .font(.system(size: 15))
-            PasswordComponentView(showPassword: $viewModel.showPassword, password: $viewModel.password)
-            
-            Button {
-                sessionManager.sessionState = .loggedIn
-            } label: {
-                Text("Login")
-            }
-            .buttonStyle(PrimaryButtonStyle())
-            
-            HStack {
-                Spacer()
-                Text("Don't have an account?")
+        ZStack {
+            VStack(alignment: .leading) {
+                Text("Email")
+                    .font(.system(size: 15))
+                TextField("Email", text: $viewModel.email)
+                    .keyboardType(.emailAddress)
+                    .textFieldStyle(AuthTextFieldStyle())
+                
+                Text("Password")
+                    .font(.system(size: 15))
+                PasswordComponentView(showPassword: $viewModel.showPassword, password: $viewModel.password)
+                
                 Button(action: {
-                    viewModel.presentRegister = true
+                    Task {
+                        if let user = await viewModel.login() {
+                            await MainActor.run {
+                                sessionManager.currentUser = user
+                                sessionManager.sessionState = .loggedIn
+                            }
+                        }
+                    }
                 }, label: {
-                    Text("Register now")
-                        .font(.system(size: 15, weight: .semibold))
+                    Text("Login")
                 })
-                Spacer()
+                .buttonStyle(PrimaryButtonStyle())
+                
+                HStack {
+                    Spacer()
+                    Text("Don't have an account?")
+                    Button(action: {
+                        viewModel.presentRegister = true
+                    }, label: {
+                        Text("Register now")
+                            .font(.system(size: 15, weight: .semibold))
+                    })
+                    Spacer()
+                }
+                .padding(.top, 20)
+                
             }
-            .padding(.top, 20)
-            
+            .padding(.horizontal, 10)
+            .fullScreenCover(isPresented: $viewModel.presentRegister, content: {
+                RegisterView()
+            })
+            if viewModel.isLoading {
+                LoadingComponentView()
+            }
         }
-        .padding(.horizontal, 10)
-        .fullScreenCover(isPresented: $viewModel.presentRegister, content: {
-            RegisterView()
-        })
+        .alert("Error logging in", isPresented: $viewModel.presentAlert) {
+        } message: {
+            Text(viewModel.errorMessage)
+        }
+
     }
 }
 

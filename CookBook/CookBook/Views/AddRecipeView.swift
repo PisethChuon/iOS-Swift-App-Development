@@ -19,10 +19,21 @@ struct AddRecipeView: View {
                 .padding(20)
             
             ZStack {
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.primaryFormEntry)
-                    .frame(height: 200)
-                Image(systemName: "photo.fill")
+                ZStack {
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.primaryFormEntry)
+                        .frame(height: 200)
+                    Image(systemName: "photo.fill")
+                }
+                
+                if let displayedReceipeImage = viewModel.displayedReceipeImage {
+                    displayedReceipeImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                        .clipped()
+                }
             }
             .onTapGesture {
                 viewModel.showImageOptions = true
@@ -87,7 +98,7 @@ struct AddRecipeView: View {
             Button(action: {
                 
             }, label: {
-                Text("Upload an image from library")
+                Text("Upload an image from camera")
             })
         }
         

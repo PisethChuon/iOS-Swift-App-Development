@@ -26,12 +26,27 @@ class AddRecipeViewModel {
     var alertTitle: String = ""
     var alertMessage: String = ""
     
-    func addReceipe() {
-        guard recipeName.count >= 2 else {
-            createAlert(title: "Invalid Recipe Name", message: "Recipe name must be 2 or more characters.")
+    func addReceipe(handler: @escaping (_ success: Bool) -> Void) {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            createAlert(title: "Not Signed In", message: "Please sign in to create receipes.")
+            handler(false)
             return
         }
-        
+        guard recipeName.count >= 2 else {
+            createAlert(title: "Invalid Recipe Name", message: "Recipe name must be 2 or more characters.")
+            handler(false)
+            return
+        }
+        guard instructions.count >= 5 else {
+            createAlert(title: "Invalid Instructions", message: "Instructions must be 5 or more characters.")
+            handler(false)
+            return
+        }
+        guard prepTime > 0 else {
+            createAlert(title: "Invalid Preparation Time", message: "Preparation time must be greater than 0 minutes.")
+            handler(false)
+            return
+        }
     }
     
     func upload() async {

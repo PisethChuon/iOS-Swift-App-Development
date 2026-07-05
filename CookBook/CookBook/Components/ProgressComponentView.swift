@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ProgressComponentView: View {
+    @Binding var value: Float
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.black.opacity(0.3)
+            ProgressView("Uploading...", value: value, total: 1)
+                .padding(.horizontal)
+        }
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
-    ProgressComponentView()
+    ProgressComponentView(value: .constant(0.5))
 }

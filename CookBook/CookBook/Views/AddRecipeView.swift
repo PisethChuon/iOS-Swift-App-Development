@@ -72,7 +72,9 @@ struct AddRecipeView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10) )
             
             Button(action: {
-                
+                Task {
+                    await viewModel.upload()
+                }
             }, label: {
                 Text("Add Recipe")
                     

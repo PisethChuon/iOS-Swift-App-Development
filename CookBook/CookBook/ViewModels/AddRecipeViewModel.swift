@@ -20,6 +20,7 @@ class AddRecipeViewModel {
     var showLibrary: Bool = false
     var displayedReceipeImage: Image?
     var receipeImage: UIImage?
+    var uploadProgress: Float = 0
     
     func upload() async {
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -39,10 +40,10 @@ class AddRecipeViewModel {
         metaData.contentType = "image/jpg"
         
         do {
-            try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
+            let result = try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
                 if let progress = progress {
                     let percenComplete = Float(progress.completedUnitCount / progress.totalUnitCount)
-                    
+                    self.uploadProgress = percenComplete
                 }
             }
         } catch {

@@ -22,9 +22,11 @@ class AddRecipeViewModel {
     var receipeImage: UIImage?
     
     func upload() {
-        guard let userID = Auth.auth().currentUser?.uid else {
+        guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
         let imageID = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
+        let imageName = "\(imageID).jepg"
+        let imagePath = "images/\(userId)/\(imageName)"
     }
 }

@@ -22,6 +22,11 @@ class AddRecipeViewModel {
     var receipeImage: UIImage?
     var uploadProgress: Float = 0
     var isUploading: Bool = false
+    var showAlert: Bool = false
+    
+    func addReceipe() {
+        
+    }
     
     func upload() async {
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -52,5 +57,11 @@ class AddRecipeViewModel {
             isUploading = false
         }
         
+    }
+    
+    private func createAlert(title: String, message: String) {
+        alertTitle = title
+        alertMessage = message
+        showAlert = true
     }
 }

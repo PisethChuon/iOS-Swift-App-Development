@@ -21,6 +21,7 @@ class AddRecipeViewModel {
     var displayedReceipeImage: Image?
     var receipeImage: UIImage?
     var uploadProgress: Float = 0
+    var isUploading: Bool = false
     
     func upload() async {
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -38,7 +39,7 @@ class AddRecipeViewModel {
         let storageRef = Storage.storage().reference(withPath: imagePath)
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-        
+        isUploading = true
         do {
             let result = try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
                 if let progress = progress {
@@ -46,8 +47,9 @@ class AddRecipeViewModel {
                     self.uploadProgress = percenComplete
                 }
             }
+            isUploading = false
         } catch {
-            
+            isUploading = false
         }
         
     }

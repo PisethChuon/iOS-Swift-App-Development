@@ -27,6 +27,10 @@ class AddRecipeViewModel {
     var alertMessage: String = ""
     
     func addReceipe() {
+        guard recipeName.count >= 2 else {
+            createAlert(title: "Invalid Recipe Name", message: "Recipe name must be 2 or more characters.")
+            return
+        }
         
     }
     

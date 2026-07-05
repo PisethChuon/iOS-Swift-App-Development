@@ -74,7 +74,8 @@ struct AddRecipeView: View {
                 
                 Button(action: {
                     Task {
-                        await viewModel.upload()
+//                        await viewModel.upload()
+                        viewModel.addReceipe()
                     }
                 }, label: {
                     Text("Add Recipe")
@@ -108,6 +109,17 @@ struct AddRecipeView: View {
                 ProgressComponentView(value: $viewModel.uploadProgress)
             }
         }
+        .alert(viewModel.alertTitle, isPresented: $viewModel.showAlert) {
+            Button {
+                
+            } label: {
+                Text("Ok")
+            }
+
+        } message: {
+            Text(viewModel.alertMessage)
+        }
+
     }
 }
 

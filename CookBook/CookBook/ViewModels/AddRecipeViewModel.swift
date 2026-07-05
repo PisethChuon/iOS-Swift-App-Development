@@ -23,6 +23,8 @@ class AddRecipeViewModel {
     var uploadProgress: Float = 0
     var isUploading: Bool = false
     var showAlert: Bool = false
+    var alertTitle: String = ""
+    var alertMessage: String = ""
     
     func addReceipe() {
         

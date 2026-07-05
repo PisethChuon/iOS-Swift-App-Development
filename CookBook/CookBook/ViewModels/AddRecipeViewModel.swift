@@ -7,6 +7,9 @@
 
 import Foundation
 import SwiftUI
+import FirebaseCore
+import FirebaseStorage
+import FirebaseAuth
 
 @Observable
 class AddRecipeViewModel {

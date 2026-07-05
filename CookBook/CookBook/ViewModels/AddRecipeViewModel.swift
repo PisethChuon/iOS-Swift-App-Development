@@ -25,6 +25,12 @@ class AddRecipeViewModel {
         guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
+        guard let receipeImage = receipeImage,
+        let imageData = receipeImage.jpegData(compressionQuality: 0.7)
+        else {
+            return
+        }
+        
         let imageID = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
         let imageName = "\(imageID).jpg"
         let imagePath = "images/\(userId)/\(imageName)"
@@ -32,6 +38,6 @@ class AddRecipeViewModel {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
-        storageRef.putDataAsync(<#T##uploadData: Data##Data#>, metadata: metaData, onProgress: <#T##((Progress?) -> Void)?##((Progress?) -> Void)?##(Progress?) -> Void#>)
+        storageRef.putDataAsync(imageData, metadata: metaData, onProgress: <#T##((Progress?) -> Void)?##((Progress?) -> Void)?##(Progress?) -> Void#>)
     }
 }

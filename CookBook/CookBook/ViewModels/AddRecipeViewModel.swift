@@ -21,7 +21,7 @@ class AddRecipeViewModel {
     var displayedReceipeImage: Image?
     var receipeImage: UIImage?
     
-    func upload() {
+    func upload() async {
         guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
@@ -29,5 +29,9 @@ class AddRecipeViewModel {
         let imageName = "\(imageID).jpg"
         let imagePath = "images/\(userId)/\(imageName)"
         let storageRef = Storage.storage().reference(withPath: imagePath)
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        storageRef.putDataAsync(<#T##uploadData: Data##Data#>, metadata: metaData, onProgress: <#T##((Progress?) -> Void)?##((Progress?) -> Void)?##(Progress?) -> Void#>)
     }
 }

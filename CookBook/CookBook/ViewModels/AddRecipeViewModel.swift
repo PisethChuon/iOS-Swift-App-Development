@@ -38,6 +38,16 @@ class AddRecipeViewModel {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
-        storageRef.putDataAsync(imageData, metadata: metaData, onProgress: <#T##((Progress?) -> Void)?##((Progress?) -> Void)?##(Progress?) -> Void#>)
+        do {
+            try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
+                if let progress = progress {
+                    let percenComplete = Float(progress.completedUnitCount / progress.totalUnitCount)
+                    
+                }
+            }
+        } catch {
+            
+        }
+        
     }
 }

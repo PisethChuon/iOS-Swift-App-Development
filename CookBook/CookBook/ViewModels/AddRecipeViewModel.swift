@@ -28,5 +28,6 @@ class AddRecipeViewModel {
         let imageID = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
         let imageName = "\(imageID).jepg"
         let imagePath = "images/\(userId)/\(imageName)"
+        let storageRef = Storage.storage().reference(withPath: imagePath)
     }
 }

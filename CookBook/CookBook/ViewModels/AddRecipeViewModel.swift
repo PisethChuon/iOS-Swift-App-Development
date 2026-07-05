@@ -4,7 +4,7 @@
 //
 //  Created by chuonpiseth on 20/6/26.
 //
-
+ 
 import Foundation
 import SwiftUI
 import FirebaseCore
@@ -20,4 +20,11 @@ class AddRecipeViewModel {
     var showLibrary: Bool = false
     var displayedReceipeImage: Image?
     var receipeImage: UIImage?
+    
+    func upload() {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+    }
 }

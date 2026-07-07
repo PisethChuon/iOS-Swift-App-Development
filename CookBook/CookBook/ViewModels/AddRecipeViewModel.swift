@@ -42,6 +42,7 @@ class AddRecipeViewModel {
             handler(false)
             return
         }
+        
         guard prepTime > 0 else {
             createAlert(title: "Invalid Preparation Time", message: "Preparation time must be greater than 0 minutes.")
             handler(false)

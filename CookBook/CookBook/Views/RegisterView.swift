@@ -19,6 +19,7 @@ struct RegisterView: View {
                     .font(.system(size: 15))
                 TextField("Username", text: $viewModel.username)
                     .textFieldStyle(AuthTextFieldStyle())
+                
                 Text("Email")
                     .font(.system(size: 15))
                 TextField("Email", text: $viewModel.email)

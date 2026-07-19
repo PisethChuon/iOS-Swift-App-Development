@@ -26,7 +26,7 @@ class AddRecipeViewModel {
     var alertTitle: String = ""
     var alertMessage: String = ""
     
-    func addReceipe(handler: @escaping (_ success: Bool) -> Void) {
+    func addReceipe(imageURL: URL, handler: @escaping (_ success: Bool) -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else {
             createAlert(title: "Not Signed In", message: "Please sign in to create receipes.")
             handler(false)
@@ -49,16 +49,16 @@ class AddRecipeViewModel {
         }
     }
     
-    func upload() async {
+    func upload() async -> URL? {
         guard let userId = Auth.auth().currentUser?.uid else {
-            return
+            return nil
         }
         guard let receipeImage = receipeImage,
-        let imageData = receipeImage.jpegData(compressionQuality: 0.7)
+              let imageData = receipeImage.jpegData(compressionQuality: 0.7)
         else {
-            return
+            return nil
         }
-        
+
         let imageID = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
         let imageName = "\(imageID).jpg"
         let imagePath = "images/\(userId)/\(imageName)"
@@ -66,18 +66,22 @@ class AddRecipeViewModel {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         isUploading = true
+
         do {
-            let result = try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
+            let _ = try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
                 if let progress = progress {
-                    let percenComplete = Float(progress.completedUnitCount / progress.totalUnitCount)
-                    self.uploadProgress = percenComplete
+                    let percentComplete = Float(progress.completedUnitCount) / Float(progress.totalUnitCount)
+                    self.uploadProgress = percentComplete
                 }
             }
             isUploading = false
+            let url = try await storageRef.downloadURL()
+            return url
         } catch {
+            createAlert(title: "Image Upload Failed", message: "Your receipe image could not be uploaded.")
             isUploading = false
+            return nil
         }
-        
     }
     
     private func createAlert(title: String, message: String) {

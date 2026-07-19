@@ -9,18 +9,12 @@ import SwiftUI
 import PhotosUI
 
 struct AddRecipeView: View {
-    let preparationTimes = Array(stride(from: 0, through: 120, by: 5))
     
     @State var viewModel = AddRecipeViewModel()
     @StateObject var imageLoaderViewModel = ImageLoaderViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        let pickerOptions = ForEach(preparationTimes, id: \.self) { time in
-            Text("\(time) mins")
-                .font(.system(size: 15))
-                .tag(time)
-        }
         
         ZStack {
             VStack(alignment: .leading) {
@@ -60,8 +54,14 @@ struct AddRecipeView: View {
                 Text("Preparation Time")
                     .font(.system(size: 15, weight: .semibold))
                     .padding(.top)
-                Picker(selection: $viewModel.preparationTime) {
-                    pickerOptions
+                ForEach(0...120, id: \.self) { time in
+                    if time % 5 == 0 {
+                        Text("\(time) mins")
+                            .font(.system(size: 15))
+                            .tag(time)
+                    } else {
+                        EmptyView()
+                    }
                 } label: {
                     Text("Prep Time")
                 }

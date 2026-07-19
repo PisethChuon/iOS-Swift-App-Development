@@ -54,15 +54,16 @@ struct AddRecipeView: View {
                 Text("Preparation Time")
                     .font(.system(size: 15, weight: .semibold))
                     .padding(.top)
-                Picker("Prep Time", selection: $viewModel.preparationTime) {
-                    ForEach(Array(stride(from: 0, through: 120, by: 5)), id: \.self) { time in
-                        Text("\(time) mins")
-                            .font(.system(size: 15))
-                            .tag(time)
-                    }
-                } label: {
-                    Text("Prep Time")
-                }
+//                Picker("Prep Time", selection: $viewModel.preparationTime) {
+//                    ForEach(Array(stride(from: 0, through: 120, by: 5)), id: \.self) { time in
+//                        Text("\(time) mins")
+//                            .font(.system(size: 15))
+//                            .tag(time)
+//                    }
+//                }
+//                label: {
+//                    Text("Prep Time")
+//                }
                 Text("Cooking Instructions")
                     .font(.system(size: 15, weight: .semibold))
                     .padding(.top)

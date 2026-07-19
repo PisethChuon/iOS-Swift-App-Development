@@ -4,12 +4,13 @@
 //
 //  Created by chuonpiseth on 20/6/26.
 //
- 
+
 import Foundation
 import SwiftUI
 import FirebaseCore
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseFirestore
 
 @Observable
 class AddRecipeViewModel {
@@ -25,6 +26,7 @@ class AddRecipeViewModel {
     var showAlert: Bool = false
     var alertTitle: String = ""
     var alertMessage: String = ""
+    var isLoading = false
     
     func addReceipe(imageURL: URL, handler: @escaping (_ success: Bool) -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -42,11 +44,30 @@ class AddRecipeViewModel {
             handler(false)
             return
         }
-//        guard preparationTime > 0 else {
-//            createAlert(title: "Invalid Preparation Time", message: "Preparation time must be greater than 0 minutes.")
-//            handler(false)
-//            return
-//        }
+        //        guard preparationTime > 0 else {
+        //            createAlert(title: "Invalid Preparation Time", message: "Preparation time must be greater than 0 minutes.")
+        //            handler(false)
+        //            return
+        //        }
+        isLoading = true
+        let ref = Firestore.firestore().collection("receipes").document()
+        let receipe = Receipe(id: ref.documentID, name: recipeName, image: imageURL.absoluteString, instructions: instructions, time: preparationTime)
+        do {
+            try Firestore.firestore().collection("receipes").document(ref.documentID).setData(from: receipe) { error in
+                self.isLoading = false
+                if let error = error {
+                    print(error.localizedDescription)
+                    self.createAlert(title: "Could Not Save Receipe", message: "We could not save your receipe right now, please try later.")
+                    handler(false)
+                    return
+                }
+                handler(true)
+            }
+        } catch {
+            createAlert(title: "Could Not Save Receipe", message: "We could not save your receipe right now, please try later.")
+            isLoading = false
+            handler(false)
+        }
     }
     
     func upload() async -> URL? {
@@ -58,7 +79,7 @@ class AddRecipeViewModel {
         else {
             return nil
         }
-
+        
         let imageID = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
         let imageName = "\(imageID).jpg"
         let imagePath = "images/\(userId)/\(imageName)"
@@ -66,7 +87,7 @@ class AddRecipeViewModel {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         isUploading = true
-
+        
         do {
             let _ = try await storageRef.putDataAsync(imageData, metadata: metaData) { progress in
                 if let progress = progress {
@@ -90,3 +111,4 @@ class AddRecipeViewModel {
         showAlert = true
     }
 }
+

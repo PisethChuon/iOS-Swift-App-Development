@@ -14,7 +14,7 @@ import FirebaseAuth
 @Observable
 class AddRecipeViewModel {
     var recipeName: String = ""
-    var prepTime: Int = 0
+    var preparationTime: Int = 0
     var instructions: String = ""
     var showImageOptions: Bool = false
     var showLibrary: Bool = false
@@ -42,7 +42,7 @@ class AddRecipeViewModel {
             handler(false)
             return
         }
-        guard prepTime > 0 else {
+        guard preparationTime > 0 else {
             createAlert(title: "Invalid Preparation Time", message: "Preparation time must be greater than 0 minutes.")
             handler(false)
             return

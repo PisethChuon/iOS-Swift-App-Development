@@ -81,8 +81,7 @@ struct HomeView: View {
         .sheet(isPresented: $viewModel.showAddRecipeView, content: {
             AddRecipeView()
         })
-    }
-    
+    }    
 }
 
 #Preview {

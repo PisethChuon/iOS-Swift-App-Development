@@ -24,6 +24,10 @@ struct HomeView: View {
         }
     }
     
+    let columns = [
+        GridItem(.flexible())
+    ]
+    
     let spacing: CGFloat = 5
     let padding: CGFloat = 5
     
@@ -39,16 +43,23 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                HStack(spacing: spacing) {
-                    NavigationLink {
-                        RecipeDetailView(recipe: Receipe.mockReceipes[0])
-                    } label: {
-                        ForEach(0...2, id: \.self) { index in
-                            ReceipeRow(receipe: Receipe.mockReceipes[index])
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(Receipe.mockReceipes) { receipe in
+                                ReceipeRow(receipe: receipe)
                         }
                     }
                 }
-                .padding(.horizontal, padding)
+//                HStack(spacing: spacing) {
+//                    NavigationLink {
+//                        RecipeDetailView(recipe: Receipe.mockReceipes[0])
+//                    } label: {
+//                        ForEach(0...2, id: \.self) { index in
+//                            ReceipeRow(receipe: Receipe.mockReceipes[index])
+//                        }
+//                    }
+//                }
+//                .padding(.horizontal, padding)
                 Spacer()
                 Button(action: {
                     viewModel.showAddRecipeView = true

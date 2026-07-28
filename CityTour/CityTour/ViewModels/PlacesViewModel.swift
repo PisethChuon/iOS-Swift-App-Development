@@ -2,8 +2,6 @@
 import Foundation
 import CoreLocation
 
-// 1. Import core
-
 @MainActor
 class PlacesViewModel: NSObject, ObservableObject {
     

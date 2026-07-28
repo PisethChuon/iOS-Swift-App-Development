@@ -14,5 +14,4 @@ struct PlaceModel {
     let photoURL: URL
     let rating: Double
     let address: String
-    
 }

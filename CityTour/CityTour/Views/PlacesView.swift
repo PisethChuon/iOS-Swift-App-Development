@@ -8,6 +8,7 @@ import SwiftUI
 
 struct PlacesView: View {    
     @StateObject private var viewModel = PlacesViewModel()
+    
     private var HorizontalList: some View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: 12) {

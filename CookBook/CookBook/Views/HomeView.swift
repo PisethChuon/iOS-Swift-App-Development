@@ -75,9 +75,7 @@ struct HomeView: View {
                         sessionManager.sessionState = .loggedOut
                     }
                 })
-                Button("Canel", role: .cancel) {
-                    
-                }
+                Button("Canel", role: .cancel) {}
             }
         }
         .sheet(isPresented: $viewModel.showAddRecipeView, content: {

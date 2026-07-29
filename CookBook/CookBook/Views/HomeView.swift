@@ -54,9 +54,7 @@ struct HomeView: View {
 //                    NavigationLink {
 //                        RecipeDetailView(recipe: Receipe.mockReceipes[0])
 //                    } label: {
-//                        ForEach(0...2, id: \.self) { index in
-//                            ReceipeRow(receipe: Receipe.mockReceipes[index])
-//                        }
+//                        
 //                    }
 //                }
 

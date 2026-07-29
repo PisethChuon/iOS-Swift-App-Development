@@ -1,7 +1,6 @@
 //
 //  LoginView.swift
 //  CookBook
-//
 
 import SwiftUI
 

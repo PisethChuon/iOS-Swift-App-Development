@@ -52,8 +52,8 @@ struct HomeView: View {
                 }
 //                HStack(spacing: spacing) {
 //                    NavigationLink {
-//                        RecipeDetailView(recipe: Receipe.mockReceipes[0])
-//                    } 
+//                        
+//                    }
 //                }
 
                 Spacer()

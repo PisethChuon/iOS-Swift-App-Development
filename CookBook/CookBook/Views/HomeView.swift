@@ -50,8 +50,6 @@ struct HomeView: View {
                         }
                     }
                 }
-//                HStack(spacing: spacing) {
-//                }
 
                 Spacer()
                 Button(action: {

@@ -51,9 +51,6 @@ struct HomeView: View {
                     }
                 }
 //                HStack(spacing: spacing) {
-//                    NavigationLink {
-//                        
-//                    }
 //                }
 
                 Spacer()

@@ -59,7 +59,7 @@ struct HomeView: View {
 //                        }
 //                    }
 //                }
-//                .padding(.horizontal, padding)
+
                 Spacer()
                 Button(action: {
                     viewModel.showAddRecipeView = true

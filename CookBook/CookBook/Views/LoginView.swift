@@ -2,7 +2,6 @@
 //  LoginView.swift
 //  CookBook
 //
-//  Created by chuonpiseth on 18/6/26.
 
 import SwiftUI
 

@@ -13,6 +13,7 @@ import FirebaseFirestore
 class HomeViewModel {
     var showSignOutAlert: Bool = false
     var showAddRecipeView: Bool = false
+    var recipe: [Recipe] = []
     
     func fetchRecipes() {
         

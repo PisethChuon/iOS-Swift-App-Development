@@ -7,11 +7,16 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 @Observable
 class HomeViewModel {
     var showSignOutAlert: Bool = false
     var showAddRecipeView: Bool = false
+    
+    func fetchRecipes() {
+        
+    }
     
     func signOut() -> Bool {
         do {

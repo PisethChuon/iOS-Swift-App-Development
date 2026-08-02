@@ -25,11 +25,13 @@ struct HomeView: View {
     }
     
     let columns = [
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
     ]
     
-    let spacing: CGFloat = 5
-    let padding: CGFloat = 5
+    let spacing: CGFloat = 10
+    let padding: CGFloat = 10
     
     var itemWidth: CGFloat {
         let screenWidth = UIScreen.main.bounds.width

@@ -47,7 +47,7 @@ struct HomeView: View {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns) {
-                        ForEach(Receipe.mockReceipes) { receipe in
+                        ForEach(viewModel.recipe) { receipe in
                                 ReceipeRow(receipe: receipe)
                         }
                     }
@@ -79,6 +79,9 @@ struct HomeView: View {
                 })
                 Button("Canel", role: .cancel) {}
             }
+        }
+        .task {
+            await viewModel.fetchRecipes()
         }
         .sheet(isPresented: $viewModel.showAddRecipeView, content: {
             AddRecipeView()

@@ -15,8 +15,15 @@ class HomeViewModel {
     var showAddRecipeView: Bool = false
     var recipe: [Recipe] = []
     
-    func fetchRecipes() {
-        
+    func fetchRecipes() async {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        do {
+            let receipes = try await Firestore.firestore().collection("receipes").whereField("userId", isEqualTo: userId).getDocuments()
+                
+            }
+        } catch {
+            
+        }
     }
     
     func signOut() -> Bool {

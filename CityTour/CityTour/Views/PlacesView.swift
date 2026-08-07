@@ -1,7 +1,6 @@
 //
 //  ContentView.swift
 //  CityTour
-//
 
 import SwiftUI
 

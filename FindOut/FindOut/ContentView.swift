@@ -7,37 +7,19 @@
 
 import SwiftUI
 
-struct RecipeSection<Content: View>: View {
-    let title: String
-    let content: Content
-    
-    init(
-        title: String,
-        @ViewBuilder content: () -> Content
-    ) {
-        self.title = title
-        self.content = content()
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .font(.headline)
-            content
-        }
-    }
-}
+
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            RecipeSection(title: "Ingredients") {
-                Text("1 cup of coffee")
-                Text("1 cup of coffee")
-                Text("1 cup of coffee")
+            ProfileCard(name: "Piseth CHUON") {
+                Text("Hello World")
+                Text("Software Engineer")
+                Button("View Details") {
+                    print("view details button tapped")
+                }
             }
         }
-        .padding()
     }
 }
 

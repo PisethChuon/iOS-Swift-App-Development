@@ -11,6 +11,18 @@ struct HomeView: View {
     
     fileprivate func ReceipeRow(receipe: Receipe) -> some View {
         VStack (alignment: .leading) {
+            AsyncImage(url: URL(string: receipe.image)) { image in
+                image.resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .clipped()
+            } placeholder: {
+                VStack {
+                    ProgressView()
+                }
+            }
+
+            
             Image(receipe.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)

@@ -16,22 +16,29 @@ class HomeViewModel {
     var recipe: [Receipe] = []
     
     func fetchRecipes() async {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
+        guard let userId = Auth.auth().currentUser?.uid else {
+            print("❌ No logged in user")
+            return
+        }
         do {
-            let receipesResult = try await Firestore.firestore().collection("receipes").whereField("userId", isEqualTo: userId).getDocuments()
-            for receipeDocument in receipesResult.documents {
-                let data = receipeDocument.data()
-                guard let imageLocation = data["image"] as? String else { continue }
-                guard let instructions = data["instructions"] as? String else { continue }
-                guard let name = data["name"] as? String else { continue }
-                guard let time = data["time"] as? Int else { continue }
-                guard let userId = data["userId"] as? String else { continue }
-                let id = receipeDocument.documentID
-                let receipe = Receipe(id: id, name: name, image: imageLocation, instructions: instructions, time: time)
-                recipe.append(receipe)
+            let result = try await Firestore.firestore()
+                .collection("recipes") // <-- double check this name
+                .whereField("userId", isEqualTo: userId)
+                .getDocuments()
+
+            print("📦 Fetched \(result.documents.count) documents")
+
+            for doc in result.documents {
+                let data = doc.data()
+                print("📄 Document data: \(data)")
+                guard let imageLocation = data["image"] as? String else {
+                    print("⚠️ Missing/bad 'image' field")
+                    continue
+                }
+                // ...repeat for other fields
             }
         } catch {
-            print("Failed to fetch recipes: \(error.localizedDescription)")
+            print("❌ Fetch error: \(error.localizedDescription)")
         }
     }
     

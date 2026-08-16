@@ -16,6 +16,7 @@
 		20EEEAE72BF78814004F9A5C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEAE62BF78814004F9A5C /* Product.swift */; };
 		7BE9121930318C60000AFB26 /* BannerImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9121830318C56000AFB26 /* BannerImageModifier.swift */; };
 		7BE9121B3031BB9F000AFB26 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9121A3031BB9F000AFB26 /* ProductGridView.swift */; };
+		7BE9121E30320635000AFB26 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9121D3032062F000AFB26 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		20EEEAE62BF78814004F9A5C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		7BE9121830318C56000AFB26 /* BannerImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageModifier.swift; sourceTree = "<group>"; };
 		7BE9121A3031BB9F000AFB26 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
+		7BE9121D3032062F000AFB26 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		20EEEAD32BF7870F004F9A5C /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				7BE9121C30320624000AFB26 /* ViewModels */,
 				7BE9121730318C41000AFB26 /* Components */,
 				7BE9121630318C2A000AFB26 /* Views */,
 				20EEEAE92BF7883F004F9A5C /* Client */,
@@ -112,6 +115,14 @@
 				7BE9121830318C56000AFB26 /* BannerImageModifier.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7BE9121C30320624000AFB26 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7BE9121D3032062F000AFB26 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 			files = (
 				20EEEAD72BF7870F004F9A5C /* HomeView.swift in Sources */,
 				20EEEAE72BF78814004F9A5C /* Product.swift in Sources */,
+				7BE9121E30320635000AFB26 /* HomeViewModel.swift in Sources */,
 				20EEEAE52BF787A1004F9A5C /* ProductsClient.swift in Sources */,
 				20EEEAD52BF7870F004F9A5C /* EcommerceApp.swift in Sources */,
 				7BE9121B3031BB9F000AFB26 /* ProductGridView.swift in Sources */,

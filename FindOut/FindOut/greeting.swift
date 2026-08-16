@@ -18,10 +18,16 @@ struct MyButtonModifier: ViewModifier {
     }
 }
 
+extension View {
+    func myButtonStyle() -> some View {
+        modifier(MyButtonModifier())
+    }
+}
+
 struct greeting: View {
     var body: some View {
         Text("Hello, World!")
-            .modifier(MyButtonModifier())
+            .myButtonStyle()
     }
 }
 

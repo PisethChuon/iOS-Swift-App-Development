@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
+    fileprivate var NavigationBarView: some View {
         VStack {
             HStack {
                 Spacer()
@@ -36,6 +36,13 @@ struct ContentView: View {
             .padding(.trailing)
             
             Spacer()
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            NavigationBarView
+            
         }
         
     }

@@ -38,7 +38,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationBarView
+
+            Image("banner")
+                .bannerImageStyle()
+
             Spacer()
+            
         }
         
     }

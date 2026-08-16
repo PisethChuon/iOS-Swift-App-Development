@@ -6,3 +6,14 @@
 //
 
 
+import Foundation
+import SwiftUI
+
+extension Image {
+    func bannerImageStyle() -> some View {
+        self
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 250)
+    }
+}

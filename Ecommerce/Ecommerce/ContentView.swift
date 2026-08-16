@@ -9,12 +9,25 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack {
+                Spacer()
+                Text("Ecommerce")
+                    .font(.system(size: 16, weight: .semibold))
+                Spacer()
+            }
+            
+            .overlay(alignment: .trailing) {
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "cart.fill")
+                })
+            }
+            .padding(.trailing)
+            
+            Spacer()
         }
-        .padding()
+        
     }
 }
 

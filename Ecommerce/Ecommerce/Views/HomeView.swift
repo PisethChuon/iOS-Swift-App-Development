@@ -57,10 +57,33 @@ struct ContentView: View {
                     }
                 }
                 .padding(.top)
-                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(viewModel.featuredProducts) {
+                        ForEach(viewModel.featuredProducts(filter: .isFeatured)) {
+                            product in
+                            ProductRow(product: product)
+                        }
+                    }
+                    
+                }
+                
+                HStack {
+                    Text("Highly Rated")
+                        .font(.system(size: 15, weight: .semibold))
+                        .padding(.leading)
+                    Spacer()
+                    NavigationLink {
+                        ProductGridView()
+                    } label: {
+                        Text("View All")
+                            .font(.system(size: 15, weight: .semibold))
+                            .padding(.trailing)
+                    }
+                }
+                .padding(.top)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.featuredProducts(filter: .highlyRated)) {
                             product in
                             ProductRow(product: product)
                         }
@@ -68,7 +91,6 @@ struct ContentView: View {
                     
                 }
                 Spacer()
-                
             }
         }
         

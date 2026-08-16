@@ -18,6 +18,7 @@
 		7BE9121B3031BB9F000AFB26 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9121A3031BB9F000AFB26 /* ProductGridView.swift */; };
 		7BE9121E30320635000AFB26 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9121D3032062F000AFB26 /* HomeViewModel.swift */; };
 		7BE912203032101C000AFB26 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9121F3032101C000AFB26 /* ProductRow.swift */; };
+		7BE91222303218CC000AFB26 /* ProductFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE91221303218BF000AFB26 /* ProductFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		7BE9121A3031BB9F000AFB26 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		7BE9121D3032062F000AFB26 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7BE9121F3032101C000AFB26 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
+		7BE91221303218BF000AFB26 /* ProductFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		20EEEAE82BF7881A004F9A5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7BE91221303218BF000AFB26 /* ProductFilter.swift */,
 				20EEEAE62BF78814004F9A5C /* Product.swift */,
 			);
 			path = Models;
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20EEEAD72BF7870F004F9A5C /* HomeView.swift in Sources */,
+				7BE91222303218CC000AFB26 /* ProductFilter.swift in Sources */,
 				20EEEAE72BF78814004F9A5C /* Product.swift in Sources */,
 				7BE9121E30320635000AFB26 /* HomeViewModel.swift in Sources */,
 				20EEEAE52BF787A1004F9A5C /* ProductsClient.swift in Sources */,

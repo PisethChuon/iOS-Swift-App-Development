@@ -11,5 +11,14 @@ import SwiftUI
 @Observable
 class HomeViewModel {
     
-    var featuredProducts = ProductsClient.fetchProducts().filter({ $0.isFeatured })
+    func featuredProducts(filter: ProductFilter) -> [Product] {
+        switch filter {
+        case .all:
+            ProductsClient.fetchProducts()
+        case .isFeatured:
+            ProductsClient.fetchProducts().filter({ $0.isFeatured })
+        case .highlyRated:
+            ProductsClient.fetchProducts().filter({ $0.rating > 4 })
+        }
+    }
 }

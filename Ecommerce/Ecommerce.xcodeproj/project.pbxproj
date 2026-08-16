@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		20EEEAD52BF7870F004F9A5C /* EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEAD42BF7870F004F9A5C /* EcommerceApp.swift */; };
-		20EEEAD72BF7870F004F9A5C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEEAD62BF7870F004F9A5C /* HomeView.swift */; };
 		20EEEAD92BF78711004F9A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20EEEAD82BF78711004F9A5C /* Assets.xcassets */; };
 		20EEEADC2BF78711004F9A5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20EEEADB2BF78711004F9A5C /* Preview Assets.xcassets */; };
 		20EEEAE32BF7878E004F9A5C /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 20EEEAE22BF7878E004F9A5C /* products.json */; };
@@ -19,13 +18,16 @@
 /* Begin PBXFileReference section */
 		20EEEAD12BF7870F004F9A5C /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20EEEAD42BF7870F004F9A5C /* EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceApp.swift; sourceTree = "<group>"; };
-		20EEEAD62BF7870F004F9A5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		20EEEAD82BF78711004F9A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20EEEADB2BF78711004F9A5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		20EEEAE22BF7878E004F9A5C /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		20EEEAE42BF787A0004F9A5C /* ProductsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsClient.swift; sourceTree = "<group>"; };
 		20EEEAE62BF78814004F9A5C /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		7BE91214303189A5000AFB26 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		20EEEACE2BF7870F004F9A5C /* Frameworks */ = {
@@ -57,10 +59,10 @@
 		20EEEAD32BF7870F004F9A5C /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				7BE91214303189A5000AFB26 /* Views */,
 				20EEEAE92BF7883F004F9A5C /* Client */,
 				20EEEAE82BF7881A004F9A5C /* Models */,
 				20EEEAD42BF7870F004F9A5C /* EcommerceApp.swift */,
-				20EEEAD62BF7870F004F9A5C /* HomeView.swift */,
 				20EEEAD82BF78711004F9A5C /* Assets.xcassets */,
 				20EEEADA2BF78711004F9A5C /* Preview Content */,
 			);
@@ -106,6 +108,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7BE91214303189A5000AFB26 /* Views */,
 			);
 			name = Ecommerce;
 			productName = Ecommerce;
@@ -163,7 +168,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20EEEAD72BF7870F004F9A5C /* HomeView.swift in Sources */,
 				20EEEAE72BF78814004F9A5C /* Product.swift in Sources */,
 				20EEEAE52BF787A1004F9A5C /* ProductsClient.swift in Sources */,
 				20EEEAD52BF7870F004F9A5C /* EcommerceApp.swift in Sources */,

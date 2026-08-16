@@ -36,23 +36,29 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            NavigationBarView
-
-            Image("banner")
-                .bannerImageStyle()
-            HStack {
-                Text("Featured")
-                    .font(.system(size: 15, weight: .semibold))
-                    .padding(.leading)
+        NavigationStack {
+            VStack {
+                NavigationBarView
+                
+                Image("banner")
+                    .bannerImageStyle()
+                HStack {
+                    Text("Featured")
+                        .font(.system(size: 15, weight: .semibold))
+                        .padding(.leading)
+                    Spacer()
+                    NavigationLink {
+                        ProductGridView()
+                    } label: {
+                        Text("View All")
+                            .font(.system(size: 15, weight: .semibold))
+                            .padding(.trailing)
+                    }
+                }
+                .padding(.top)
                 Spacer()
-                Text("View All")
-                    .font(.system(size: 15, weight: .semibold))
-                    .padding(.trailing)
+                
             }
-            .padding(.top)
-            Spacer()
-            
         }
         
     }

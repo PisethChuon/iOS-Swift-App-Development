@@ -10,6 +10,7 @@ import SwiftUI
 
 @Observable
 class HomeViewModel {
+    var showAllProducts: Bool = false
     
     func featuredProducts(filter: ProductFilter) -> [Product] {
         switch filter {

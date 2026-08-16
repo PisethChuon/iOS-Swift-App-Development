@@ -67,6 +67,7 @@ struct ContentView: View {
                         }
                         
                     }
+                    .padding(.leading, 5)
                     
                     HStack {
                         Text("Highly Rated")
@@ -91,8 +92,19 @@ struct ContentView: View {
                         }
                         
                     }
+                    .padding(.leading, 5)
+                    Button(action: {
+                        viewModel.showAllProducts = true
+                    }, label: {
+                        Text("See Full Catelog")
+                    })
+                    .buttonStyle(PrimaryButtonStyle())
+                    .padding(.horizontal)
                     Spacer()
                 }
+            }
+            .navigationDestination(isPresented: $viewModel.showAllProducts) {
+                ProductGridView()
             }
         }
         

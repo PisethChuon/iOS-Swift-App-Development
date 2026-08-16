@@ -38,59 +38,61 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                NavigationBarView
-                
-                Image("banner")
-                    .bannerImageStyle()
-                HStack {
-                    Text("Featured")
-                        .font(.system(size: 15, weight: .semibold))
-                        .padding(.leading)
-                    Spacer()
-                    NavigationLink {
-                        ProductGridView()
-                    } label: {
-                        Text("View All")
-                            .font(.system(size: 15, weight: .semibold))
-                            .padding(.trailing)
-                    }
-                }
-                .padding(.top)
-                ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView {
+                VStack {
+                    NavigationBarView
+                    
+                    Image("banner")
+                        .bannerImageStyle()
                     HStack {
-                        ForEach(viewModel.featuredProducts(filter: .isFeatured)) {
-                            product in
-                            ProductRow(product: product)
+                        Text("Featured")
+                            .font(.system(size: 15, weight: .semibold))
+                            .padding(.leading)
+                        Spacer()
+                        NavigationLink {
+                            ProductGridView()
+                        } label: {
+                            Text("View All")
+                                .font(.system(size: 15, weight: .semibold))
+                                .padding(.trailing)
                         }
                     }
-                    
-                }
-                
-                HStack {
-                    Text("Highly Rated")
-                        .font(.system(size: 15, weight: .semibold))
-                        .padding(.leading)
-                    Spacer()
-                    NavigationLink {
-                        ProductGridView()
-                    } label: {
-                        Text("View All")
-                            .font(.system(size: 15, weight: .semibold))
-                            .padding(.trailing)
+                    .padding(.top)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.featuredProducts(filter: .isFeatured)) {
+                                product in
+                                ProductRow(product: product)
+                            }
+                        }
+                        
                     }
-                }
-                .padding(.top)
-                ScrollView(.horizontal, showsIndicators: false) {
+                    
                     HStack {
-                        ForEach(viewModel.featuredProducts(filter: .highlyRated)) {
-                            product in
-                            ProductRow(product: product)
+                        Text("Highly Rated")
+                            .font(.system(size: 15, weight: .semibold))
+                            .padding(.leading)
+                        Spacer()
+                        NavigationLink {
+                            ProductGridView()
+                        } label: {
+                            Text("View All")
+                                .font(.system(size: 15, weight: .semibold))
+                                .padding(.trailing)
                         }
                     }
-                    
+                    .padding(.top)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.featuredProducts(filter: .highlyRated)) {
+                                product in
+                                ProductRow(product: product)
+                            }
+                        }
+                        
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
         }
         

@@ -20,7 +20,17 @@ struct ContentView: View {
                 Button(action: {
                     
                 }, label: {
-                    Image(systemName: "cart.fill")
+                    ZStack {
+                        Image(systemName: "cart.fill")
+                            .foregroundStyle(.black)
+                        ZStack {
+                            Circle().fill(Color.red)
+                            Text("9")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.white)
+                        }
+                        .offset(x: 10, y: -10)
+                    }
                 })
             }
             .padding(.trailing)

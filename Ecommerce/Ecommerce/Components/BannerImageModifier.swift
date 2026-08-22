@@ -13,7 +13,8 @@ extension Image {
     func bannerImageStyle() -> some View {
         self
             .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 250)
+            .aspectRatio(contentMode: .fill)
+            .frame(width: UIScreen.main.bounds.width, height: 250)
+            .clipped()
     }
 }

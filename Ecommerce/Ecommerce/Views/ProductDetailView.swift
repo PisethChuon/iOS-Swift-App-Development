@@ -8,11 +8,39 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    
+    let product: Product
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading) {
+                Image(product.image)
+                    .bannerImageStyle()
+                Group {
+                    Text(product.title)
+                        .font(.system(size: 20, weight: .semibold))
+                    Text(product.description)
+                        .font(.system(size: 15))
+                        .padding(.top)
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Add to cart")
+                    })
+                    .buttonStyle(PrimaryButtonStyle())
+                    .padding(.top, 15)
+                }
+                .padding(.horizontal)
+                
+                
+                Spacer()
+            }
+        }
+        
     }
 }
 
 #Preview {
-    ProductDetailView()
+    ProductDetailView(product: ProductsClient.fetchProducts()[0])
 }

@@ -30,14 +30,17 @@ struct ProductRow: View {
                     Text(product.title)
                         .font(.system(size: 15, weight: .semibold))
                         .lineLimit(1)
+                        .foregroundStyle(.black)
                     Text(product.displayPrice)
                         .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.black)
                     HStack {
                         Image(systemName: "star.fill")
                             .font(.system(size: 15))
                             .foregroundStyle(Color.yellow)
                         Text("\(product.displayRating)")
                             .font(.system(size: 14))
+                            .foregroundStyle(.black)
                     }
                 }
                 .padding(.horizontal, 5)
@@ -63,5 +66,7 @@ struct ProductRow: View {
 }
 
 #Preview {
-    ProductRow(product: ProductsClient.fetchProducts()[0])
+    NavigationStack {
+        ProductRow(product: ProductsClient.fetchProducts()[0])
+    }
 }

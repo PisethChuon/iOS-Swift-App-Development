@@ -1,12 +1,12 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Ecommerce
 //
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     fileprivate var NavigationBarView: some View {
         
         HStack {
@@ -112,5 +112,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }

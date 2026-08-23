@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-let isAdmin: Bool = true
-
 struct ContentView: View {
     var body: some View {
-        
+        Text("Hello")
     }
 }
 

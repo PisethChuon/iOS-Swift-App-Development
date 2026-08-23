@@ -5,7 +5,7 @@
 //  Created by chuonpiseth on 23/8/26.
 //
 
-import Foundation
+import Observation
 
 @Observable
 class FavoritesStore{
@@ -17,5 +17,9 @@ class FavoritesStore{
         } else {
             favoriteProductIDs.insert(product.id)
         }
+    }
+    
+    func isFavorite(_ product: Product) -> Bool {
+        favoriteProductIDs.contains(product.id)
     }
 }

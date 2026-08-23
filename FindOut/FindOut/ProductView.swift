@@ -5,7 +5,7 @@
 //  Created by chuonpiseth on 23/8/26.
 //
 
-import SwiftUI  
+import SwiftUI
 
 struct ProductView: View {
     
@@ -20,7 +20,7 @@ struct ProductView: View {
                     Button {
                         favoritesStore.toggleFavorite(product)
                     } label: {
-                        Image(systemName: "heart")
+                        Image(systemName: favoritesStore.isFavorite(product) ? "heart.fill" : "heart")
                     }
                 }
             }

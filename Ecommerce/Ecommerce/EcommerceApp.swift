@@ -11,8 +11,20 @@ struct EcommerceApp: App {
         WindowGroup {
             TabView {
                 HomeView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
                 CartView()
+                    .tabItem {
+                        Image(systemName: "cart.fill")
+                        Text("Cart")
+                    }
                 FavoritesView()
+                    .tabItem {
+                        Image(systemName: "heart.fill")
+                        Text("Favorites")
+                    }
             }
             .preferredColorScheme(.light)
         }

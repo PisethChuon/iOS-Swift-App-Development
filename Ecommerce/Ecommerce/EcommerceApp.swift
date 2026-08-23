@@ -9,8 +9,10 @@ import SwiftUI
 struct EcommerceApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .preferredColorScheme(.light)
+            TabView {
+                HomeView()
+            }
+            .preferredColorScheme(.light)
         }
     }
 }

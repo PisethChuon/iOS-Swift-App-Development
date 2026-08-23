@@ -11,6 +11,8 @@ struct EcommerceApp: App {
         WindowGroup {
             TabView {
                 HomeView()
+                CartView()
+                FavoritesView()
             }
             .preferredColorScheme(.light)
         }

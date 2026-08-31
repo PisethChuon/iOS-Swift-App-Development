@@ -9,6 +9,7 @@ import SwiftUI
 struct EcommerceApp: App {
     
     @State var favoritesManager = FavoritesManager()
+    @State var cartManager = CartManager()
     
     var body: some Scene {
         WindowGroup {
@@ -30,6 +31,7 @@ struct EcommerceApp: App {
                     }
             }
             .environment(favoritesManager)
+            .environment(cartManager)
             .preferredColorScheme(.light)
         }
     }

@@ -10,5 +10,5 @@ import SwiftUI
 
 @Observable
 class FavoritesViewModel {
-    var products: [Product] = ProductsClient.fetchProducts()
+    var products: [Product] = []
 }

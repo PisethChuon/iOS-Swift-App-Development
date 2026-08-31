@@ -9,6 +9,6 @@ import Foundation
 import SwiftUI
 
 @Observable
-class FavoritesViewModel {
+class FavoritesManager {
     var products: [Product] = []
 }

@@ -13,6 +13,9 @@ struct ProductDetailView: View {
     let product: Product
     
     var body: some View {
+        
+        @Bindable var cartManager = cartManager
+        
         ScrollView {
             VStack(alignment: .leading) {
                 Image(product.image)
@@ -36,6 +39,13 @@ struct ProductDetailView: View {
                 
                 
                 Spacer()
+            }
+            .alert("Add to cart", isPresented: $cartManager.addToCartAlert) {
+                Button("Ok") {
+                    
+                }
+            } message: {
+                Text("Do you want to add this product to your cart?")
             }
         }
         

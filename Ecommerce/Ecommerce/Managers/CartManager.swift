@@ -28,7 +28,19 @@ class CartManager {
         } else {
             productsInCart.append(ProductInCart(product: product, quantity: 1))
         }
-        addToCartAlert = true
+    }
+    
+    func removeFromCart(product: Product) {
+        if let indexOfProductInCart = productsInCart.firstIndex(where: { $0.id == product.id}) {
+            let currentProductInCart = productsInCart[indexOfProductInCart].quantity
+            if currentProductInCart > 1 {
+                let newQuantity = currentProductInCart - 1
+                let updatedProductInCart = ProductInCart(product: product, quantity: newQuantity)
+                productsInCart[indexOfProductInCart] = updatedProductInCart
+            } else {
+                productsInCart.remove(at: indexOfProductInCart)
+            }
+        }
     }
 }
 

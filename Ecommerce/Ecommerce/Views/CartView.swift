@@ -23,9 +23,9 @@ struct CartView: View {
                     .font(.system(size: 15))
                     .padding(.top, 1)
                 Stepper("Quantity: \(productIncart.quantity)", onIncrement: {
-                    
+                    cartManager.addToCart(product: productIncart.product)
                 }, onDecrement: {
-                    
+                    cartManager.removeFromCart(product: productIncart.product)
                 })
             }
         }

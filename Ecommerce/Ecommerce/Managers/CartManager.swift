@@ -14,11 +14,7 @@ class CartManager {
     var addToCartAlert: Bool = false
     
     var displayTotalCartQuantity: Int {
-        var totalQuantity = 0
-        for productInCart in productsInCart {
-            totalQuantity += productInCart.quantity
-        }
-        return totalQuantity
+        productsInCart.reduce(1) { $0 + $1.quantity }
     }
     
     

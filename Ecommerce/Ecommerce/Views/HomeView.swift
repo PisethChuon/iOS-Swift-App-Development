@@ -20,28 +20,27 @@ struct HomeView: View {
             Spacer()
         }
         .overlay(alignment: .trailing) {
-            Button(action: {
-                
-            }, label: {
-                ZStack {
-                    Button(action: {
-                        tabManager.selectedTabs = 2
-                    }, label: {
-                        Image(systemName: "cart.fill")
-                            .foregroundStyle(.black)
-                        
-                        if cartManager.displayTotalCartQuantity > 0 {
-                            ZStack {
-                                Circle().fill(Color.red)
-                                Text("\(cartManager.displayTotalCartQuantity)")
-                                    .font(.system(size: 10, weight: .bold))
-                                    .foregroundColor(.white)
-                            }
-                            .offset(x: 10, y: -10)
-                        }
-                    })
+            ZStack {
+                Button {
+                    tabManager.selectedTabs = 2
+                } label: {
+                    Image(systemName: "cart.fill")
+                        .foregroundStyle(.black)
                 }
-            })
+
+                if cartManager.displayTotalCartQuantity > 0 {
+                    ZStack {
+                        Circle()
+                            .fill(Color.red)
+
+                        Text("\(cartManager.displayTotalCartQuantity)")
+                            .font(.system(size: 10, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
+                    .frame(width: 16, height: 16)
+                    .offset(x: 10, y: -10)
+                }
+            }
         }
         .padding(.trailing)
     }

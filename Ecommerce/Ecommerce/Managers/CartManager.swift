@@ -13,6 +13,15 @@ class CartManager {
     var productsInCart: [ProductInCart] = []
     var addToCartAlert: Bool = false
     
+    var displayTotalCartQuantity: Int {
+        var totalQuantity = 0
+        for productInCart in productsInCart {
+            totalQuantity += productInCart.quantity
+        }
+        return totalQuantity
+    }
+    
+    
     func addToCart(product: Product) {
         if let indexOfProductInCart = productsInCart.firstIndex(where: { $0.id == product.id }) {
             let currentProductInCart = productsInCart[indexOfProductInCart].quantity
@@ -26,3 +35,4 @@ class CartManager {
         addToCartAlert = true
     }
 }
+

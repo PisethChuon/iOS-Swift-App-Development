@@ -7,6 +7,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @Environment(CartManager.self) var cartManager: CartManager
+    
     fileprivate var NavigationBarView: some View {
         
         HStack {
@@ -22,13 +25,17 @@ struct HomeView: View {
                 ZStack {
                     Image(systemName: "cart.fill")
                         .foregroundStyle(.black)
-                    ZStack {
-                        Circle().fill(Color.red)
-                        Text("9")
-                            .font(.system(size: 10, weight: .bold))
-                            .foregroundColor(.white)
+                    
+                    if cartManager.displayTotalCartQuantity > 0 {
+                        ZStack {
+                            Circle().fill(Color.red)
+                            Text("\(cartManager.displayTotalCartQuantity)")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.white)
+                        }
+                        .offset(x: 10, y: -10)
                     }
-                    .offset(x: 10, y: -10)
+                    
                 }
             })
         }

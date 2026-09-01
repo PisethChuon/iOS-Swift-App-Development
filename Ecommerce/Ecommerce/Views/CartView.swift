@@ -37,9 +37,19 @@ struct CartView: View {
                 ForEach(cartManager.productsInCart) { productInCart in
                     CartRow(productIncart: productInCart)
                 }
-                
             }
-            
+            VStack {
+                Divider()
+                HStack {
+                    Text("Total: \(cartManager.displayTotalCartQuantity) items")
+                        .font(.system(size: 16, weight: .semibold))
+                    Spacer()
+                    Text(cartManager.displayTotalCartPrice)
+                        .font(.system(size: 16, weight: .bold))
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 30)
+            }
         }
     }
 }

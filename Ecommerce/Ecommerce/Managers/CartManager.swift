@@ -14,9 +14,15 @@ class CartManager {
     var addToCartAlert: Bool = false
     
     var displayTotalCartQuantity: Int {
-        productsInCart.reduce(1) { $0 + $1.quantity }
+        productsInCart.reduce(0) { $0 + $1.quantity }
     }
     
+    var displayTotalCartPrice: String {
+        let totalPrice = productsInCart.reduce(0) { $0 + ($1.product.price * Int($1.quantity)) }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(from: totalPrice as NSNumber) ?? "$0.00"
+    }
     
     func addToCart(product: Product) {
         if let indexOfProductInCart = productsInCart.firstIndex(where: { $0.id == product.id }) {

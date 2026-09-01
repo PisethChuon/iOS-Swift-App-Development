@@ -10,5 +10,13 @@ import SwiftUI
 
 @Observable
 class CartManager {
-    var products: [Product] = ProductsClient.fetchProducts()
+    var productsInCart: [ProductInCart] = []
+    
+    func addToCart(product: Product) {
+        if var productInCart = productsInCart.first(where: { $0.id == product.id }) {
+            productInCart.quantity += 1
+        } else {
+            productsInCart.append(ProductInCart(product: product, quantity: 1))
+        }
+    }
 }

@@ -11,18 +11,18 @@ struct CartView: View {
     
     @Environment(CartManager.self) var cartManager: CartManager
     
-    fileprivate func CartRow(product: Product) -> some View {
+    fileprivate func CartRow(productIncart: ProductInCart) -> some View {
         HStack {
-            Image(product.image)
+            Image(productIncart.product.image)
                 .squareImageStyle()
             VStack(alignment: .leading) {
-                Text(product.title)
+                Text(productIncart.product.title)
                     .font(.system(size: 15, weight: .semibold))
-                Text(product.description)
+                Text(productIncart.product.description)
                     .lineLimit(2)
                     .font(.system(size: 15))
                     .padding(.top, 1)
-                Stepper("Quantity: 1", onIncrement: {
+                Stepper("Quantity: \(productIncart.quantity)", onIncrement: {
                     
                 }, onDecrement: {
                     
@@ -34,8 +34,8 @@ struct CartView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(cartManager.products) { product in
-                    CartRow(product: product)
+                ForEach(cartManager.productsInCart) { productInCart in
+                    CartRow(productIncart: productInCart)
                 }
                 
             }

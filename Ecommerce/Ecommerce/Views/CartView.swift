@@ -10,7 +10,6 @@ import SwiftUI
 struct CartView: View {
     
     @Environment(CartManager.self) var cartManager: CartManager
-    @State private var quantity: Int = 0
     
     fileprivate func CartRow(product: Product) -> some View {
         HStack {
@@ -23,7 +22,7 @@ struct CartView: View {
                     .lineLimit(2)
                     .font(.system(size: 15))
                     .padding(.top, 1)
-                Stepper("Quantity: \(quantity)", onIncrement: {
+                Stepper("Quantity: 1", onIncrement: {
                     
                 }, onDecrement: {
                     

@@ -10,22 +10,11 @@ import SwiftUI
 @main
 struct FindOutApp: App {
 
-    @State private var favoritesStore = FavoritesStore()
+    
 
     var body: some Scene {
         WindowGroup {
-            TabView {
-                ProductView()
-                    .tabItem {
-                        Label("Product", systemImage: "bag")
-                    }
-
-                FavoritesView()
-                    .tabItem {
-                        Label("Favorites", systemImage: "heart.fill")
-                    }
-            }
-            .environment(favoritesStore)
+            ContentView()
         }
     }
 }

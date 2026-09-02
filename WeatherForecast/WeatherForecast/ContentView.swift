@@ -42,10 +42,16 @@ struct DayForecast: View {
     var body: some View {
         VStack {
             Text(day)
+                .font(.headline)
             Image(systemName: iconName)
                 .foregroundStyle(iconColor)
+                .font(Font.largeTitle)
+                .padding(5)
             Text("Hight: \(hight)")
+                .fontWeight(Font.Weight.semibold)
             Text("Low: \(low)")
+                .fontWeight(Font.Weight.medium)
+                .foregroundStyle(Color.secondary)
         }
         .padding()
     }

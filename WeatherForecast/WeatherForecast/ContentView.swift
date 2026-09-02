@@ -10,14 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack {
-            VStack {
-                Text("Tue")
-                Image(systemName: "cloud.rain.fill")
-                    .foregroundStyle(Color.blue)
-                Text("Hight: 60")
-                Text("Low: 40")
-            }
-            .padding()
+            DayForecast()
+            
+            DayForecast()
         }
     }
 }

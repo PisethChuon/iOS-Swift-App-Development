@@ -11,20 +11,20 @@ struct ContentView: View {
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                DayForecast(day: "Mon", isRainy: false, hight: 80, low: 50)
-                DayForecast(day: "Tue", isRainy: true, hight: 60, low: 40)
-                DayForecast(day: "Wed", isRainy: false, hight: 50, low: 30)
-                DayForecast(day: "Thu", isRainy: true, hight: 80, low: 20)
+                DayForecast(day: "Mon", isRainy: true, high: 84, low: 50)
+                DayForecast(day: "Tue", isRainy: false, high: 60, low: 40)
+                DayForecast(day: "Wed", isRainy: true, high: 50, low: 30)
+                DayForecast(day: "Thu", isRainy: false, high: 90, low: 60)
             }
         }
     }
 }
 
 struct DayForecast: View {
-    let day: String
-    let isRainy: Bool
-    let hight: Int
-    let low: Int
+    var day: String
+    var isRainy: Bool
+    var high: Int
+    var low: Int
     
     var iconName: String {
         if isRainy {
@@ -42,11 +42,11 @@ struct DayForecast: View {
         }
     }
     
-    var highAbove: Color {
-        if (hight >= 80) {
+    var hightAbove: Color {
+        if (high > 80) {
             return Color.red
         }
-        return Color.black
+        return Color.primary
     }
     
     var body: some View {
@@ -55,11 +55,11 @@ struct DayForecast: View {
                 .font(.headline)
             Image(systemName: iconName)
                 .foregroundStyle(iconColor)
-                .font(Font.largeTitle)
+                .font(Font.title)
                 .padding(5)
-            Text("Hight: \(hight)")
-                .fontWeight(Font.Weight.semibold)
-                .foregroundStyle(highAbove)
+            Text("Hight: \(high)")
+                .fontWeight(Font.Weight.bold)
+                .foregroundStyle(hightAbove)
             Text("Low: \(low)")
                 .fontWeight(Font.Weight.medium)
                 .foregroundStyle(Color.secondary)

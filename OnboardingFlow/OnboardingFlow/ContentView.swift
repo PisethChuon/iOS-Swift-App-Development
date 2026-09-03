@@ -17,6 +17,7 @@ struct ContentView: View {
         TabView {
             WelcomePage()
             FeaturesPage()
+            FeaturesCardSunrise()
         }
         .background(Gradient(colors: gradientColors))
         .tabViewStyle(.page)

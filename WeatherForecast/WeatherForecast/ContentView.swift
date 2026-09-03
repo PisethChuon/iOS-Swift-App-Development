@@ -11,10 +11,10 @@ struct ContentView: View {
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                DayForecast(day: "Mon", isRainy: false, hight: 70, low: 50)
+                DayForecast(day: "Mon", isRainy: false, hight: 80, low: 50)
                 DayForecast(day: "Tue", isRainy: true, hight: 60, low: 40)
                 DayForecast(day: "Wed", isRainy: false, hight: 50, low: 30)
-                DayForecast(day: "Thu", isRainy: true, hight: 40, low: 20)
+                DayForecast(day: "Thu", isRainy: true, hight: 80, low: 20)
             }
         }
     }
@@ -42,6 +42,13 @@ struct DayForecast: View {
         }
     }
     
+    var highAbove: Color {
+        if (hight >= 80) {
+            return Color.red
+        }
+        return Color.black
+    }
+    
     var body: some View {
         VStack {
             Text(day)
@@ -52,6 +59,7 @@ struct DayForecast: View {
                 .padding(5)
             Text("Hight: \(hight)")
                 .fontWeight(Font.Weight.semibold)
+                .foregroundStyle(highAbove)
             Text("Low: \(low)")
                 .fontWeight(Font.Weight.medium)
                 .foregroundStyle(Color.secondary)

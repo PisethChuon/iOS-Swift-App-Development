@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		7B55B85130487FD400862B2D /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B34BFAB3049494800CA610A /* OnboardingFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7B55B85330487FD400862B2D /* WeatherForecast */ = {
+		7B34BFAD3049494800CA610A /* OnboardingFlow */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WeatherForecast;
+			path = OnboardingFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7B55B84E30487FD400862B2D /* Frameworks */ = {
+		7B34BFA83049494800CA610A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B55B84830487FD400862B2D = {
+		7B34BFA23049494800CA610A = {
 			isa = PBXGroup;
 			children = (
-				7B55B85330487FD400862B2D /* WeatherForecast */,
-				7B55B85230487FD400862B2D /* Products */,
+				7B34BFAD3049494800CA610A /* OnboardingFlow */,
+				7B34BFAC3049494800CA610A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7B55B85230487FD400862B2D /* Products */ = {
+		7B34BFAC3049494800CA610A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B55B85130487FD400862B2D /* WeatherForecast.app */,
+				7B34BFAB3049494800CA610A /* OnboardingFlow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7B55B85030487FD400862B2D /* WeatherForecast */ = {
+		7B34BFAA3049494800CA610A /* OnboardingFlow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B55B85C30487FD500862B2D /* Build configuration list for PBXNativeTarget "WeatherForecast" */;
+			buildConfigurationList = 7B34BFB63049494900CA610A /* Build configuration list for PBXNativeTarget "OnboardingFlow" */;
 			buildPhases = (
-				7B55B84D30487FD400862B2D /* Sources */,
-				7B55B84E30487FD400862B2D /* Frameworks */,
-				7B55B84F30487FD400862B2D /* Resources */,
+				7B34BFA73049494800CA610A /* Sources */,
+				7B34BFA83049494800CA610A /* Frameworks */,
+				7B34BFA93049494800CA610A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				7B55B85330487FD400862B2D /* WeatherForecast */,
+				7B34BFAD3049494800CA610A /* OnboardingFlow */,
 			);
-			name = WeatherForecast;
+			name = OnboardingFlow;
 			packageProductDependencies = (
 			);
-			productName = WeatherForecast;
-			productReference = 7B55B85130487FD400862B2D /* WeatherForecast.app */;
+			productName = OnboardingFlow;
+			productReference = 7B34BFAB3049494800CA610A /* OnboardingFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7B55B84930487FD400862B2D /* Project object */ = {
+		7B34BFA33049494800CA610A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
-					7B55B85030487FD400862B2D = {
+					7B34BFAA3049494800CA610A = {
 						CreatedOnToolsVersion = 26.6;
 					};
 				};
 			};
-			buildConfigurationList = 7B55B84C30487FD400862B2D /* Build configuration list for PBXProject "WeatherForecast" */;
+			buildConfigurationList = 7B34BFA63049494800CA610A /* Build configuration list for PBXProject "OnboardingFlow" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 7B55B84830487FD400862B2D;
+			mainGroup = 7B34BFA23049494800CA610A;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 7B55B85230487FD400862B2D /* Products */;
+			productRefGroup = 7B34BFAC3049494800CA610A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7B55B85030487FD400862B2D /* WeatherForecast */,
+				7B34BFAA3049494800CA610A /* OnboardingFlow */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7B55B84F30487FD400862B2D /* Resources */ = {
+		7B34BFA93049494800CA610A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7B55B84D30487FD400862B2D /* Sources */ = {
+		7B34BFA73049494800CA610A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7B55B85A30487FD500862B2D /* Debug */ = {
+		7B34BFB43049494900CA610A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		7B55B85B30487FD500862B2D /* Release */ = {
+		7B34BFB53049494900CA610A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,7 +244,7 @@
 			};
 			name = Release;
 		};
-		7B55B85D30487FD500862B2D /* Debug */ = {
+		7B34BFB73049494900CA610A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -263,7 +263,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cpiseth.WeatherForecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cpiseth.OnboardingFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -275,7 +275,7 @@
 			};
 			name = Debug;
 		};
-		7B55B85E30487FD500862B2D /* Release */ = {
+		7B34BFB83049494900CA610A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -294,7 +294,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cpiseth.WeatherForecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cpiseth.OnboardingFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -309,25 +309,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7B55B84C30487FD400862B2D /* Build configuration list for PBXProject "WeatherForecast" */ = {
+		7B34BFA63049494800CA610A /* Build configuration list for PBXProject "OnboardingFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7B55B85A30487FD500862B2D /* Debug */,
-				7B55B85B30487FD500862B2D /* Release */,
+				7B34BFB43049494900CA610A /* Debug */,
+				7B34BFB53049494900CA610A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B55B85C30487FD500862B2D /* Build configuration list for PBXNativeTarget "WeatherForecast" */ = {
+		7B34BFB63049494900CA610A /* Build configuration list for PBXNativeTarget "OnboardingFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7B55B85D30487FD500862B2D /* Debug */,
-				7B55B85E30487FD500862B2D /* Release */,
+				7B34BFB73049494900CA610A /* Debug */,
+				7B34BFB83049494900CA610A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7B55B84930487FD400862B2D /* Project object */;
+	rootObject = 7B34BFA33049494800CA610A /* Project object */;
 }

@@ -1,14 +1,14 @@
 //
-//  WeatherForecastApp.swift
-//  WeatherForecast
+//  OnboardingFlowApp.swift
+//  OnboardingFlow
 //
-//  Created by chuonpiseth on 2/9/26.
+//  Created by chuonpiseth on 3/9/26.
 //
 
 import SwiftUI
 
 @main
-struct WeatherForecastApp: App {
+struct OnboardingFlowApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
